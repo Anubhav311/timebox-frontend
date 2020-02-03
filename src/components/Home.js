@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Day from './Day';
 import Today from './Today';
+import Tabs from './Tabs';
 
 const Week_div = styled.div`
     display: flex;
@@ -21,10 +22,16 @@ function Home() {
 
     return (
         <div>
-            <Week_div>
-                {week}
-            </Week_div>
-            <Today/>
+            <Tabs>
+                <div label="week">
+                    <Week_div>
+                        {week}
+                    </Week_div>
+                </div>
+                <div label="today">
+                    <Today/>
+                </div>
+            </Tabs>
         </div>
     )
 }
