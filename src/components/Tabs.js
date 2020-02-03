@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import Tab from './Tab';
+import './tabsStyles.css';
 
 function Tabs(props) {
 
