@@ -1,9 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-
-import { fetchTasks } from '../actions/actionCreators'
 
 
 const Div_day = styled.div`
@@ -23,10 +19,6 @@ const Div_day = styled.div`
 `
 
 function Day(props) {
-    console.log(props)
-    useEffect(() => {
-        props.fetchTasks()
-    }, [])
 
     return (
         <Div_day className="day">
@@ -42,11 +34,4 @@ function Day(props) {
     )
 }
 
-function mapStateToProps(state) {
-    return {
-        ...state,
-        tasks: state.tasks.tasks
-    }
-}
-
-export default connect(mapStateToProps, { fetchTasks })(Day);
+export default Day;

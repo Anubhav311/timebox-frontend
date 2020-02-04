@@ -1,15 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 
 import Day from './Day';
 import Today from './Today';
 import Tabs from './Tabs';
+import { fetchTasks } from '../actions/actionCreators'
 
 const Week_div = styled.div`
     display: flex;
 `
 
-function Home() {
+function Home(props) {
+    console.log(props)
+    useEffect(() => {
+        props.fetchTasks()
+    }, [])
 
     const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
@@ -36,4 +43,11 @@ function Home() {
     )
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        ...state,
+        tasks: state.tasks.tasks
+    }
+}
+
+export default connect(mapStateToProps, { fetchTasks })(Home);
