@@ -21,11 +21,11 @@ function Home(props) {
     const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     let week = nameOfDays.map( day => (
-        <Day day={day}/>
+        <Day day={day} tasks={props.tasks}/>
     ))
 
-    let now = new Date()
-    console.log(now - 5)
+    // let now = new Date()
+    // console.log(now - 5)
 
     return (
         <div>

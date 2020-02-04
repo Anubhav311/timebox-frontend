@@ -20,15 +20,17 @@ const Div_day = styled.div`
 
 function Day(props) {
 
+    let tasksList = props.tasks.map((task, key) => (
+        <p>{task.task}</p>
+    ))
+
     return (
         <Div_day className="day">
             <div className="day-header">
                 <p>{props.day}</p>
             </div>
             <div className="day-body">
-                <p>task</p>
-                <p>task</p>
-                <p>task</p>
+                {tasksList}
             </div>
         </Div_day>
     )
