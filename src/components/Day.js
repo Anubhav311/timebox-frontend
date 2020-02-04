@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { connect } from 'react-redux';
 
 import { fetchTasks } from '../actions/actionCreators'
@@ -24,11 +23,10 @@ const Div_day = styled.div`
 `
 
 function Day(props) {
-
+    console.log(props)
     useEffect(() => {
-        axios.get('https://timebox-be.herokuapp.com/api/tasks')
-            .then(payload => console.log(payload))
-    })
+        props.fetchTasks()
+    }, [])
 
     return (
         <Div_day className="day">

@@ -17,5 +17,7 @@ export function TasksReducer(state = {tasks: []}, action) {
                 ...state,
                 tasks: action.payload
             }
+        default:
+            return state;
     }
 }
