@@ -27,7 +27,7 @@ const Div_today = styled.div`
 
 export default function Today(props) {
 
-    const timeboxMinutes = 20
+    const timeboxMinutes = 5
 
     let iterator = 1440
     let todayTimeSlots = []
