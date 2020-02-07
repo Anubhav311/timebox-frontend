@@ -13,7 +13,6 @@ const Week_div = styled.div`
 `
 
 function Home(props) {
-    console.log(props)
     useEffect(() => {
         props.fetchTasks()
     }, [])
@@ -23,9 +22,6 @@ function Home(props) {
     let week = nameOfDays.map( day => (
         <Day day={day} tasks={props.tasks}/>
     ))
-
-    // let now = new Date()
-    // console.log(now - 5)
 
     return (
         <div>
