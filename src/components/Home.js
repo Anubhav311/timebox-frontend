@@ -26,13 +26,18 @@ function Home(props) {
     return (
         <div>
             <Tabs>
-                <div label="week">
+                <div label="today">
+                    <Today/>
+                </div>
+                <div label="this week">
                     <Week_div>
                         {week}
                     </Week_div>
                 </div>
-                <div label="today">
-                    <Today/>
+                <div label="next week">
+                    <Week_div>
+                        {week}
+                    </Week_div>
                 </div>
             </Tabs>
         </div>
