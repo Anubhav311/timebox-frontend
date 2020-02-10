@@ -19,7 +19,7 @@ const Div_day = styled.div`
 `
 
 function Day(props) {
-
+    console.log(props)
     let tasksList = props.tasks.map((task, key) => (
         <p>{task.task}</p>
     ))
