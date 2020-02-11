@@ -8,10 +8,14 @@ const Week_div = styled.div`
 `
 
 function Week(props) {
+    let currentDate = new Date()
+    let currentDay = currentDate.getDay()
+    let firstDayOfFortnight = new Date(); firstDayOfFortnight.setDate(firstDayOfFortnight.getDate() - currentDay + 1)
+
     const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     let week = nameOfDays.map( day => (
-        <Day day={day} tasks={props.tasks}/>
+        <Day day={day} tasks={props.tasks} columnDate={firstDayOfFortnight} />
     ))
 
     return (

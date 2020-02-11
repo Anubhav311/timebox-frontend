@@ -14,9 +14,6 @@ function Home(props) {
         props.fetchTasks()
     }, [])
 
-    let currentDate = new Date()
-    let currentDay = currentDate.getDay()
-    let firstDayOfFortnight = new Date(); firstDayOfFortnight.setDate(firstDayOfFortnight.getDate() - currentDay + 1)
 
     return (
         <div>
