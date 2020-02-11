@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Day from './Day';
-import { thisWeek } from './DaysOfWeek';
 
 const Week_div = styled.div`
     display: flex;
