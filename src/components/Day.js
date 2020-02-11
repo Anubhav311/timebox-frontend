@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Task from './Task';
 
 const Div_day = styled.div`
     background: red;
@@ -19,9 +20,9 @@ const Div_day = styled.div`
 `
 
 function Day(props) {
-
+    console.log(props.tasks)
     let tasksList = props.tasks.map((task, key) => (
-        <p>{task.task}</p>
+        <Task task={task.task} />
     ))
 
     return (
