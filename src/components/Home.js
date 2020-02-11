@@ -7,6 +7,7 @@ import Today from './Today';
 import Tabs from './Tabs';
 import { fetchTasks } from '../actions/actionCreators';
 import Week from './Week';
+import { thisWeek, nextWeek } from './DaysOfWeek';
 
 
 function Home(props) {
@@ -22,10 +23,10 @@ function Home(props) {
                     <Today/>
                 </div>
                 <div label="this week">
-                    <Week tasks={props.tasks}/>
+                    <Week tasks={props.tasks} columnDate={thisWeek} />
                 </div>
                 <div label="next week">
-                    <Week tasks={props.tasks}/>
+                    <Week tasks={props.tasks} columnDate={nextWeek}/>
                 </div>
             </Tabs>
         </div>
