@@ -3,25 +3,20 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import Day from './Day';
 import Today from './Today';
 import Tabs from './Tabs';
-import { fetchTasks } from '../actions/actionCreators'
+import { fetchTasks } from '../actions/actionCreators';
+import Week from './Week';
 
-const Week_div = styled.div`
-    display: flex;
-`
 
 function Home(props) {
     useEffect(() => {
         props.fetchTasks()
     }, [])
 
-    const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-
-    let week = nameOfDays.map( day => (
-        <Day day={day} tasks={props.tasks}/>
-    ))
+    let currentDate = new Date()
+    let currentDay = currentDate.getDay()
+    let firstDayOfFortnight = new Date(); firstDayOfFortnight.setDate(firstDayOfFortnight.getDate() - currentDay + 1)
 
     return (
         <div>
@@ -30,14 +25,10 @@ function Home(props) {
                     <Today/>
                 </div>
                 <div label="this week">
-                    <Week_div>
-                        {week}
-                    </Week_div>
+                    <Week tasks={props.tasks}/>
                 </div>
                 <div label="next week">
-                    <Week_div>
-                        {week}
-                    </Week_div>
+                    <Week tasks={props.tasks}/>
                 </div>
             </Tabs>
         </div>
