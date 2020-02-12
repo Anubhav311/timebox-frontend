@@ -16,14 +16,14 @@ import { fetchSubtasks } from '../actions/actionCreators';
 // `
 
 function Subtask(props) {
-    // if (props.subtaskActive === 'subtasks') {
-
+    // for (let i = 0; i < props.tasks.length; i++) {
+    //     if (props.tasks[i].task_id_pk === )
     // }
     useEffect(() => {
         console.log('working')
         props.fetchSubtasks(props.taskId)
     }, [])
-
+    console.log(props)
     return (
         <div>
             <p>subtask</p>
@@ -34,6 +34,7 @@ function Subtask(props) {
 }
 
 function mapStateToProps(state) {
+    console.log(state)
     return {
         ...state,
         subtasks: state.subtasks.subtasks

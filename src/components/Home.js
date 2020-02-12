@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { connect } from 'react-redux';
 
 import Today from './Today';
@@ -8,9 +8,12 @@ import Tabs from './Tabs';
 import { fetchTasks } from '../actions/actionCreators';
 import Week from './Week';
 import { thisWeek, nextWeek } from './DaysOfWeek';
+import { TaskContext } from './context/TasksContext';
 
 
 function Home(props) {
+    const {tasks, subtasks} = useContext(TaskContext)
+
     useEffect(() => {
         props.fetchTasks()
     }, [])
