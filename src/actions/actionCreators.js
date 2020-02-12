@@ -14,8 +14,8 @@ export const fetchTasks = () => dispatch => {
         }))
 }
 
-export const fetchSubtasks = () => dispatch => {
-    axios.get(`http://localhost:4000/api/subtasks?task_id_fk=1`)
+export const fetchSubtasks = (taskId) => dispatch => {
+    axios.get(`http://localhost:4000/api/subtasks?task_id_fk=${taskId}`)
         .then(subtasks => dispatch({
             type: GET_SUBTASKS_REQUEST,
             payload: subtasks.data

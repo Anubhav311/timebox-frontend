@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Accordion from './Accordion';
+import Subtask from './Subtask';
 
 const Div_task = styled.div`
     .task-heading {
@@ -39,8 +39,9 @@ function Task(props) {
                 <div className="dot" onClick={toggleSubtask}></div>
                 <p>{props.task}</p>
             </div>
-                <p className={`${subtaskActive}`}>subtask</p>
-            {/* <Accordion title={'abcdef'} content='abcd'/> */}
+            {/* <div className={`${subtaskActive}`}>
+            </div> */}
+            {subtaskActive === 'hide' ? '' : <Subtask subtaskActive={subtaskActive} taskId={props.taskId}/>}
         </Div_task>
     )
 }

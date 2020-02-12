@@ -25,7 +25,7 @@ function Day(props) {
     for (let i = 0; i < props.tasks.length; i++) {
         // console.log(props.tasks[1].task_due_at, props.columnDate)
         if (props.tasks[i].task_due_at.split('T')[0] == `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
-            tasksList.push(<Task task={props.tasks[i].task} />) 
+            tasksList.push(<Task task={props.tasks[i].task} taskId={props.tasks[i].task_id_pk} />) 
         }
     }
 
