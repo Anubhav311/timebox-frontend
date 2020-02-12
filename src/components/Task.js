@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Accordion from './Accordion';
+
 const Div_task = styled.div`
     display: flex;
     align-items: center;
@@ -17,8 +19,8 @@ const Div_task = styled.div`
 function Task(props) {
     return (
         <Div_task>
-            <div className="dot"></div>
-            <p>{props.task}</p>
+            {/* <div className="dot"></div> */}
+            <Accordion title={'abcdef'} content='abcd'/>
         </Div_task>
     )
 }
