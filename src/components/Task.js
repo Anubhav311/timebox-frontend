@@ -19,8 +19,9 @@ const Div_task = styled.div`
 function Task(props) {
     return (
         <Div_task>
-            {/* <div className="dot"></div> */}
-            <Accordion title={'abcdef'} content='abcd'/>
+            <div className="dot"></div>
+            <p>{props.task}</p>
+            {/* <Accordion title={'abcdef'} content='abcd'/> */}
         </Div_task>
     )
 }

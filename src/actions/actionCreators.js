@@ -1,5 +1,9 @@
-import { GET_TASKS_REQUEST, GET_TASKS_SUCCESS, GET_TASKS_FAILURE } from './actionTypes'
 import axios from 'axios'
+
+import { 
+    GET_TASKS_REQUEST, GET_TASKS_SUCCESS, GET_TASKS_FAILURE,
+    GET_SUBTASKS_REQUEST, GET_SUBTASKS_SUCCESS, GET_SUBTASKS_FAILURE 
+} from './actionTypes'
 import { day1, day15 } from '../components/DaysOfWeek';
 
 export const fetchTasks = () => dispatch => {
@@ -7,5 +11,13 @@ export const fetchTasks = () => dispatch => {
         .then(tasks => dispatch({
             type: GET_TASKS_REQUEST,
             payload: tasks.data
+        }))
+}
+
+export const fetchSubtasks = () => dispatch => {
+    axios.get(`http://localhost:4000/api/subtasks?task_id_fk=1`)
+        .then(subtasks => dispatch({
+            type: GET_SUBTASKS_REQUEST,
+            payload: subtasks.data
         }))
 }

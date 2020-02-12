@@ -15,7 +15,6 @@ function Home(props) {
         props.fetchTasks()
     }, [])
 
-
     return (
         <div>
             <Tabs>
