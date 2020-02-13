@@ -35,7 +35,6 @@ export default function Today(props) {
     let startMinute = 0
     let endHour = 0
     let endMinute = 0
-    console.log(typeof(typeof(timeboxMinutes)))
 
     for (let i = timeboxMinutes; i <= iterator; i = i + timeboxMinutes) {
         endMinute = startMinute + timeboxMinutes
