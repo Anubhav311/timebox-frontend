@@ -1,19 +1,40 @@
-import React, { Component, createContext } from 'react';
+import React, { useState, createContext, useReducer } from 'react';
+import { TasksReducer } from '../../reducers/reducers';
 
 export const TaskContext = createContext();
 
-class TaskContextProvider extends Component {
-    state = { 
+// const tasksReducer = (state, action) => {
+//     switch(action.type) {
+//         case 'GET_TASKS_REQUEST':
+//             return {
+//                 ...state,
+//                 tasks: action.payload
+//             }
+//         case 'GET_TASKS_SUCCESS':
+//             return {
+//                 ...state,
+//                 tasks: action.payload
+//             }
+//         case 'GET_TASKS_FAILURE':
+//             return {
+//                 ...state,
+//                 tasks: action.payload
+//             }
+//         default:
+//             return state;
+//     }
+// }
+
+const TaskContextProvider = (props) => {
+    const [tasks, dispatch] = useReducer(TasksReducer, {
         tasks: [],
         subtasks: []
-    }
-    render() { 
-        return ( 
-            <TaskContext.Provider value={{...this.state}}>
-                {this.props.children}
-            </TaskContext.Provider>
-        );
-    }
+    })
+    return (
+        <TaskContext.Provider value={{tasks, dispatch}}>
+            {props.children}
+        </TaskContext.Provider>
+    );
 }
 
 export default TaskContextProvider;

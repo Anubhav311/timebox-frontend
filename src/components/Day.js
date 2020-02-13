@@ -20,6 +20,7 @@ const Div_day = styled.div`
 `
 
 function Day(props) {
+    console.log(props)
     let tasksList = []
     
     for (let i = 0; i < props.tasks.length; i++) {

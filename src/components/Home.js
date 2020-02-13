@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useEffect, useState, useContext } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios'
 
 import Today from './Today';
 import Tabs from './Tabs';
@@ -9,13 +10,18 @@ import { fetchTasks } from '../actions/actionCreators';
 import Week from './Week';
 import { thisWeek, nextWeek } from './DaysOfWeek';
 import { TaskContext } from './context/TasksContext';
+import { day1, day15 } from '../components/DaysOfWeek';
 
 
 function Home(props) {
-    const {tasks, subtasks} = useContext(TaskContext)
+    const {tasks, dispatch} = useContext(TaskContext)
 
     useEffect(() => {
-        props.fetchTasks()
+        axios.get(`http://localhost:4000/api/tasks?startdate=${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z&enddate=${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`)
+            .then(tasks => dispatch({
+                type: 'GET_TASKS_REQUEST',
+                payload: tasks.data
+            }))
     }, [])
 
     return (
@@ -25,21 +31,22 @@ function Home(props) {
                     <Today/>
                 </div>
                 <div label="this week">
-                    <Week tasks={props.tasks} columnDate={thisWeek} />
+                    <Week tasks={tasks} columnDate={thisWeek} />
                 </div>
                 <div label="next week">
-                    <Week tasks={props.tasks} columnDate={nextWeek}/>
+                    <Week tasks={tasks} columnDate={nextWeek}/>
                 </div>
             </Tabs>
         </div>
     )
 }
 
-function mapStateToProps(state) {
-    return {
-        ...state,
-        tasks: state.tasks.tasks
-    }
-}
+// function mapStateToProps(state) {
+//     return {
+//         ...state,
+//         tasks: state.tasks.tasks
+//     }
+// }
 
-export default connect(mapStateToProps, { fetchTasks })(Home);
+// export default connect(mapStateToProps, { fetchTasks })(Home);
+export default Home;
