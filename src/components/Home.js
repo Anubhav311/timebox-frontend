@@ -1,19 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useEffect, useState, useContext } from 'react';
-import { connect } from 'react-redux';
-import axios from 'axios'
+import React, { useEffect, useContext } from 'react';
+import axios from 'axios';
 
 import Today from './Today';
 import Tabs from './Tabs';
-import { fetchTasks } from '../actions/actionCreators';
 import Week from './Week';
 import { thisWeek, nextWeek } from './DaysOfWeek';
 import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';
 
 
-function Home(props) {
+function Home() {
     const {tasks, dispatch} = useContext(TaskContext)
 
     useEffect(() => {
@@ -41,12 +37,4 @@ function Home(props) {
     )
 }
 
-// function mapStateToProps(state) {
-//     return {
-//         ...state,
-//         tasks: state.tasks.tasks
-//     }
-// }
-
-// export default connect(mapStateToProps, { fetchTasks })(Home);
 export default Home;

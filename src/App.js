@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 
 import Home from './components/Home';
 import TaskContextProvider from './components/context/TasksContext';

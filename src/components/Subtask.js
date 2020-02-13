@@ -1,23 +1,13 @@
 import React, { useEffect, useContext } from 'react';
-import styled from 'styled-components';
 import axios from 'axios'
 
-import { fetchSubtasks } from '../actions/actionCreators';
 import { TaskContext } from './context/TasksContext';
 
-// const Div_subtask = styled.div`
-//     .subtasks {
-//         display: block;
-//     }
-
-//     .hide {
-//         display: none;
-//     }
-// `
 
 function Subtask(props) {
     const {tasks, dispatch} = useContext(TaskContext)
-    let tasksAndSubtasks = [...tasks]
+    const tasksAndSubtasks = [...tasks]
+
     useEffect(() => {
         axios.get(`http://localhost:4000/api/subtasks?task_id_fk=${props.taskId}`)
             .then(subtasks => {
@@ -38,7 +28,6 @@ function Subtask(props) {
                 payload: tasksAndSubtasks
             }))
     }, [])
-    console.log(props)
 
     return (
         <div>
@@ -49,13 +38,4 @@ function Subtask(props) {
     )
 }
 
-// function mapStateToProps(state) {
-//     console.log(state)
-//     return {
-//         ...state,
-//         subtasks: state.subtasks.subtasks
-//     }
-// }
-
-// export default connect(mapStateToProps, { fetchSubtasks })(Subtask);
 export default Subtask;

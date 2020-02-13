@@ -39,8 +39,6 @@ function Task(props) {
                 <div className="dot" onClick={toggleSubtask}></div>
                 <p>{props.task}</p>
             </div>
-            {/* <div className={`${subtaskActive}`}>
-            </div> */}
             {subtaskActive === 'hide' ? '' : <Subtask subtaskActive={subtaskActive} taskId={props.taskId}/>}
         </Div_task>
     )
