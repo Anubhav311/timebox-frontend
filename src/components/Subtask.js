@@ -29,11 +29,17 @@ function Subtask(props) {
             }))
     }, [])
 
+    const relevantTask = tasks.filter(task => task.task_id_pk === props.taskId)
+    let subtasksList = []
+    if (relevantTask[0].subtasks) {
+        subtasksList = relevantTask[0].subtasks.map(subtask => (
+            <p>{subtask.subtask}</p>
+        ))
+    }
+
     return (
         <div>
-            <p>subtask</p>
-            <p>subtask</p>
-            <p>subtask</p>
+            {subtasksList}
         </div>
     )
 }
