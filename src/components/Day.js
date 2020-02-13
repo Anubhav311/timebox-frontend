@@ -33,6 +33,8 @@ function Day(props) {
         }
     }
 
+    tasksList.push(<button className="add-task">+</button>)
+
     return (
         <Div_day className="day">
             <div className="day-header">
@@ -41,7 +43,6 @@ function Day(props) {
             <div className="day-body">
                 {tasksList}
             </div>
-            <button className="add-task">+</button>
         </Div_day>
     )
 }
