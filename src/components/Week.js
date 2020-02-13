@@ -9,7 +9,7 @@ const Week_div = styled.div`
 `
 
 function Week(props) {
-
+    console.log(props)
     const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     let week = nameOfDays.map( (day, key) => (

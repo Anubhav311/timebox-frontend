@@ -3,13 +3,10 @@ import {
     GET_SUBTASKS_REQUEST, GET_SUBTASKS_SUCCESS, GET_SUBTASKS_FAILURE 
 } from '../actions/actionTypes'
 
-export function TasksReducer(state = {tasks: []}, action) {
+export function TasksReducer(state, action) {
     switch(action.type) {
         case GET_TASKS_REQUEST:
-            return {
-                ...state,
-                tasks: action.payload
-            }
+            return state = action.payload
         case GET_TASKS_SUCCESS:
             return {
                 ...state,
