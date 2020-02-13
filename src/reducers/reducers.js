@@ -5,13 +5,10 @@ import {
 
 export function TasksReducer(state, action) {
     switch(action.type) {
-        case GET_TASKS_REQUEST:
+        case 'GET_TASKS_REQUEST':
             return state = action.payload
-        case GET_TASKS_SUCCESS:
-            return {
-                ...state,
-                tasks: action.payload
-            }
+        case 'GET_SUBTASKS_REQUEST':
+            return state = action.payload
         case GET_TASKS_FAILURE:
             return {
                 ...state,

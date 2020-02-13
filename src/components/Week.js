@@ -14,7 +14,7 @@ function Week(props) {
     let week = nameOfDays.map( (day, key) => (
         <Day day={day} tasks={props.tasks} columnDate={props.columnDate[key]} />
     ))
-
+        console.log(props)
     return (
         <Week_div>
             {week}

@@ -1,8 +1,9 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
+import axios from 'axios'
 
 import { fetchSubtasks } from '../actions/actionCreators';
+import { TaskContext } from './context/TasksContext';
 
 // const Div_subtask = styled.div`
 //     .subtasks {
@@ -15,12 +16,29 @@ import { fetchSubtasks } from '../actions/actionCreators';
 // `
 
 function Subtask(props) {
-    // for (let i = 0; i < props.tasks.length; i++) {
-    //     if (props.tasks[i].task_id_pk === )
-    // }
+    const {tasks, dispatch} = useContext(TaskContext)
+    let tasksAndSubtasks = [...tasks]
     useEffect(() => {
-        fetchSubtasks(props.taskId)
+        axios.get(`http://localhost:4000/api/subtasks?task_id_fk=${props.taskId}`)
+            .then(subtasks => {
+                loop1: 
+                for (let i = 0; i < subtasks.data.length; i++) {
+                loop2:     
+                    for (let j = 0; j < tasksAndSubtasks.length; j++) {
+                        if (subtasks.data[i].task_id_fk === tasksAndSubtasks[j].task_id_pk) {
+                            tasksAndSubtasks[j].subtasks = [...subtasks.data]
+                            break loop1;
+                        }
+                    }
+                }
+                return tasksAndSubtasks;
+            })
+            .then(tasksAndSubtasks => dispatch({
+                type: 'GET_SUBTASKS_REQUEST',
+                payload: tasksAndSubtasks
+            }))
     }, [])
+    console.log(props)
 
     return (
         <div>
