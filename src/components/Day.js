@@ -17,6 +17,11 @@ const Div_day = styled.div`
     .day-body {
 
     }
+
+    .add-task {
+        width: 100%;
+        height: 20px;
+    }
 `
 
 function Day(props) {
@@ -36,6 +41,7 @@ function Day(props) {
             <div className="day-body">
                 {tasksList}
             </div>
+            <button className="add-task">+</button>
         </Div_day>
     )
 }
