@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 
 function Title(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
-    let children = props.taskText
+    let children = props.text
 
     const inputRef = useRef(null);
     

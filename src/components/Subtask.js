@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import axios from 'axios'
 
 import { TaskContext } from './context/TasksContext';
+import Title from './TextCumInputField';
 
 
 function Subtask(props) {
@@ -33,7 +34,7 @@ function Subtask(props) {
     let subtasksList = []
     if (relevantTask[0].subtasks) {
         subtasksList = relevantTask[0].subtasks.map(subtask => (
-            <p>{subtask.subtask}</p>
+            <Title text={subtask.subtask} />
         ))
     }
 
