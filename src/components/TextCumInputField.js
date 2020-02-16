@@ -19,6 +19,7 @@ function Title(props) {
 
     const changeHandler = (e) => {
         children = e.target.value
+        console.log(children)
     }
 
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Home from './components/Home';
-import TaskContextProvider from './components/context/TasksContext';
+import Home from './Home';
+import TaskContextProvider from './context/TasksContext';
 
 function App() {
   return (

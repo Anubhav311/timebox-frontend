@@ -1,6 +1,6 @@
 
 export let currentDate = new Date()
-export let currentDay = currentDate.getDay()
+export let currentDay = currentDate.getDay() || 7
 export let day1 = new Date(); day1.setDate(day1.getDate() - currentDay + 1)
 export let day2 = new Date(); day2.setDate(day2.getDate() - currentDay + 2)
 export let day3 = new Date(); day3.setDate(day3.getDate() - currentDay + 3)
