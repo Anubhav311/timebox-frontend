@@ -10,12 +10,12 @@ function Title(props) {
         setIsInEditMode(!isInEditMode)
     }
 
-
+    
     return (
         <div>
             {isInEditMode 
                 ? 
-            <InputField taskId={props.taskId} changeEditMode={changeEditMode} isInEditMode={isInEditMode} text={props.text}/>
+            <InputField taskIndex={props.taskId} changeEditMode={changeEditMode} isInEditMode={isInEditMode} text={props.text}/>
                 :
             <Text text={props.text} changeEditMode={changeEditMode} className="partName" />}
         </div>
