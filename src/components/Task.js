@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Subtask from './Subtask';
-import Title from './TextCumInputField';
+import Title from './Title';
 
 const Div_task = styled.div`
     .task-heading {
@@ -38,7 +38,7 @@ function Task(props) {
         <Div_task>
             <div className="task-heading">
                 <div className="dot" onClick={toggleSubtask}></div>
-                <Title text={props.task} />
+                <Title taskId={props.id} text={props.task} />
             </div>
             {subtaskActive === 'hide' ? '' : <Subtask subtaskActive={subtaskActive} taskId={props.taskId}/>}
         </Div_task>

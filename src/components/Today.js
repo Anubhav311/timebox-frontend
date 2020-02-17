@@ -60,7 +60,7 @@ export default function Today(props) {
     return (
         <Div_today className="today">
             {todayTimeSlots.map((num, key) => (
-                <div className="timeslot">
+                <div id={key} className="timeslot">
                     <div className="slot-head">
                         <p>{num}</p>
                     </div>

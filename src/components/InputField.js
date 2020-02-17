@@ -7,7 +7,7 @@ function InputField(props) {
     const changeHandler = (e) => {
         setInputDefaultValue(e.target.value);
     }
-    
+
     useEffect(() => {
         if (props.isInEditMode) {
             inputRef.current.focus()

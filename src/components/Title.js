@@ -15,7 +15,7 @@ function Title(props) {
         <div>
             {isInEditMode 
                 ? 
-            <InputField changeEditMode={changeEditMode} isInEditMode={isInEditMode} text={props.text}/>
+            <InputField taskId={props.taskId} changeEditMode={changeEditMode} isInEditMode={isInEditMode} text={props.text}/>
                 :
             <Text text={props.text} changeEditMode={changeEditMode} className="partName" />}
         </div>

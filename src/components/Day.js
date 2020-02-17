@@ -27,9 +27,9 @@ const Div_day = styled.div`
 function Day(props) {
     let tasksList = []
     
-    for (let i = 0; i < props.tasks.length; i++) {
-        if (props.tasks[i].task_due_at.split('T')[0] == `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
-            tasksList.push(<Task task={props.tasks[i].task} taskId={props.tasks[i].task_id_pk} />) 
+    for (let index = 0; index < props.tasks.length; index++) {
+        if (props.tasks[index].task_due_at.split('T')[0] == `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
+            tasksList.push(<Task id={index} task={props.tasks[index].task} taskId={props.tasks[index].task_id_pk} />) 
         }
     }
 

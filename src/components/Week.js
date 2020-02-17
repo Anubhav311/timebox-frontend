@@ -11,7 +11,7 @@ function Week(props) {
     const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     let week = nameOfDays.map( (day, key) => (
-        <Day day={day} tasks={props.tasks} columnDate={props.columnDate[key]} />
+        <Day id={key} day={day} tasks={props.tasks} columnDate={props.columnDate[key]} />
     ))
 
     return (
