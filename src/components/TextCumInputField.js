@@ -1,12 +1,12 @@
-import React from 'react';
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+
+import InputField from './InputField';
+
 
 function Title(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
-    let children = props.text
-
     const inputRef = useRef(null);
-    
+
     useEffect(() => {
         if (isInEditMode) {
             inputRef.current.focus()
@@ -17,25 +17,15 @@ function Title(props) {
         setIsInEditMode(!isInEditMode)
     }
 
-    const changeHandler = (e) => {
-        children = e.target.value
-        console.log(children)
-    }
 
     return (
         <div>
             {isInEditMode 
                 ? 
-            <input 
-                onChange={changeHandler}
-                onBlur={changeEditMode}
-                type="text"
-                ref={inputRef}
-                defaultValue={children}
-            />
+            <InputField changeEditMode={changeEditMode} inputRef={inputRef}/>
                 :
             <p onClick={changeEditMode} className="partName">
-                {children}
+                {props.text}
             </p> }
         </div>
     )
