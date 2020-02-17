@@ -1,21 +1,21 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 function InputField(props) {
-    let children = props.text
+    const [inputDefaultValue, setInputDefaultValue] = useState(props.text);
     const inputRef = useRef(null);
 
     const changeHandler = (e) => {
-        children = e.target.value
+        setInputDefaultValue(e.target.value);
     }
     
     useEffect(() => {
         if (props.isInEditMode) {
-            inputRef.current.focus()
+            console.log(inputRef.current.focus())
         }
     }, [props.isInEditMode])
 
     useEffect(() => {
-        if (children != props.text) {
+        if (inputDefaultValue != props.text) {
             console.log('nice')
         }
     })
@@ -27,9 +27,8 @@ function InputField(props) {
             onBlur={props.changeEditMode}
             type="text"
             ref={inputRef}
-            defaultValue={children}
+            defaultValue={inputDefaultValue}
         />
-
     )
 }
 
