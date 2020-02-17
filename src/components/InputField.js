@@ -10,15 +10,9 @@ function InputField(props) {
     
     useEffect(() => {
         if (props.isInEditMode) {
-            console.log(inputRef.current.focus())
+            inputRef.current.focus()
         }
     }, [props.isInEditMode])
-
-    useEffect(() => {
-        if (inputDefaultValue != props.text) {
-            console.log('nice')
-        }
-    })
 
 
     return (

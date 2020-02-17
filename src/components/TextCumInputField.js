@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import InputField from './InputField';
-
+import Text from './Text';
 
 function Title(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
@@ -17,9 +17,7 @@ function Title(props) {
                 ? 
             <InputField changeEditMode={changeEditMode} isInEditMode={isInEditMode} text={props.text}/>
                 :
-            <p onClick={changeEditMode} className="partName">
-                {props.text}
-            </p> }
+            <Text text={props.text} changeEditMode={changeEditMode} className="partName" />}
         </div>
     )
 }
