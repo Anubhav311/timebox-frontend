@@ -5,13 +5,6 @@ import InputField from './InputField';
 
 function Title(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        if (isInEditMode) {
-            inputRef.current.focus()
-        }
-    }, [isInEditMode])
 
     const changeEditMode = () => {
         setIsInEditMode(!isInEditMode)
@@ -22,7 +15,7 @@ function Title(props) {
         <div>
             {isInEditMode 
                 ? 
-            <InputField changeEditMode={changeEditMode} inputRef={inputRef}/>
+            <InputField changeEditMode={changeEditMode} isInEditMode={isInEditMode} text={props.text}/>
                 :
             <p onClick={changeEditMode} className="partName">
                 {props.text}
