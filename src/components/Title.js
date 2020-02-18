@@ -16,7 +16,7 @@ function Title(props) {
                 ? 
             <InputField taskIndex={props.taskId} changeEditMode={changeEditMode} isInEditMode={isInEditMode} text={props.text}/>
                 :
-                <p onClick={changeEditMode}>{props.text}</p>}
+            <p onClick={changeEditMode}>{props.text}</p>}
         </div>
     )
 }
