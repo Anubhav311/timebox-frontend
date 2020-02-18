@@ -40,7 +40,7 @@ function Day(props) {
     }
 
 
-    tasksList.push(addTask ? <NewTaskInputField addTask={addTask} AddTaskToggle={AddTaskToggle} /> : <button className="add-task" onClick={AddTaskToggle}>+</button>)
+    tasksList.push(addTask ? <NewTaskInputField columnDate={props.columnDate} addTask={addTask} AddTaskToggle={AddTaskToggle} /> : <button className="add-task" onClick={AddTaskToggle}>+</button>)
 
     return (
         <Div_day className="day">
