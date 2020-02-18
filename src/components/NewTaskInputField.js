@@ -5,9 +5,9 @@ import axios from 'axios';
 
 
 function NewTaskInputField(props) {
-    console.log(props.columnDate)
     const inputRef = useRef(null);
     const {tasks, dispatch} = useContext(TaskContext)
+    const updatedTasksState = [...tasks]
     const newTask = {
         task: '',
         task_due_at: props.columnDate,
@@ -17,7 +17,6 @@ function NewTaskInputField(props) {
     const changeHandler = e => {
         e.preventDefault()
         newTask.task = e.target.value
-        console.log(newTask)
     }
 
     useEffect(() => {
@@ -31,7 +30,11 @@ function NewTaskInputField(props) {
             if (newTask.task !== '') {
                 axios.post(`http://localhost:4000/api/tasks`, {...newTask})
                 .then(res => {
-                    console.log(res)
+                    updatedTasksState.push(res.data)
+                    dispatch({
+                        type: 'UPDATE_TASK_STATE',
+                        payload: updatedTasksState
+                    })
                 })
                 .catch(err => {
                     console.log(err)
