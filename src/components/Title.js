@@ -9,7 +9,7 @@ function Title(props) {
         setIsInEditMode(!isInEditMode)
     }
 
-    
+
     return (
         <div>
             {isInEditMode 
