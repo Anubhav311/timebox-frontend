@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Task from './Task';
-import { TaskContext } from './context/TasksContext';
+import NewTaskInputField from './NewTaskInputField';
 
 const Div_day = styled.div`
     background: red;
@@ -26,12 +26,10 @@ const Div_day = styled.div`
 `
 
 function Day(props) {
-    const {tasks, dispatch} = useContext(TaskContext)
     const [addTask, setAddTask] = useState(false)
-    const inputRef = useRef(null);
     let tasksList = []
 
-    function AddTask() {
+    function AddTaskToggle() {
         setAddTask(!addTask)
     }
 
@@ -41,13 +39,8 @@ function Day(props) {
         }
     }
 
-    useEffect(() => {
-        if (addTask) {
-            inputRef.current.focus()
-        }
-    }, [addTask])
 
-    tasksList.push(addTask ? <form onSubmit={AddTask}><input onBlur={AddTask} ref={inputRef}></input></form> : <button className="add-task" onClick={AddTask}>+</button>)
+    tasksList.push(addTask ? <NewTaskInputField addTask={addTask} AddTaskToggle={AddTaskToggle} /> : <button className="add-task" onClick={AddTaskToggle}>+</button>)
 
     return (
         <Div_day className="day">
