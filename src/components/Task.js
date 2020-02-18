@@ -40,12 +40,13 @@ function Task(props) {
     }
 
     function deleteTask() {
-        console.log(props.id, props.taskId)
+        console.log(updatedTasksState)
         updatedTasksState.splice(props.id, 1)
+        console.log(updatedTasksState)
         Axios.delete(`http://localhost:4000/api/tasks?task_id_pk=${props.taskId}`)
             .then(res => {
+                console.log(props.taskId, res.data[0])
                 if (props.taskId === res.data[0]) {
-                    console.log(res)
                     dispatch({
                         type: 'DELETE_TASK',
                         payload: updatedTasksState
