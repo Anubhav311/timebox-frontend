@@ -26,7 +26,7 @@ function InputField(props) {
 
     useEffect(() => {
         return () => {
-            axios.put(`http://localhost:4000/api/tasks`, {task_id_pk: tasks[props.taskIndex].task_id_pk, payload: {task: tasks[props.taskIndex].task}})
+            axios.put(`https://timebox-be.herokuapp.com/api/tasks`, {task_id_pk: tasks[props.taskIndex].task_id_pk, payload: {task: tasks[props.taskIndex].task}})
                 .then(res => {
                     console.log(res)
                 })

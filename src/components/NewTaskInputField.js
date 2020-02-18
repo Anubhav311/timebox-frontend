@@ -28,7 +28,7 @@ function NewTaskInputField(props) {
     useEffect(() => {
         return () => {
             if (newTask.task !== '') {
-                axios.post(`http://localhost:4000/api/tasks`, {...newTask})
+                axios.post(`https://timebox-be.herokuapp.com/api/tasks`, {...newTask})
                 .then(res => {
                     updatedTasksState.push(res.data)
                     dispatch({
