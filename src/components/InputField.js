@@ -5,13 +5,11 @@ import { TaskContext } from './context/TasksContext';
 
 
 function InputField(props) {
-    // const [inputDefaultValue, setInputDefaultValue] = useState(props.text);
     const {tasks, dispatch} = useContext(TaskContext)
     const inputRef = useRef(null);
     const updateTasksState = [...tasks]
 
     const changeHandler = (e) => {
-        // setInputDefaultValue(e.target.value);
         updateTasksState[props.taskIndex].task = e.target.value
         dispatch({
             type: 'UPDATE_TASK_STATE',
