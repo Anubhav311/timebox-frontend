@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
+import axios from 'axios';
 
 import { TaskContext } from './context/TasksContext';
 
@@ -8,7 +9,7 @@ function InputField(props) {
     const {tasks, dispatch} = useContext(TaskContext)
     const inputRef = useRef(null);
     const updateTasksState = [...tasks]
-    
+
     const changeHandler = (e) => {
         setInputDefaultValue(e.target.value);
         updateTasksState[props.taskIndex].task = inputDefaultValue
@@ -16,7 +17,6 @@ function InputField(props) {
             type: 'UPDATE_TASK_STATE',
             payload: updateTasksState
         });
-        console.log(updateTasksState[props.taskIndex], tasks[props.taskIndex])
     }
 
     useEffect(() => {
@@ -25,6 +25,17 @@ function InputField(props) {
         }
     }, [props.isInEditMode])
 
+    useEffect(() => {
+        return () => {
+            axios.put(`https://timebox-be.herokuapp.com/api/tasks`, {task_id_pk: tasks[props.taskIndex].task_id_pk, payload: {task: tasks[props.taskIndex].task}})
+                .then(res => {
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err.message)
+                })
+        }
+    }, [])
 
     return (
         <input 
