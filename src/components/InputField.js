@@ -10,6 +10,7 @@ function InputField(props) {
     const updateTasksState = [...tasks]
 
     const changeHandler = (e) => {
+        e.preventDefault()
         updateTasksState[props.taskIndex].task = e.target.value
         dispatch({
             type: 'UPDATE_TASK_STATE',
@@ -36,13 +37,15 @@ function InputField(props) {
     }, [])
 
     return (
-        <input 
-            onChange={changeHandler}
-            onBlur={props.changeEditMode}
-            type="text"
-            ref={inputRef}
-            defaultValue={props.text}
-        />
+        <form onSubmit={props.changeEditMode}>
+            <input 
+                onChange={changeHandler}
+                onBlur={props.changeEditMode}
+                type="text"
+                ref={inputRef}
+                defaultValue={props.text}
+            />
+        </form>
     )
 }
 

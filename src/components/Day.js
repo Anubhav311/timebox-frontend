@@ -47,7 +47,7 @@ function Day(props) {
         }
     }, [addTask])
 
-    tasksList.push(addTask ? <input onBlur={AddTask} ref={inputRef}></input> : <button className="add-task" onClick={AddTask}>+</button>)
+    tasksList.push(addTask ? <form onSubmit={AddTask}><input onBlur={AddTask} ref={inputRef}></input></form> : <button className="add-task" onClick={AddTask}>+</button>)
 
     return (
         <Div_day className="day">
