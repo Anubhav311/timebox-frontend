@@ -33,8 +33,8 @@ function Subtask(props) {
     const relevantTask = tasks.filter(task => task.task_id_pk === props.taskId)
     let subtasksList = []
     if (relevantTask[0].subtasks) {
-        subtasksList = relevantTask[0].subtasks.map(subtask => (
-            <Title text={subtask.subtask} />
+        subtasksList = relevantTask[0].subtasks.map((subtask, key) => (
+            <Title id={key} text={subtask.subtask} />
         ))
     }
 
