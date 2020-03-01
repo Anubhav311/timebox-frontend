@@ -40,9 +40,7 @@ function Task(props) {
     }
 
     function deleteTask() {
-        console.log(updatedTasksState)
         updatedTasksState.splice(props.id, 1)
-        console.log(updatedTasksState)
         Axios.delete(`https://timebox-be.herokuapp.com/api/tasks?task_id_pk=${props.taskId}`)
             .then(res => {
                 console.log(props.taskId, res.data[0])
