@@ -11,12 +11,17 @@ function InputField(props) {
 
     const changeHandler = (e) => {
         e.preventDefault()
-        updateTasksState[props.taskIndex].task = e.target.value
-        console.log(e.target.name)
-        dispatch({
-            type: 'UPDATE_TASK_STATE',
-            payload: updateTasksState
-        });
+        if (props.name === 'task') {
+            updateTasksState[props.taskIndex].task = e.target.value
+            console.log(e.target.name)
+            dispatch({
+                type: 'UPDATE_TASK_STATE',
+                payload: updateTasksState
+            });
+        } else if (props.name === 'subtask') {
+
+        }
+
     }
 
     useEffect(() => {
@@ -27,6 +32,7 @@ function InputField(props) {
 
     useEffect(() => {
         let payload;
+        let url;
 
         if (props.name === 'task') {
             payload = {
@@ -35,12 +41,13 @@ function InputField(props) {
                     'task': tasks[props.taskIndex].task
                 }
             }
+            url = 'https://timebox-be.herokuapp.com/api/tasks'
         } else if (props.name === 'subtask') {
 
         }
 
         return () => {
-            axios.put(`http://localhost:4000/api/tasks`, payload)
+            axios.put(url, payload)
                 .then(res => {
                     console.log(res)
                 })
