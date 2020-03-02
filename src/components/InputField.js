@@ -26,11 +26,17 @@ function InputField(props) {
     }, [props.isInEditMode])
 
     useEffect(() => {
-        let payload = {
-            id: tasks[props.taskIndex].task_id_pk, 
-            payload: {
-                'task': tasks[props.taskIndex].task
+        let payload;
+
+        if (props.name === 'task') {
+            payload = {
+                id: tasks[props.taskIndex].task_id_pk, 
+                payload: {
+                    'task': tasks[props.taskIndex].task
+                }
             }
+        } else if (props.name === 'subtask') {
+
         }
 
         return () => {
@@ -52,7 +58,7 @@ function InputField(props) {
                 type="text"
                 ref={inputRef}
                 defaultValue={props.text}
-                name={'abcd'}
+                name={props.name}
             />
         </form>
     )
