@@ -12,6 +12,7 @@ function InputField(props) {
     const changeHandler = (e) => {
         e.preventDefault()
         updateTasksState[props.taskIndex].task = e.target.value
+        console.log(e.target.name)
         dispatch({
             type: 'UPDATE_TASK_STATE',
             payload: updateTasksState
@@ -51,6 +52,7 @@ function InputField(props) {
                 type="text"
                 ref={inputRef}
                 defaultValue={props.text}
+                name={'abcd'}
             />
         </form>
     )
