@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import SubtasksList from './SubtasksList';
 import Axios from 'axios';
 import { TaskContext } from '../context/TasksContext';
-import InputField from './TaskInputField';
+import TaskInputField from './TaskInputField';
 
 const Div_task = styled.div`
     .task-heading {
@@ -69,7 +69,7 @@ function Task(props) {
                 <div>
                     {isInEditMode 
                         ? 
-                    <InputField 
+                    <TaskInputField 
                         name={props.name} 
                         taskIndex={props.taskIndex} 
                         changeEditMode={changeEditMode} 
@@ -96,7 +96,7 @@ function Task(props) {
             <SubtasksList 
                 subtaskActive={subtaskActive} 
                 taskIdPk={props.taskIdPk} 
-                taskIndex={props.id} 
+                taskIndex={props.taskIndex} 
             />}
         </Div_task>
     )

@@ -11,16 +11,11 @@ function TaskInputField(props) {
 
     const changeHandler = (e) => {
         e.preventDefault()
-        if (props.name === 'task') {
-            updateTasksState[props.taskIndex].task = e.target.value
-            dispatch({
-                type: 'UPDATE_TASK_STATE',
-                payload: updateTasksState
-            });
-        } else if (props.name === 'subtask') {
-
-        }
-
+        updateTasksState[props.taskIndex].subtasks[props.subtaskIndex].subtask = e.target.value
+        dispatch({
+            type: 'UPDATE_SUBTASK_STATE',
+            payload: updateTasksState
+        });
     }
 
     useEffect(() => {
@@ -31,15 +26,15 @@ function TaskInputField(props) {
 
     useEffect(() => {
         let payload = {
-            // id: tasks[props.taskIndex].task_id_pk, 
+            // id: tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_id_pk,
             // payload: {
-            //     'task': tasks[props.taskIndex].task
+            //     'subtask': tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask
             // }
         }
-        console.log(tasks[props.taskIndex].subtasks, props.taskIndex)
+        console.log(tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_id_pk, tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask)
 
         return () => {
-            axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
+            axios.put('https://timebox-be.herokuapp.com/api/subtasks', payload)
                 .then(res => {
                     console.log(res)
                 })

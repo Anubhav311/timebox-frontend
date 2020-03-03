@@ -35,9 +35,10 @@ function SubtasksList(props) {
     if (relevantTask[0].subtasks) {
         list = relevantTask[0].subtasks.map((subtask, key) => (
             <Subtask 
-                id={key} 
                 text={subtask.subtask} 
                 name='subtask' 
+                subtaskIndex={key}
+                subtaskIdPk={tasks[props.taskIndex].subtasks[key]} 
                 taskIdPk={props.taskIdPk} 
                 taskIndex={props.taskIndex} 
             />

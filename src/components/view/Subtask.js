@@ -16,10 +16,12 @@ function Subtask(props) {
                 ? 
             <SubtaskInputField 
                 name={props.name} 
-                taskIndex={props.taskIndex} 
                 changeEditMode={changeEditMode} 
                 isInEditMode={isInEditMode} 
                 text={props.text}
+                taskIndex={props.taskIndex}
+                subtaskIndex={props.subtaskIndex}
+                subtaskIdPk={props.subtaskIdPk}
             />
                 :
             <p onClick={changeEditMode}>{props.text}</p>}
