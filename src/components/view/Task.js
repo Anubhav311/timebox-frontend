@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import SubtasksList from './SubtasksList';
 import Axios from 'axios';
 import { TaskContext } from '../context/TasksContext';
-import InputField from './InputField';
+import InputField from './TaskInputField';
 
 const Div_task = styled.div`
     .task-heading {

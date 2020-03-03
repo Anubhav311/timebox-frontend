@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import InputField from './InputField';
+import SubtaskInputField from './SubtaskInputField';
 
 function Subtask(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
@@ -14,7 +14,7 @@ function Subtask(props) {
         <div>
             {isInEditMode 
                 ? 
-            <InputField 
+            <SubtaskInputField 
                 name={props.name} 
                 taskIndex={props.taskIndex} 
                 changeEditMode={changeEditMode} 

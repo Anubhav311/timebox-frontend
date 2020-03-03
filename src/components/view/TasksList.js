@@ -37,8 +37,8 @@ function TasksList(props) {
         if (props.tasks[index].task_due_at.split('T')[0] == `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
             tasksListArray.push(
                 <Task 
-                    id={index} 
                     task={props.tasks[index].task} 
+                    taskIndex={index} 
                     taskIdPk={props.tasks[index].task_id_pk} 
                 />
             ) 
