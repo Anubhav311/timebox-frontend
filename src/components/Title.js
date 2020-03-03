@@ -16,7 +16,7 @@ function Title(props) {
                 ? 
             <InputField 
                 name={props.name} 
-                taskIndex={props.taskId} 
+                taskIndex={props.taskIndex} 
                 changeEditMode={changeEditMode} 
                 isInEditMode={isInEditMode} 
                 text={props.text}

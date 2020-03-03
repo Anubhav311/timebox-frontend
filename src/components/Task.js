@@ -60,10 +60,10 @@ function Task(props) {
         <Div_task>
             <div className="task-heading">
                 <div className="dot" onClick={toggleSubtask}></div>
-                <Title taskId={props.id} text={props.task} name='task' />
+                <Title taskIndex={props.id} text={props.task} name='task' />
                 <div style={{marginLeft: '10px', cursor: 'pointer'}} onClick={deleteTask}>x</div>
             </div>
-            {subtaskActive === 'hide' ? '' : <Subtask subtaskActive={subtaskActive} taskIdPk={props.taskIdPk}/>}
+            {subtaskActive === 'hide' ? '' : <Subtask subtaskActive={subtaskActive} taskIdPk={props.taskIdPk} taskIndex={props.id} />}
         </Div_task>
     )
 }
