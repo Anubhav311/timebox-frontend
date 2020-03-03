@@ -43,7 +43,14 @@ function InputField(props) {
             }
             url = 'https://timebox-be.herokuapp.com/api/tasks'
         } else if (props.name === 'subtask') {
-
+            // payload = {
+            //     id: tasks[props.taskIndex].task_id_pk, 
+            //     payload: {
+            //         'task': tasks[props.taskIndex].task
+            //     }
+            // }
+            console.log(tasks[props.taskIndex], props.taskIndex)
+            url = 'https://timebox-be.herokuapp.com/api/tasks'
         }
 
         return () => {
