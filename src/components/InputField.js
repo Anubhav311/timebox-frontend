@@ -13,7 +13,6 @@ function InputField(props) {
         e.preventDefault()
         if (props.name === 'task') {
             updateTasksState[props.taskIndex].task = e.target.value
-            console.log(e.target.name)
             dispatch({
                 type: 'UPDATE_TASK_STATE',
                 payload: updateTasksState

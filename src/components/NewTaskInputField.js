@@ -45,7 +45,11 @@ function NewTaskInputField(props) {
 
     return (
         <form onSubmit={props.AddTaskToggle}>
-            <input onBlur={props.AddTaskToggle} ref={inputRef} onChange={changeHandler}/>
+            <input 
+                onBlur={props.AddTaskToggle} 
+                ref={inputRef} 
+                onChange={changeHandler}
+            />
         </form>
     )
 }

@@ -25,10 +25,16 @@ function App() {
         <Today/>
       </div>
       <div label="this week">
-        <Week tasks={tasks} columnDate={thisWeek} />
+        <Week 
+          tasks={tasks} 
+          columnDate={thisWeek} 
+        />
       </div>
       <div label="next week">
-        <Week tasks={tasks} columnDate={nextWeek}/>
+        <Week 
+          tasks={tasks} 
+          columnDate={nextWeek}
+        />
       </div>
     </Tabs>
   );

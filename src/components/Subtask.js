@@ -22,7 +22,6 @@ function Subtask(props) {
                         }
                     }
                 }
-                console.log(tasksAndSubtasks, props.taskIdPk)
                 return tasksAndSubtasks;
             })
             .then(tasksAndSubtasks => dispatch({
@@ -35,7 +34,13 @@ function Subtask(props) {
     let subtasksList = []
     if (relevantTask[0].subtasks) {
         subtasksList = relevantTask[0].subtasks.map((subtask, key) => (
-            <Title id={key} text={subtask.subtask} name='subtask' taskIdPk={props.taskIdPk} taskIndex={props.taskIndex} />
+            <Title 
+                id={key} 
+                text={subtask.subtask} 
+                name='subtask' 
+                taskIdPk={props.taskIdPk} 
+                taskIndex={props.taskIndex} 
+            />
         ))
     }
 

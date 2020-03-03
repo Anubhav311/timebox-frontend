@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Task from './Task';
@@ -35,12 +35,28 @@ function Day(props) {
 
     for (let index = 0; index < props.tasks.length; index++) {
         if (props.tasks[index].task_due_at.split('T')[0] == `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
-            tasksList.push(<Task id={index} task={props.tasks[index].task} taskIdPk={props.tasks[index].task_id_pk} />) 
+            tasksList.push(
+                <Task 
+                    id={index} 
+                    task={props.tasks[index].task} 
+                    taskIdPk={props.tasks[index].task_id_pk} 
+                />
+            ) 
         }
     }
 
 
-    tasksList.push(addTask ? <NewTaskInputField columnDate={props.columnDate} addTask={addTask} AddTaskToggle={AddTaskToggle} /> : <button className="add-task" onClick={AddTaskToggle}>+</button>)
+    tasksList.push(
+        addTask 
+            ? 
+        <NewTaskInputField 
+            columnDate={props.columnDate} 
+            addTask={addTask} 
+            AddTaskToggle={AddTaskToggle} 
+        /> 
+            : 
+        <button className="add-task" onClick={AddTaskToggle}> + </button>
+    )
 
     return (
         <Div_day className="day">

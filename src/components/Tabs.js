@@ -8,7 +8,7 @@ function Tabs(props) {
     const [activeTab, setActiveTab] = useState(props.children[0].props.label)
 
     function onClickTabItem(tab) {
-    setActiveTab( tab );
+        setActiveTab( tab );
     }
 
     return (
