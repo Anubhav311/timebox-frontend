@@ -41,10 +41,10 @@ function Task(props) {
 
     function deleteTask() {
         updatedTasksState.splice(props.id, 1)
-        Axios.delete(`https://timebox-be.herokuapp.com/api/tasks?task_id_pk=${props.taskId}`)
+        Axios.delete(`https://timebox-be.herokuapp.com/api/tasks?task_id_pk=${props.taskIdPk}`)
             .then(res => {
-                console.log(props.taskId, res.data[0])
-                if (props.taskId === res.data[0]) {
+                console.log(props.taskIdPk, res.data[0])
+                if (props.taskIdPk === res.data[0]) {
                     dispatch({
                         type: 'DELETE_TASK',
                         payload: updatedTasksState
@@ -63,7 +63,7 @@ function Task(props) {
                 <Title taskId={props.id} text={props.task} name='task' />
                 <div style={{marginLeft: '10px', cursor: 'pointer'}} onClick={deleteTask}>x</div>
             </div>
-            {subtaskActive === 'hide' ? '' : <Subtask subtaskActive={subtaskActive} taskId={props.taskId}/>}
+            {subtaskActive === 'hide' ? '' : <Subtask subtaskActive={subtaskActive} taskIdPk={props.taskIdPk}/>}
         </Div_task>
     )
 }
