@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
 import SubtasksList from './SubtasksList';
-import Subtask from './Subtask';
 import Axios from 'axios';
 import { TaskContext } from './context/TasksContext';
+import InputField from './InputField';
 
 const Div_task = styled.div`
     .task-heading {
@@ -31,9 +31,14 @@ const Div_task = styled.div`
 `
 
 function Task(props) {
+    const [isInEditMode, setIsInEditMode] = useState(false)
     const [subtaskActive, setSubtaskActive] = useState('hide')
     const {tasks, dispatch} = useContext(TaskContext)
     const updatedTasksState = [...tasks]
+
+    const changeEditMode = () => {
+        setIsInEditMode(!isInEditMode)
+    }
 
     function toggleSubtask() {
         setSubtaskActive(subtaskActive === 'hide' ? 'subtasks' : 'hide')
@@ -60,11 +65,19 @@ function Task(props) {
         <Div_task>
             <div className="task-heading">
                 <div className="dot" onClick={toggleSubtask}></div>
-                <Subtask 
-                    taskIndex={props.id} 
-                    text={props.task} 
-                    name='task' 
-                />
+                <div>
+                    {isInEditMode 
+                        ? 
+                    <InputField 
+                        name={props.name} 
+                        taskIndex={props.taskIndex} 
+                        changeEditMode={changeEditMode} 
+                        isInEditMode={isInEditMode} 
+                        text={props.task}
+                    />
+                        :
+                    <p onClick={changeEditMode}>{props.task}</p>}
+                </div>
                 <div 
                     style={{
                         marginLeft: '10px', 
