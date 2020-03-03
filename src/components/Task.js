@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
-import Subtask from './Subtask';
+import Subtask from './SubtasksList';
 import Title from './Title';
 import Axios from 'axios';
 import { TaskContext } from './context/TasksContext';

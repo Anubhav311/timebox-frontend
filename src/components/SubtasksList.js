@@ -5,7 +5,7 @@ import { TaskContext } from './context/TasksContext';
 import Title from './Title';
 
 
-function Subtask(props) {
+function SubtasksList(props) {
     const {tasks, dispatch} = useContext(TaskContext)
     const tasksAndSubtasks = [...tasks]
 
@@ -31,9 +31,9 @@ function Subtask(props) {
     }, [])
 
     const relevantTask = tasks.filter(task => task.task_id_pk === props.taskIdPk)
-    let subtasksList = []
+    let list = []
     if (relevantTask[0].subtasks) {
-        subtasksList = relevantTask[0].subtasks.map((subtask, key) => (
+        list = relevantTask[0].subtasks.map((subtask, key) => (
             <Title 
                 id={key} 
                 text={subtask.subtask} 
@@ -46,9 +46,9 @@ function Subtask(props) {
 
     return (
         <div>
-            {subtasksList}
+            {list}
         </div>
     )
 }
 
-export default Subtask;
+export default SubtasksList;

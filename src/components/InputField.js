@@ -48,7 +48,7 @@ function InputField(props) {
             //         'task': tasks[props.taskIndex].task
             //     }
             // }
-            console.log(tasks[props.taskIndex], props.taskIndex)
+            console.log(tasks[props.taskIndex].subtasks, props.taskIndex)
             url = 'https://timebox-be.herokuapp.com/api/tasks'
         }
 
