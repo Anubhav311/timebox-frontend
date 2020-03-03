@@ -26,15 +26,15 @@ function TaskInputField(props) {
 
     useEffect(() => {
         let payload = {
-            // id: tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_id_pk,
-            // payload: {
-            //     'subtask': tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask
-            // }
+            id: tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_id_pk,
+            payload: {
+                'subtask': tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask
+            }
         }
         console.log(tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_id_pk, tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask)
 
         return () => {
-            axios.put('https://timebox-be.herokuapp.com/api/subtasks', payload)
+            axios.put('http://localhost:4000/api/subtasks', payload)
                 .then(res => {
                     console.log(res)
                 })
