@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from 'react';
 
-import { TaskContext } from './context/TasksContext';
+import { TaskContext } from '../context/TasksContext';
 import axios from 'axios';
 
 

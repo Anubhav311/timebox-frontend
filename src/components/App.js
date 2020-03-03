@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from 'react';
 import axios from 'axios';
 
-import Today from './Today';
-import Tabs from './Tabs';
-import Week from './Week';
+import Today from './view/Today';
+import Tabs from './view/Tabs';
+import Week from './view/Week';
 import { thisWeek, nextWeek } from './DaysOfWeek';
 import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';

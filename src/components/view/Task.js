@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import SubtasksList from './SubtasksList';
 import Axios from 'axios';
-import { TaskContext } from './context/TasksContext';
+import { TaskContext } from '../context/TasksContext';
 import InputField from './InputField';
 
 const Div_task = styled.div`
@@ -63,6 +63,7 @@ function Task(props) {
 
     return (
         <Div_task>
+            {/* code for rendering task */}
             <div className="task-heading">
                 <div className="dot" onClick={toggleSubtask}></div>
                 <div>
@@ -86,17 +87,17 @@ function Task(props) {
                     onClick={deleteTask}
                 >x</div>
             </div>
-            {
-                subtaskActive === 'hide' 
-                    ? 
-                '' 
-                    : 
-                <SubtasksList 
-                    subtaskActive={subtaskActive} 
-                    taskIdPk={props.taskIdPk} 
-                    taskIndex={props.id} 
-                />
-            }
+            
+            {/* code for rendering subtasks */}
+            {subtaskActive === 'hide' 
+                ? 
+            '' 
+                : 
+            <SubtasksList 
+                subtaskActive={subtaskActive} 
+                taskIdPk={props.taskIdPk} 
+                taskIndex={props.id} 
+            />}
         </Div_task>
     )
 }

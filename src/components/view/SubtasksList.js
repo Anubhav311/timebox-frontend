@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import axios from 'axios'
 
-import { TaskContext } from './context/TasksContext';
+import { TaskContext } from '../context/TasksContext';
 import Subtask from './Subtask';
 
 
