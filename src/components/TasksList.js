@@ -25,9 +25,9 @@ const Div_day = styled.div`
     }
 `
 
-function Day(props) {
+function TasksList(props) {
     const [addTask, setAddTask] = useState(false)
-    let tasksList = []
+    let tasksListArray = []
 
     function AddTaskToggle() {
         setAddTask(!addTask)
@@ -35,7 +35,7 @@ function Day(props) {
 
     for (let index = 0; index < props.tasks.length; index++) {
         if (props.tasks[index].task_due_at.split('T')[0] == `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
-            tasksList.push(
+            tasksListArray.push(
                 <Task 
                     id={index} 
                     task={props.tasks[index].task} 
@@ -46,7 +46,7 @@ function Day(props) {
     }
 
 
-    tasksList.push(
+    tasksListArray.push(
         addTask 
             ? 
         <NewTaskInputField 
@@ -64,10 +64,10 @@ function Day(props) {
                 <p>{props.day}</p>
             </div>
             <div className="day-body">
-                {tasksList}
+                {tasksListArray}
             </div>
         </Div_day>
     )
 }
 
-export default Day;
+export default TasksList;

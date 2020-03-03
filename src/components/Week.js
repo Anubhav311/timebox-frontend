@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Day from './Day';
+import TasksList from './TasksList';
 
 const Week_div = styled.div`
     display: flex;
@@ -13,7 +13,7 @@ function Week(props) {
     return (
         <Week_div>
             {nameOfDays.map( (day, key) => (
-                <Day 
+                <TasksList 
                     id={key} 
                     day={day} 
                     tasks={props.tasks} 
