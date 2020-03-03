@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react';
 import axios from 'axios'
 
 import { TaskContext } from './context/TasksContext';
-import Title from './Title';
+import Subtask from './Subtask';
 
 
 function SubtasksList(props) {
@@ -34,7 +34,7 @@ function SubtasksList(props) {
     let list = []
     if (relevantTask[0].subtasks) {
         list = relevantTask[0].subtasks.map((subtask, key) => (
-            <Title 
+            <Subtask 
                 id={key} 
                 text={subtask.subtask} 
                 name='subtask' 

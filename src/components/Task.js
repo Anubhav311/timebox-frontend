@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
-import Subtask from './SubtasksList';
-import Title from './Title';
+import SubtasksList from './SubtasksList';
+import Subtask from './Subtask';
 import Axios from 'axios';
 import { TaskContext } from './context/TasksContext';
 
@@ -60,7 +60,7 @@ function Task(props) {
         <Div_task>
             <div className="task-heading">
                 <div className="dot" onClick={toggleSubtask}></div>
-                <Title 
+                <Subtask 
                     taskIndex={props.id} 
                     text={props.task} 
                     name='task' 
@@ -78,7 +78,7 @@ function Task(props) {
                     ? 
                 '' 
                     : 
-                <Subtask 
+                <SubtasksList 
                     subtaskActive={subtaskActive} 
                     taskIdPk={props.taskIdPk} 
                     taskIndex={props.id} 

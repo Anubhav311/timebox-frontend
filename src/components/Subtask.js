@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import InputField from './InputField';
 
-function Title(props) {
+function Subtask(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
 
     const changeEditMode = () => {
@@ -28,4 +28,4 @@ function Title(props) {
 }
 
 
-export default Title;
+export default Subtask;
