@@ -15,7 +15,6 @@ function Subtask(props) {
             {isInEditMode 
                 ? 
             <SubtaskInputField 
-                name={props.name} 
                 changeEditMode={changeEditMode} 
                 isInEditMode={isInEditMode} 
                 text={props.text}

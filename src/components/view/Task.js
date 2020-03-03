@@ -70,7 +70,6 @@ function Task(props) {
                     {isInEditMode 
                         ? 
                     <TaskInputField 
-                        name={props.name} 
                         taskIndex={props.taskIndex} 
                         changeEditMode={changeEditMode} 
                         isInEditMode={isInEditMode} 

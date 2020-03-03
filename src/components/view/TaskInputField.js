@@ -52,7 +52,6 @@ function TaskInputField(props) {
                 type="text"
                 ref={inputRef}
                 defaultValue={props.text}
-                name={props.name}
             />
         </form>
     )
