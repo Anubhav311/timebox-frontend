@@ -14,7 +14,7 @@ function Week(props) {
         <WeekDiv>
             {nameOfDays.map( (day, key) => (
                 <TasksList 
-                    id={key} 
+                    key={key} 
                     day={day} 
                     tasks={props.tasks} 
                     columnDate={props.columnDate[key]} 

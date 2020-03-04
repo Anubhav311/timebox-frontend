@@ -37,6 +37,7 @@ function TasksList(props) {
         if (props.tasks[index].task_due_at.split('T')[0] === `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
             tasksListArray.push(
                 <Task 
+                    key={tasksListArray.length}
                     task={props.tasks[index].task} 
                     taskIndex={index} 
                     taskIdPk={props.tasks[index].task_id_pk} 
@@ -45,17 +46,18 @@ function TasksList(props) {
         }
     }
 
-
     tasksListArray.push(
-        addTask 
-            ? 
-        <NewTaskInputField 
-            columnDate={props.columnDate} 
-            addTask={addTask} 
-            AddTaskToggle={AddTaskToggle} 
-        /> 
-            : 
-        <button className="add-task" onClick={AddTaskToggle}> + </button>
+        <div key={tasksListArray.length}>
+            {addTask 
+                ? 
+            <NewTaskInputField 
+                columnDate={props.columnDate} 
+                addTask={addTask} 
+                AddTaskToggle={AddTaskToggle} 
+            /> 
+                : 
+            <button className="add-task" onClick={AddTaskToggle}> + </button>}
+        </div>
     )
 
     return (
