@@ -6,7 +6,7 @@ import Axios from 'axios';
 import { TaskContext } from '../context/TasksContext';
 import TaskInputField from './TaskInputField';
 
-const Div_task = styled.div`
+const DivTask = styled.div`
     .task-heading {
         display: flex;
         align-items: center;
@@ -62,7 +62,7 @@ function Task(props) {
     }
 
     return (
-        <Div_task>
+        <DivTask>
             {/* code for rendering task */}
             <div className="task-heading">
                 <div className="dot" onClick={toggleSubtask}></div>
@@ -97,7 +97,7 @@ function Task(props) {
                 taskIdPk={props.taskIdPk} 
                 taskIndex={props.taskIndex} 
             />}
-        </Div_task>
+        </DivTask>
     )
 }
 

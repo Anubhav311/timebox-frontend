@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import TasksList from './TasksList';
 
-const Week_div = styled.div`
+const WeekDiv = styled.div`
     display: flex;
 `
 
@@ -11,7 +11,7 @@ function Week(props) {
     const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     return (
-        <Week_div>
+        <WeekDiv>
             {nameOfDays.map( (day, key) => (
                 <TasksList 
                     id={key} 
@@ -20,7 +20,7 @@ function Week(props) {
                     columnDate={props.columnDate[key]} 
                 />
             ))}
-        </Week_div>
+        </WeekDiv>
     )
 }
 

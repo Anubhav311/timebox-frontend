@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Task from './Task';
 import NewTaskInputField from './NewTaskInputField';
 
-const Div_day = styled.div`
+const DivDay = styled.div`
     background: red;
     width: 20%;
     height: auto;
@@ -34,7 +34,7 @@ function TasksList(props) {
     }
 
     for (let index = 0; index < props.tasks.length; index++) {
-        if (props.tasks[index].task_due_at.split('T')[0] == `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
+        if (props.tasks[index].task_due_at.split('T')[0] === `${props.columnDate.getFullYear()}-${('0' + (props.columnDate.getMonth() + 1)).slice(-2)}-${('0' + props.columnDate.getDate()).slice(-2)}`) {
             tasksListArray.push(
                 <Task 
                     task={props.tasks[index].task} 
@@ -59,14 +59,14 @@ function TasksList(props) {
     )
 
     return (
-        <Div_day className="day">
+        <DivDay className="day">
             <div className="day-header">
                 <p>{props.day}</p>
             </div>
             <div className="day-body">
                 {tasksListArray}
             </div>
-        </Div_day>
+        </DivDay>
     )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Div_today = styled.div`
+const DivToday = styled.div`
     width: 90%;
     margin: auto;
 
@@ -44,7 +44,7 @@ export default function Today(props) {
             endMinute = 0
         }
 
-        if (endHour == 24) {
+        if (endHour === 24) {
             endHour = 0
         }
 
@@ -58,7 +58,7 @@ export default function Today(props) {
         }
     }
     return (
-        <Div_today className="today">
+        <DivToday className="today">
             {todayTimeSlots.map((num, key) => (
                 <div id={key} className="timeslot">
                     <div className="slot-head">
@@ -69,6 +69,6 @@ export default function Today(props) {
                     </div>
                 </div>
             ))}
-        </Div_today>
+        </DivToday>
     )
 }

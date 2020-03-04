@@ -14,7 +14,6 @@ function SubtasksList(props) {
             .then(subtasks => {
                 loop1: 
                 for (let i = 0; i < subtasks.data.length; i++) {
-                loop2:     
                     for (let j = 0; j < tasksAndSubtasks.length; j++) {
                         if (subtasks.data[i].task_id_fk === tasksAndSubtasks[j].task_id_pk) {
                             tasksAndSubtasks[j].subtasks = [...subtasks.data]
