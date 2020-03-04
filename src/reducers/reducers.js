@@ -11,6 +11,8 @@ export function TasksReducer(state, action) {
             return state = action.payload
         case 'UPDATE_SUBTASK_STATE':
             return state = action.payload
+        case 'ADD_SUBTASK_STATE':
+            return state = action.payload
         default:
             return state;
     }

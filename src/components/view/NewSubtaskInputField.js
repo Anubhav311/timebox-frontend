@@ -28,10 +28,10 @@ function NewTaskInputField(props) {
         if (newSubtaskask.subtask !== '') {
             axios.post(`https://timebox-be.herokuapp.com/api/subtasks`, {...newSubtaskask})
             .then(res => {
-                if (updatedTasksState[props.taskIndex].subtask) {
-                    updatedTasksState[props.taskIndex].subtask.push(res.data)
+                if (updatedTasksState[props.taskIndex].subtasks) {
+                    updatedTasksState[props.taskIndex].subtasks.push(res.data)
                 } else {
-                    updatedTasksState[props.taskIndex].subtask = [res.data]
+                    updatedTasksState[props.taskIndex].subtasks = [res.data]
                 }
                 dispatch({
                     type: 'ADD_SUBTASK_STATE',
@@ -45,28 +45,6 @@ function NewTaskInputField(props) {
 
         props.AddSubtaskToggle()
     }
-    // useEffect(() => {
-    //     return () => {
-    //         console.log('worked')
-    //         if (newSubtaskask.subtask !== '') {
-    //             axios.post(`https://timebox-be.herokuapp.com/api/subtasks`, {...newSubtaskask})
-    //             .then(res => {
-    //                 if (updatedTasksState[props.taskIndex].subtask) {
-    //                     updatedTasksState[props.taskIndex].subtask.push(res.data)
-    //                 } else {
-    //                     updatedTasksState[props.taskIndex].subtask = [res.data]
-    //                 }
-    //                 dispatch({
-    //                     type: 'ADD_SUBTASK_STATE',
-    //                     payload: updatedTasksState
-    //                 })
-    //             })
-    //             .catch(err => {
-    //                 console.log(err)
-    //             })
-    //         }
-    //     }
-    // }, [])
 
     return (
         <form onSubmit={sendPostRequest}>
