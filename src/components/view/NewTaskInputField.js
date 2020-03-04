@@ -32,7 +32,7 @@ function NewTaskInputField(props) {
                 .then(res => {
                     updatedTasksState.push(res.data)
                     dispatch({
-                        type: 'UPDATE_TASK_STATE',
+                        type: 'ADD_TASK_STATE',
                         payload: updatedTasksState
                     })
                 })

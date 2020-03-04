@@ -7,11 +7,13 @@ export function TasksReducer(state, action) {
             return state = action.payload
         case 'UPDATE_TASK_STATE':
             return state = action.payload
-        case 'DELETE_TASK':
-            return state = action.payload
         case 'UPDATE_SUBTASK_STATE':
             return state = action.payload
+        case 'ADD_TASK_STATE':
+            return state = action.payload
         case 'ADD_SUBTASK_STATE':
+            return state = action.payload
+        case 'DELETE_TASK':
             return state = action.payload
         case 'DELETE_SUBTASK':
             return state = action.payload
