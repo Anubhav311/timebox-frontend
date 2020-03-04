@@ -15,7 +15,7 @@ function SubtasksList(props) {
     }
 
     useEffect(() => {
-        axios.get(`https://timebox-be.herokuapp.com/api/subtasks?task_id_fk=${props.taskIdPk}`)
+        axios.get(`http://localhost:4000/api/subtasks?task_id_fk=${props.taskIdPk}`)
             .then(subtasks => {
                 loop1: 
                 for (let i = 0; i < subtasks.data.length; i++) {
@@ -42,7 +42,7 @@ function SubtasksList(props) {
                 key={key}
                 text={subtask.subtask} 
                 subtaskIndex={key}
-                subtaskIdPk={tasks[props.taskIndex].subtasks[key]} 
+                subtaskIdPk={tasks[props.taskIndex].subtasks[key].subtask_id_pk} 
                 taskIdPk={props.taskIdPk} 
                 taskIndex={props.taskIndex} 
             />

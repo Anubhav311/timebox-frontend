@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
+import Axios from 'axios';
 
 import SubtasksList from './SubtasksList';
-import Axios from 'axios';
 import { TaskContext } from '../context/TasksContext';
 import TaskInputField from './TaskInputField';
 
@@ -46,7 +46,7 @@ function Task(props) {
 
     function deleteTask() {
         updatedTasksState.splice(props.taskIndex, 1)
-        
+
         Axios.delete(`https://timebox-be.herokuapp.com/api/tasks?task_id_pk=${props.taskIdPk}`)
             .then(res => {
                 if (props.taskIdPk === res.data[0]) {
