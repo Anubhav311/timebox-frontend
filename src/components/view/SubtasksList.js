@@ -1,13 +1,18 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios'
 
 import { TaskContext } from '../context/TasksContext';
 import Subtask from './Subtask';
-
+import NewSubtaskInputField from './NewSubtaskInputField';
 
 function SubtasksList(props) {
     const {tasks, dispatch} = useContext(TaskContext)
+    const [addSubtask, setAddSubtask] = useState(false)
     const tasksAndSubtasks = [...tasks]
+
+    function AddSubtaskToggle() {
+        setAddSubtask(!addSubtask)
+    }
 
     useEffect(() => {
         axios.get(`https://timebox-be.herokuapp.com/api/subtasks?task_id_fk=${props.taskIdPk}`)
@@ -43,6 +48,23 @@ function SubtasksList(props) {
             />
         ))
     }
+
+    list.push(
+        <div key={list.length}>
+            {addSubtask 
+                ? 
+            <NewSubtaskInputField 
+                columnDate={props.columnDate} 
+                addSubtask={addSubtask} 
+                AddSubtaskToggle={AddSubtaskToggle} 
+                taskIdPk={props.taskIdPk}
+                taskIndex={props.taskIndex}
+            /> 
+                : 
+            <button className="add-task" onClick={AddSubtaskToggle}> + </button>}
+        </div>
+    )
+
 
     return (
         <div>
