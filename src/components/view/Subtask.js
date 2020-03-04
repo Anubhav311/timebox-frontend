@@ -16,7 +16,7 @@ function Subtask(props) {
     function deleteSubtask() {
         updatedTasksState[props.taskIndex].subtasks.splice(props.subtaskIndex, 1)
         
-        Axios.delete(`http://localhost:4000/api/subtasks?subtask_id_pk=${props.subtaskIdPk}`)
+        Axios.delete(`https://timebox-be.herokuapp.com/api/subtasks?subtask_id_pk=${props.subtaskIdPk}`)
             .then(res => {
                 if (props.subtaskIdPk === res.data[0]) {
                     dispatch({
