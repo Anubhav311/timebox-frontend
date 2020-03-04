@@ -14,12 +14,10 @@ function Subtask(props) {
     }
 
     function deleteSubtask() {
-        console.log('worked', updatedTasksState[props.taskIndex].subtasks, props.subtaskIndex, props.subtaskIdPk)
         updatedTasksState[props.taskIndex].subtasks.splice(props.subtaskIndex, 1)
         
         Axios.delete(`http://localhost:4000/api/subtasks?subtask_id_pk=${props.subtaskIdPk}`)
             .then(res => {
-                console.log('worked', props.subtaskIdPk, res.data)
                 if (props.subtaskIdPk === res.data[0]) {
                     dispatch({
                         type: 'DELETE_SUBTASK',
