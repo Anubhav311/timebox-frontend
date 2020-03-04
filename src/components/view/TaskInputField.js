@@ -11,11 +11,32 @@ function TaskInputField(props) {
 
     const changeHandler = (e) => {
         e.preventDefault()
+
         updateTasksState[props.taskIndex].task = e.target.value
+
         dispatch({
             type: 'UPDATE_TASK_STATE',
             payload: updateTasksState
         });
+    }
+
+    const sendPutRequest = () => {
+        let payload = {
+            id: tasks[props.taskIndex].task_id_pk, 
+            payload: {
+                'task': tasks[props.taskIndex].task
+            }
+        }
+
+        axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+
+        props.changeEditMode()
     }
 
     useEffect(() => {
@@ -24,31 +45,11 @@ function TaskInputField(props) {
         }
     }, [props.isInEditMode])
 
-    useEffect(() => {
-        let payload = {
-                id: tasks[props.taskIndex].task_id_pk, 
-                payload: {
-                    'task': tasks[props.taskIndex].task
-                }
-            }
-
-
-        return () => {
-            axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
-                .then(res => {
-                    console.log(res)
-                })
-                .catch(err => {
-                    console.log(err.message)
-                })
-        }
-    }, [])
-
     return (
-        <form onSubmit={props.changeEditMode}>
+        <form onSubmit={sendPutRequest}>
             <input 
                 onChange={changeHandler}
-                onBlur={props.changeEditMode}
+                onBlur={sendPutRequest}
                 type="text"
                 ref={inputRef}
                 defaultValue={props.text}
