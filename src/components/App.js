@@ -11,19 +11,21 @@ import { currentDate } from './DaysOfWeek.js'
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
+  const todaysTasksIds = []
+  const indexOfTodaysTasks = []
   const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
   const enddate = `${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`
   const todaysDate = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}`;
-  const todaysTasksIds = []
 
 
   useEffect(() => {
       axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${startdate}&enddate=${enddate}`)
           .then(tasksRes => {
-            
+
             for (let i=0; i<tasksRes.data.length; i++) {
               if (tasksRes.data[i].task_due_at.split('T')[0] === todaysDate) {
-                  todaysTasksIds.push(tasksRes.data[i].task_id_pk)
+                todaysTasksIds.push(tasksRes.data[i].task_id_pk)
+                indexOfTodaysTasks.push(i)
               }
             }
 
@@ -31,14 +33,24 @@ function App() {
 
             axios.get(`http://localhost:4000/api/subtasks?tasksIds=${stringifiedTodaysTasksIds}`)
               .then(subtasks => {
-                console.log(subtasks)
+
+                for (let i = 0; i < indexOfTodaysTasks.length; i++) {
+                  let tempSubtasksArray = []
+                  for (let j = 0; j < subtasks.data.length; j++) {
+                    if (subtasks.data[j].task_id_fk === tasksRes.data[indexOfTodaysTasks[i]].task_id_pk) {
+                      tempSubtasksArray.push(subtasks.data[j])
+                    }
+                  }
+                  tasksRes.data[indexOfTodaysTasks[i]].subtasks = [...tempSubtasksArray]
+                }
+
+                dispatch({
+                  type: 'GET_TASKS_REQUEST',
+                  payload: tasksRes.data
+                })
               })
               .catch(err => console.log(err))
-
-            dispatch({
-              type: 'GET_TASKS_REQUEST',
-              payload: tasksRes.data
-            })})
+          })
           .catch(err => console.log(err))
   }, [])
 
