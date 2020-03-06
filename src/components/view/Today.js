@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-import { currentDate } from '../DaysOfWeek.js'
 import { TaskContext } from '../context/TasksContext';
 
 const DivToday = styled.div`
@@ -28,35 +27,9 @@ const DivToday = styled.div`
     }
 `
 
-function getTodaysSubtasks(tasks, todaysDate, todaysTasksIds) {
-    for (let i=0; i<tasks.length; i++) {
-        if (tasks[i].task_due_at.split('T')[0] === todaysDate) {
-            todaysTasksIds.push(tasks[i].task_id_pk)
-        }
-    }
-
-    if (todaysTasksIds.length !== 0) {
-        const stringifiedTodaysTasksIds = JSON.stringify(todaysTasksIds) // converting an array into a string
-        
-        axios.get(`http://localhost:4000/api/subtasks?tasksIds=${stringifiedTodaysTasksIds}`)
-            .then(subtasks => console.log(subtasks) 
-            // dispatch({
-            // type: 'GET_TASKS_REQUEST',
-            // payload: tasks.data
-            // })
-            )
-            .catch(err => console.log(err))
-    }
-}
 
 export default function Today() {
     const {tasks, dispatch} = useContext(TaskContext)
-    const todaysTasksIds = []
-    const todaysSubtasks = []
-    const todaysDate = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}`;
-
-    getTodaysSubtasks(tasks, todaysDate, todaysTasksIds)
-
     const timeboxMinutes = 5
 
     let iterator = 1440
@@ -87,6 +60,7 @@ export default function Today() {
             startMinute = 0
         }
     }
+
     return (
         <DivToday className="today">
             {todayTimeSlots.map((num, key) => (
