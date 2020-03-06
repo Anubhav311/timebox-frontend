@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+
+import { currentDate } from '../DaysOfWeek.js'
 
 const DivToday = styled.div`
     width: 90%;
@@ -26,6 +29,19 @@ const DivToday = styled.div`
 
 
 export default function Today(props) {
+
+    console.log(currentDate.getFullYear(), currentDate.getMonth()+1, currentDate.getDate())
+    // useEffect(() => {
+    //     axios.get(`https://timebox-be.herokuapp.com/api/tasks?today=${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}T00:00:00Z`)
+    //         // .then(tasks => dispatch({
+    //         //     type: 'GET_TASKS_REQUEST',
+    //         //     payload: tasks.data
+    //         // }))
+    //         .then(tasks => {
+    //             console.log(tasks)
+    //         })
+    // }, [])
+
 
     const timeboxMinutes = 5
 

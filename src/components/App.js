@@ -17,6 +17,7 @@ function App() {
               type: 'GET_TASKS_REQUEST',
               payload: tasks.data
           }))
+          .catch(err => console.log(err))
   }, [])
 
   return (
