@@ -14,7 +14,7 @@ function App() {
   const enddate = `${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`
 
   useEffect(() => {
-      axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${startdate}&enddate=${enddate}`)
+      axios.get(`http://localhost:4000/api/tasks?startdate=${startdate}&enddate=${enddate}`)
           .then(tasks => dispatch({
               type: 'GET_TASKS_REQUEST',
               payload: tasks.data
