@@ -10,9 +10,11 @@ import { day1, day15 } from '../components/DaysOfWeek';
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
+  const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
+  const enddate = `${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`
 
   useEffect(() => {
-      axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z&enddate=${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`)
+      axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${startdate}&enddate=${enddate}`)
           .then(tasks => dispatch({
               type: 'GET_TASKS_REQUEST',
               payload: tasks.data
