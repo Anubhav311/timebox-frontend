@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 import { TaskContext } from '../context/TasksContext';
+import { currentDate } from '../DaysOfWeek.js'
 
 const DivToday = styled.div`
     width: 90%;
@@ -28,7 +29,7 @@ const DivToday = styled.div`
 `
 
 
-export default function Today() {
+export default function Today(props) {
     const {tasks, dispatch} = useContext(TaskContext)
     const timeboxMinutes = 5
 
@@ -60,6 +61,8 @@ export default function Today() {
             startMinute = 0
         }
     }
+
+    console.log(currentDate.getHours(), tasks)
 
     return (
         <DivToday className="today">

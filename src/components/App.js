@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
       axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${startdate}&enddate=${enddate}`)
           .then(tasksRes => {
-
+            console.log(tasksRes.data[0].task_due_at.split(':'))
             for (let i=0; i<tasksRes.data.length; i++) {
               if (tasksRes.data[i].task_due_at.split('T')[0] === todaysDate) {
                 todaysTasksIds.push(tasksRes.data[i].task_id_pk)
@@ -57,7 +57,7 @@ function App() {
   return (
     <Tabs>
       <div label="today">
-        <Today/>
+        <Today indexOfTodaysTasks={indexOfTodaysTasks} />
       </div>
       <div label="this week">
         <Week 
