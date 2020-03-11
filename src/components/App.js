@@ -8,6 +8,7 @@ import { thisWeek, nextWeek } from './DaysOfWeek';
 import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';
 import { currentDate } from './DaysOfWeek.js'
+import DragAndDrop from './DragAndDrop';
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
@@ -54,7 +55,7 @@ function App() {
           .catch(err => console.log(err))
   }, [])
 
-  return (
+  return (<>
     <Tabs>
       <div label="today">
         <Today indexOfTodaysTasks={indexOfTodaysTasks} />
@@ -72,6 +73,8 @@ function App() {
         />
       </div>
     </Tabs>
+    <DragAndDrop/>
+    </>
   );
 }
 

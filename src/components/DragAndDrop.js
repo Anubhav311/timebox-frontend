@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './DragAndDrop.css';
+
 function DragAndDrop() {
     return (
         <div className="drag-n-drop">

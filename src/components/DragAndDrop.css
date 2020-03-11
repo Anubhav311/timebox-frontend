@@ -12,6 +12,9 @@
 }
 
 .dnd-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 150px;
     background-color: white;
     border-radius: 5px;
@@ -20,5 +23,4 @@
 
 .dnd-item * {
     margin: 0px;
-    text-align: start;
 }
