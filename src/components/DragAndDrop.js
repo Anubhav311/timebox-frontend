@@ -15,7 +15,22 @@ function DragAndDrop(props) {
         dragItem.current = params;
         dragNode.current = e.target
         dragNode.current.addEventListener('dragend', handleDragEnd)
-        setDragging(true)
+        setTimeout(() => {
+            setDragging(true)
+        }, 0)
+    }
+
+    const handleDragEnter = (e, params) => {
+        const currentItem = dragItem.current;
+        if (e.target !== dragNode.current) {
+            console.log('target is not same')
+            setList(oldList => {
+                let newList = JSON.parse(JSON.stringify(oldList));
+                newList[params.grpI].items.splice(params.itemI, 0, newList[currentItem.grpI].items.splice(currentItem.itemI, 1)[0])
+                dragItem.current = params
+                return newList
+            })
+        }
     }
 
     const handleDragEnd = () => {
@@ -43,6 +58,7 @@ function DragAndDrop(props) {
                         <div 
                             draggable 
                             onDragStart={(e) => {handleDragStart(e, {grpI, itemI})}} 
+                            onDragEnter={dragging ? e => {handleDragEnter(e, {grpI, itemI})} : null}
                             key={item} 
                             className={dragging ? getStyles({grpI, itemI}) : "dnd-item"}
                         >
