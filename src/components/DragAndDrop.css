@@ -30,4 +30,11 @@
 
 .dnd-item * {
     margin: 0px;
+    font-size: 1.2rem;
+}
+
+.group-title {
+    text-align: left;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
 }
