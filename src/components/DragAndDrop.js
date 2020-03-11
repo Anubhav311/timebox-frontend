@@ -11,7 +11,6 @@ function DragAndDrop(props) {
     const dragNode = useRef();
 
     const handleDragStart = (e, params) => {
-        console.log('draging', params)
         dragItem.current = params;
         dragNode.current = e.target
         dragNode.current.addEventListener('dragend', handleDragEnd)
@@ -23,7 +22,6 @@ function DragAndDrop(props) {
     const handleDragEnter = (e, params) => {
         const currentItem = dragItem.current;
         if (e.target !== dragNode.current) {
-            console.log('target is not same')
             setList(oldList => {
                 let newList = JSON.parse(JSON.stringify(oldList));
                 newList[params.grpI].items.splice(params.itemI, 0, newList[currentItem.grpI].items.splice(currentItem.itemI, 1)[0])
@@ -34,7 +32,6 @@ function DragAndDrop(props) {
     }
 
     const handleDragEnd = () => {
-        console.log('dragend')
         setDragging(false)
         dragNode.current.removeEventListener('dragend', handleDragEnd)
         dragItem.current = null;
