@@ -11,6 +11,35 @@ function DragAndDrop() {
                         <p>Item</p>
                     </div>
                 </div>
+                <div className="dnd-item">
+                    <div>
+                        <p>Item</p>
+                    </div>
+                </div>
+                <div className="dnd-item">
+                    <div>
+                        <p>Item</p>
+                    </div>
+                </div>
+            </div>
+            <div className="dnd-group">
+                <div className="dnd-item">
+                    <div>
+                        <p>Item</p>
+                    </div>
+                </div>
+                <div className="dnd-item">
+                    <div>
+                        <p>Item</p>
+                    </div>
+                </div>
+            </div>
+            <div className="dnd-group">
+                <div className="dnd-item">
+                    <div>
+                        <p>Item</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
