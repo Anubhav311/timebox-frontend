@@ -6,12 +6,24 @@ import './DragAndDrop.css';
 function DragAndDrop(props) {
     const [list, setList] = useState(props.data);
     const [dragging, setDragging] = useState(false);
+
     const dragItem = useRef();
+    const dragNode = useRef();
 
     const handleDragStart = (e, params) => {
         console.log('draging', params)
         dragItem.current = params;
+        dragNode.current = e.target
+        dragNode.current.addEventListener('dragend', handleDragEnd)
         setDragging(true)
+    }
+
+    const handleDragEnd = () => {
+        console.log('dragend')
+        setDragging(false)
+        dragNode.current.removeEventListener('dragend', handleDragEnd)
+        dragItem.current = null;
+        dragNode.current = null
     }
 
     const getStyles = (params) => {
