@@ -4,3 +4,21 @@
     height: 100%;
     grid-template-columns: repeat(auto-fill, 200px);
 }
+
+.dnd-group {
+    background-color: red;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.dnd-item {
+    min-height: 150px;
+    background-color: white;
+    border-radius: 5px;
+    color: black
+}
+
+.dnd-item * {
+    margin: 0px;
+    text-align: start;
+}
