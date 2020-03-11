@@ -17,6 +17,17 @@ function App() {
   const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
   const enddate = `${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`
   const todaysDate = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}`;
+  const data = [
+    {
+        title: 'group 1', items: ['1', '2', '3']
+    },
+    {
+        title: 'group 2', items: ['4', '5']
+    },
+    {
+        title: 'group 3', items: ['6']
+    }
+]
 
 
   useEffect(() => {
@@ -73,7 +84,7 @@ function App() {
         />
       </div>
     </Tabs>
-    <DragAndDrop/>
+    <DragAndDrop data={data}/>
     </>
   );
 }
