@@ -38,11 +38,11 @@ function TasksList(props) {
             tasksListArray.push(
                 <Task 
                     key={tasksListArray.length}
-                    task={props.tasks[index].task} 
-                    taskIndex={index} 
-                    taskIdPk={props.tasks[index].task_id_pk} 
+                    task={props.tasks[index].task}
+                    taskIndex={index}
+                    taskIdPk={props.tasks[index].task_id_pk}
                 />
-            ) 
+            )
         }
     }
 

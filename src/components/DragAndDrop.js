@@ -4,7 +4,31 @@ import './DragAndDrop.css';
 
 
 function DragAndDrop(props) {
-    const [list, setList] = useState(props.data);
+    const tasksListArray = []
+
+    for (let i=0; i<props.columnDate.length; i++) {
+        tasksListArray.push({
+            day: props.columnDate[i],
+            tasks: []
+        })
+        for (let index = 0; index < props.tasks.length; index++) {
+
+            if (props.tasks[index].task_due_at.split('T')[0] === `${props.columnDate[i].getFullYear()}-${('0' + (props.columnDate[i].getMonth() + 1)).slice(-2)}-${('0' + props.columnDate[i].getDate()).slice(-2)}`) {
+                tasksListArray[i].tasks.push(props.tasks[index]
+
+                // <Task 
+                // key={tasksListArray.length}
+                // task={props.tasks[index].task}
+                // taskIndex={index}
+                // taskIdPk={props.tasks[index].task_id_pk}
+                // />
+                )
+            }
+        }
+    }
+    console.log(tasksListArray)
+
+    const [list, setList] = useState(tasksListArray);
     const [dragging, setDragging] = useState(false);
 
     const dragItem = useRef();
@@ -45,26 +69,52 @@ function DragAndDrop(props) {
         }
         return 'dnd-item'
     }
-
+    console.log(props.tasks, props.columnDate)
     return (
         <div className="drag-n-drop">
-            {list.map((grp, grpI) => (
-                <div key={grp.title} className="dnd-group" onDragEnter={dragging && !grp.items.length ? e => {handleDragEnter(e, {grpI, itemI: 0})} : null}>
-                    <div className="group-title">{grp.title}</div>
-                    {grp.items.map((item, itemI) => (
+            {list.map((column, columnI) => (
+                <div 
+                    key={column.day} 
+                    className="dnd-group" 
+                    onDragEnter={dragging && !column.items.length ? e => {handleDragEnter(e, {columnI, itemI: 0})} : null}
+                >
+                    <div className="group-title">{column.day.getDay}</div>
+                    {column.tasks.map((task, taskI) => (
                         <div 
                             draggable 
-                            onDragStart={(e) => {handleDragStart(e, {grpI, itemI})}} 
-                            onDragEnter={dragging ? e => {handleDragEnter(e, {grpI, itemI})} : null}
-                            key={item} 
-                            className={dragging ? getStyles({grpI, itemI}) : "dnd-item"}
+                            onDragStart={(e) => {handleDragStart(e, {columnI, taskI})}} 
+                            onDragEnter={dragging ? e => {handleDragEnter(e, {columnI, taskI})} : null}
+                            key={task.task} 
+                            className={dragging ? getStyles({columnI, taskI}) : "dnd-item"}
                         >
-                            {item}
+                            {task.task}
                         </div>
                     ))}
                 </div>
             ))}
         </div>
+        // <div className="drag-n-drop">
+        //     {list.map((grp, grpI) => (
+        //         <div 
+        //             key={grp.title} 
+        //             className="dnd-group" 
+        //             onDragEnter={dragging && !grp.items.length ? e => {handleDragEnter(e, {grpI, itemI: 0})} : null}
+        //         >
+        //             <div className="group-title">{grp.title}</div>
+        //             {grp.items.map((item, itemI) => (
+        //                 <div 
+        //                     draggable 
+        //                     onDragStart={(e) => {handleDragStart(e, {grpI, itemI})}} 
+        //                     onDragEnter={dragging ? e => {handleDragEnter(e, {grpI, itemI})} : null}
+        //                     key={item} 
+        //                     className={dragging ? getStyles({grpI, itemI}) : "dnd-item"}
+        //                 >
+        //                     {item}
+        //                 </div>
+        //             ))}
+        //         </div>
+        //     ))}
+        // </div>
     )
 }
 

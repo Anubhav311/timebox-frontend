@@ -62,7 +62,6 @@ export default function Today(props) {
         }
     }
 
-    console.log(currentDate.getHours(), tasks)
 
     return (
         <DivToday className="today">
