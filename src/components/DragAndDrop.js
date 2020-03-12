@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import './DragAndDrop.css';
+import Task from './view/Task';
 
 
 function DragAndDrop(props) {
@@ -87,7 +88,13 @@ function DragAndDrop(props) {
                             key={taskI} 
                             className={dragging ? getStyles({columnI, taskI}) : "dnd-item"}
                         >
-                            {task.task}
+                            <Task
+                                key={taskI}
+                                task={task.task}
+                                // taskIndex={index}
+                                // taskIdPk={props.tasks[index].task_id_pk}
+                            />
+                            {/* {task.task} */}
                         </div>
                     ))}
                 </div>
