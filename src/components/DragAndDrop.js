@@ -47,7 +47,7 @@ function DragAndDrop(props) {
         if (e.target !== dragNode.current) {
             setList(oldList => {
                 let newList = JSON.parse(JSON.stringify(oldList));
-                newList[params.grpI].items.splice(params.itemI, 0, newList[currentItem.grpI].items.splice(currentItem.itemI, 1)[0])
+                newList[params.columnI].tasks.splice(params.taskI, 0, newList[currentItem.columnI].tasks.splice(currentItem.taskI, 1)[0])
                 dragItem.current = params
                 return newList
             })
@@ -63,7 +63,7 @@ function DragAndDrop(props) {
 
     const getStyles = (params) => {
         const currentItem = dragItem.current;
-        if (currentItem.grpI ===  params.grpI && currentItem.itemI ===  params.itemI) {
+        if (currentItem.columnI ===  params.columnI && currentItem.taskI ===  params.taskI) {
             return 'current dnd-item'
         }
         return 'dnd-item'
@@ -75,9 +75,9 @@ function DragAndDrop(props) {
                 <div 
                     key={column.day} 
                     className="dnd-group" 
-                    onDragEnter={dragging && !column.items.length ? e => {handleDragEnter(e, {columnI, itemI: 0})} : null}
+                    onDragEnter={dragging && !column.tasks.length ? e => {handleDragEnter(e, {columnI, taskI: 0})} : null}
                 >
-                    <div className="group-title">{column.day.getDay()}</div>
+                    <div className="group-title"><p>head</p></div>
                     {column.tasks.map((task, taskI) => (
                         <div 
                             draggable 
