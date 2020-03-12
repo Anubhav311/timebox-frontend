@@ -56,15 +56,15 @@ function App() {
                   }
                   tasksRes.data[indexOfTodaysTasks[i]].subtasks = [...tempSubtasksArray]
                 }
-
                 for (let i=0; i<thisWeek.length; i++) {
-                    tasksListArray.push({
-                        day: nameOfDays[i],
-                        tasks: []
-                    })
-                    for (let index = 0; index < tasksRes.length; index++) {
-                        if (tasksRes[index].task_due_at.split('T')[0] === `${thisWeek[i].getFullYear()}-${('0' + (thisWeek[i].getMonth() + 1)).slice(-2)}-${('0' + thisWeek[i].getDate()).slice(-2)}`) {
-                            tasksListArray[i].tasks.push(tasksRes[index]
+                  tasksListArray.push({
+                    day: nameOfDays[i],
+                    tasks: []
+                  })
+
+                  for (let index = 0; index < tasksRes.data.length; index++) {
+                        if (tasksRes.data[index].task_due_at.split('T')[0] === `${thisWeek[i].getFullYear()}-${('0' + (thisWeek[i].getMonth() + 1)).slice(-2)}-${('0' + thisWeek[i].getDate()).slice(-2)}`) {
+                            tasksListArray[i].tasks.push(tasksRes.data[index]
                             // <Task 
                                 // key={tasksListArray.length}
                                 // task={props.tasks[index].task}

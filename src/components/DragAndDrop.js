@@ -1,33 +1,36 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 
 import './DragAndDrop.css';
 import Task from './view/Task';
+import { TaskContext } from './context/TasksContext';
 
 
 function DragAndDrop(props) {
-    const tasksListArray = []
-    const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const {tasks, dispatch} = useContext(TaskContext)
+    // const tasksListArray = []
+    // const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
-    for (let i=0; i<props.columnDate.length; i++) {
-        tasksListArray.push({
-            day: nameOfDays[i],
-            tasks: []
-        })
-        for (let index = 0; index < props.tasks.length; index++) {
-            if (props.tasks[index].task_due_at.split('T')[0] === `${props.columnDate[i].getFullYear()}-${('0' + (props.columnDate[i].getMonth() + 1)).slice(-2)}-${('0' + props.columnDate[i].getDate()).slice(-2)}`) {
-                tasksListArray[i].tasks.push(props.tasks[index]
-                // <Task 
-                    // key={tasksListArray.length}
-                    // task={props.tasks[index].task}
-                    // taskIndex={index}
-                    // taskIdPk={props.tasks[index].task_id_pk}
-                // />
-                )
-            }
-        }
-    }
+    // for (let i=0; i<props.columnDate.length; i++) {
+    //     tasksListArray.push({
+    //         day: nameOfDays[i],
+    //         tasks: []
+    //     })
+    //     console.log(props.tasks)
+    //     for (let index = 0; index < props.tasks.length; index++) {
+    //         if (props.tasks[index].task_due_at.split('T')[0] === `${props.columnDate[i].getFullYear()}-${('0' + (props.columnDate[i].getMonth() + 1)).slice(-2)}-${('0' + props.columnDate[i].getDate()).slice(-2)}`) {
+    //             tasksListArray[i].tasks.push(props.tasks[index]
+    //             // <Task 
+    //                 // key={tasksListArray.length}
+    //                 // task={props.tasks[index].task}
+    //                 // taskIndex={index}
+    //                 // taskIdPk={props.tasks[index].task_id_pk}
+    //             // />
+    //             )
+    //         }
+    //     }
+    // }
 
-    const [list, setList] = useState(tasksListArray);
+    // const [list, setList] = useState(tasksListArray);
     const [dragging, setDragging] = useState(false);
 
     const dragItem = useRef();
@@ -45,11 +48,12 @@ function DragAndDrop(props) {
     const handleDragEnter = (e, params) => {
         const currentItem = dragItem.current;
         if (e.target !== dragNode.current) {
-            setList(oldList => {
-                let newList = JSON.parse(JSON.stringify(oldList));
-                newList[params.columnI].tasks.splice(params.taskI, 0, newList[currentItem.columnI].tasks.splice(currentItem.taskI, 1)[0])
-                dragItem.current = params
-                return newList
+            let newList = JSON.parse(JSON.stringify(tasks));
+            newList[params.columnI].tasks.splice(params.taskI, 0, newList[currentItem.columnI].tasks.splice(currentItem.taskI, 1)[0])
+            dragItem.current = params
+            dispatch({
+                type: 'UPDATE_TASK_STATE',
+                payload: newList
             })
         }
     }
@@ -71,7 +75,7 @@ function DragAndDrop(props) {
 
     return (
         <div className="drag-n-drop">
-            {list.map((column, columnI) => (
+            {tasks.map((column, columnI) => (
                 <div 
                     key={column.day} 
                     className="dnd-group" 
