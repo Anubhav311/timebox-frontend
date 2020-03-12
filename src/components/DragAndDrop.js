@@ -26,7 +26,6 @@ function DragAndDrop(props) {
             }
         }
     }
-    console.log(tasksListArray)
 
     const [list, setList] = useState(tasksListArray);
     const [dragging, setDragging] = useState(false);
@@ -69,7 +68,7 @@ function DragAndDrop(props) {
         }
         return 'dnd-item'
     }
-    console.log(props.tasks, props.columnDate)
+
     return (
         <div className="drag-n-drop">
             {list.map((column, columnI) => (
@@ -78,7 +77,7 @@ function DragAndDrop(props) {
                     className="dnd-group" 
                     onDragEnter={dragging && !column.items.length ? e => {handleDragEnter(e, {columnI, itemI: 0})} : null}
                 >
-                    <div className="group-title">{column.day.getDay}</div>
+                    <div className="group-title">{column.day.getDay()}</div>
                     {column.tasks.map((task, taskI) => (
                         <div 
                             draggable 
