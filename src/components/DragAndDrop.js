@@ -14,15 +14,13 @@ function DragAndDrop(props) {
             tasks: []
         })
         for (let index = 0; index < props.tasks.length; index++) {
-
             if (props.tasks[index].task_due_at.split('T')[0] === `${props.columnDate[i].getFullYear()}-${('0' + (props.columnDate[i].getMonth() + 1)).slice(-2)}-${('0' + props.columnDate[i].getDate()).slice(-2)}`) {
                 tasksListArray[i].tasks.push(props.tasks[index]
-
                 // <Task 
-                // key={tasksListArray.length}
-                // task={props.tasks[index].task}
-                // taskIndex={index}
-                // taskIdPk={props.tasks[index].task_id_pk}
+                    // key={tasksListArray.length}
+                    // task={props.tasks[index].task}
+                    // taskIndex={index}
+                    // taskIdPk={props.tasks[index].task_id_pk}
                 // />
                 )
             }
@@ -92,7 +90,7 @@ function DragAndDrop(props) {
                                 key={taskI}
                                 task={task.task}
                                 // taskIndex={index}
-                                // taskIdPk={props.tasks[index].task_id_pk}
+                                taskIdPk={task.task_id_pk}
                             />
                             {/* {task.task} */}
                         </div>
