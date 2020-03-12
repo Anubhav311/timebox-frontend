@@ -5,10 +5,11 @@ import './DragAndDrop.css';
 
 function DragAndDrop(props) {
     const tasksListArray = []
+    const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
     for (let i=0; i<props.columnDate.length; i++) {
         tasksListArray.push({
-            day: props.columnDate[i],
+            day: nameOfDays[i],
             tasks: []
         })
         for (let index = 0; index < props.tasks.length; index++) {
@@ -77,13 +78,13 @@ function DragAndDrop(props) {
                     className="dnd-group" 
                     onDragEnter={dragging && !column.tasks.length ? e => {handleDragEnter(e, {columnI, taskI: 0})} : null}
                 >
-                    <div className="group-title"><p>head</p></div>
+                    <div className="group-title"><p>{column.day}</p></div>
                     {column.tasks.map((task, taskI) => (
                         <div 
                             draggable 
                             onDragStart={(e) => {handleDragStart(e, {columnI, taskI})}} 
                             onDragEnter={dragging ? e => {handleDragEnter(e, {columnI, taskI})} : null}
-                            key={task.task} 
+                            key={taskI} 
                             className={dragging ? getStyles({columnI, taskI}) : "dnd-item"}
                         >
                             {task.task}
