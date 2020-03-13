@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useContext, useState } from 'react';
 
 import { TaskContext } from '../context/TasksContext';
 import axios from 'axios';
@@ -6,6 +6,7 @@ import axios from 'axios';
 
 function NewTaskInputField(props) {
     const inputRef = useRef(null);
+    const [addTask, setAddTask] = useState(false)
     const {tasks, dispatch} = useContext(TaskContext)
     const updatedTasksState = [...tasks]
     const newTask = {
@@ -19,38 +20,48 @@ function NewTaskInputField(props) {
         newTask.task = e.target.value
     }
 
+    function AddTaskToggle() {
+        setAddTask(!addTask)
+    }
+
     useEffect(() => {
-        if (props.addTask) {
+        if (addTask) {
             inputRef.current.focus()
         }
-    }, [props.addTask])
+    }, [addTask])
 
-    useEffect(() => {
-        return () => {
-            if (newTask.task !== '') {
-                axios.post(`https://timebox-be.herokuapp.com/api/tasks`, {...newTask})
-                .then(res => {
-                    updatedTasksState.push(res.data)
-                    dispatch({
-                        type: 'ADD_TASK_STATE',
-                        payload: updatedTasksState
-                    })
+    const sendPostRequest = () => {
+        if (newTask.task !== '') {
+            axios.post(`https://timebox-be.herokuapp.com/api/tasks`, {...newTask})
+            .then(res => {
+                updatedTasksState[props.columnIndex].tasks.push(res.data)
+                dispatch({
+                    type: 'ADD_TASK_STATE',
+                    payload: updatedTasksState
                 })
-                .catch(err => {
-                    console.log(err)
-                })
-            }
+            })
+            .catch(err => {
+                console.log(err)
+            })
         }
-    }, [])
+        AddTaskToggle()
+    }
+
 
     return (
-        <form onSubmit={props.AddTaskToggle}>
+        <div>
+        {addTask
+            ?
+        <form onSubmit={sendPostRequest}>
             <input 
-                onBlur={props.AddTaskToggle} 
+                onBlur={sendPostRequest} 
                 ref={inputRef} 
                 onChange={changeHandler}
             />
         </form>
+            :
+        <button className="add-task" onClick={AddTaskToggle}> + </button>}
+    </div>
     )
 }
 

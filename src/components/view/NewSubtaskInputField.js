@@ -42,7 +42,7 @@ function NewTaskInputField(props) {
                 console.log(err)
             })
         }
-
+        console.log(props)
         props.AddSubtaskToggle()
     }
 
