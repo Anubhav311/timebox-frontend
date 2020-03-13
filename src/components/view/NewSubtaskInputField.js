@@ -28,10 +28,10 @@ function NewTaskInputField(props) {
         if (newSubtaskask.subtask !== '') {
             axios.post(`https://timebox-be.herokuapp.com/api/subtasks`, {...newSubtaskask})
             .then(res => {
-                if (updatedTasksState[props.taskIndex].subtasks) {
-                    updatedTasksState[props.taskIndex].subtasks.push(res.data)
+                if (updatedTasksState[props.columnIndex].tasks[props.taskIndex].subtasks) {
+                    updatedTasksState[props.columnIndex].tasks[props.taskIndex].subtasks.push(res.data)
                 } else {
-                    updatedTasksState[props.taskIndex].subtasks = [res.data]
+                    updatedTasksState[props.columnIndex].tasks[props.taskIndex].subtasks = [res.data]
                 }
                 dispatch({
                     type: 'ADD_SUBTASK_STATE',
@@ -42,7 +42,7 @@ function NewTaskInputField(props) {
                 console.log(err)
             })
         }
-        console.log(props)
+
         props.AddSubtaskToggle()
     }
 

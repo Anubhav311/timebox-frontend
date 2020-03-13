@@ -61,6 +61,7 @@ function SubtasksList(props) {
                 AddSubtaskToggle={AddSubtaskToggle} 
                 taskIdPk={props.taskIdPk}
                 taskIndex={props.taskIndex}
+                columnIndex={props.columnIndex}
             /> 
                 : 
             <button className="add-task" onClick={AddSubtaskToggle}> + </button>}
