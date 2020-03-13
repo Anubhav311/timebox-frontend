@@ -36,6 +36,7 @@ function SubtasksList(props) {
 
     const relevantTask = tasks[props.columnIndex].tasks.filter(task => task.task_id_pk === props.taskIdPk)
     let list = []
+
     if (relevantTask[0].subtasks) {
         list = relevantTask[0].subtasks.map((subtask, key) => (
             <Subtask 
@@ -45,6 +46,7 @@ function SubtasksList(props) {
                 subtaskIdPk={tasks[props.columnIndex].tasks[props.taskIndex].subtasks[key].subtask_id_pk} 
                 taskIdPk={props.taskIdPk} 
                 taskIndex={props.taskIndex} 
+                columnIndex={props.columnIndex}
             />
         ))
     }

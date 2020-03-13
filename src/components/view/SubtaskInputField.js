@@ -11,7 +11,7 @@ function TaskInputField(props) {
 
     const changeHandler = (e) => {
         e.preventDefault()
-        updateTasksState[props.taskIndex].subtasks[props.subtaskIndex].subtask = e.target.value
+        updateTasksState[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask = e.target.value
         dispatch({
             type: 'UPDATE_SUBTASK_STATE',
             payload: updateTasksState
@@ -19,10 +19,11 @@ function TaskInputField(props) {
     }
 
     const sendPutRequest = () => {
+        console.log(tasks[props.columnIndex], props)
         let payload = {
-            id: tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_id_pk,
+            id: tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_id_pk,
             payload: {
-                'subtask': tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask
+                'subtask': tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask
             }
         }
 

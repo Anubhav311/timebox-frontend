@@ -30,7 +30,6 @@ function Subtask(props) {
             })
     }
 
-
     return (
         <div>
             {isInEditMode 
@@ -39,6 +38,7 @@ function Subtask(props) {
                 changeEditMode={changeEditMode} 
                 isInEditMode={isInEditMode} 
                 text={props.text}
+                columnIndex={props.columnIndex}
                 taskIndex={props.taskIndex}
                 subtaskIndex={props.subtaskIndex}
                 subtaskIdPk={props.subtaskIdPk}
