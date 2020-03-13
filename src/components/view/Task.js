@@ -98,6 +98,7 @@ function Task(props) {
                 subtaskActive={subtaskActive} 
                 taskIdPk={props.taskIdPk} 
                 taskIndex={props.taskIndex} 
+                columnIndex={props.columnIndex}
             />}
         </DivTask>
     )

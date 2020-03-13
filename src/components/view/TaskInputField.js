@@ -29,7 +29,7 @@ function TaskInputField(props) {
             }
         }
 
-        axios.put('http://localhost:4000/api/tasks', payload)
+        axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
             .then(res => {
                 console.log(res)
             })

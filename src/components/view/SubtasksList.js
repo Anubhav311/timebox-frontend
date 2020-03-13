@@ -19,9 +19,9 @@ function SubtasksList(props) {
             .then(subtasks => {
                 loop1: 
                 for (let i = 0; i < subtasks.data.length; i++) {
-                    for (let j = 0; j < tasksAndSubtasks.length; j++) {
-                        if (subtasks.data[i].task_id_fk === tasksAndSubtasks[j].task_id_pk) {
-                            tasksAndSubtasks[j].subtasks = [...subtasks.data]
+                    for (let j = 0; j < tasksAndSubtasks[props.columnIndex].tasks.length; j++) {
+                        if (subtasks.data[i].task_id_fk === tasksAndSubtasks[props.columnIndex].tasks[j].task_id_pk) {
+                            tasksAndSubtasks[props.columnIndex].tasks[j].subtasks = [...subtasks.data]
                             break loop1;
                         }
                     }
@@ -34,7 +34,7 @@ function SubtasksList(props) {
             }))
     }, [])
 
-    const relevantTask = tasks.filter(task => task.task_id_pk === props.taskIdPk)
+    const relevantTask = tasks[props.columnIndex].tasks.filter(task => task.task_id_pk === props.taskIdPk)
     let list = []
     if (relevantTask[0].subtasks) {
         list = relevantTask[0].subtasks.map((subtask, key) => (
@@ -42,7 +42,7 @@ function SubtasksList(props) {
                 key={key}
                 text={subtask.subtask} 
                 subtaskIndex={key}
-                subtaskIdPk={tasks[props.taskIndex].subtasks[key].subtask_id_pk} 
+                subtaskIdPk={tasks[props.columnIndex].tasks[props.taskIndex].subtasks[key].subtask_id_pk} 
                 taskIdPk={props.taskIdPk} 
                 taskIndex={props.taskIndex} 
             />
