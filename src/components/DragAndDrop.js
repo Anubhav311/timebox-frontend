@@ -93,7 +93,8 @@ function DragAndDrop(props) {
                             <Task
                                 key={taskI}
                                 task={task.task}
-                                // taskIndex={index}
+                                columnIndex={columnI}
+                                taskIndex={taskI}
                                 taskIdPk={task.task_id_pk}
                             />
                             {/* {task.task} */}

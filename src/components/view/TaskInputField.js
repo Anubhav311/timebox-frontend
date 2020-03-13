@@ -12,7 +12,7 @@ function TaskInputField(props) {
     const changeHandler = (e) => {
         e.preventDefault()
 
-        updateTasksState[props.taskIndex].task = e.target.value
+        updateTasksState[props.columnIndex].tasks[props.taskIndex].task = e.target.value
 
         dispatch({
             type: 'UPDATE_TASK_STATE',
@@ -21,14 +21,15 @@ function TaskInputField(props) {
     }
 
     const sendPutRequest = () => {
+
         let payload = {
-            id: tasks[props.taskIndex].task_id_pk, 
+            id: props.taskIdPk, 
             payload: {
-                'task': tasks[props.taskIndex].task
+                'task': tasks[props.columnIndex].tasks[props.taskIndex].task
             }
         }
 
-        axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
+        axios.put('http://localhost:4000/api/tasks', payload)
             .then(res => {
                 console.log(res)
             })

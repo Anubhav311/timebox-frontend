@@ -70,10 +70,12 @@ function Task(props) {
                     {isInEditMode 
                         ? 
                     <TaskInputField 
-                        taskIndex={props.taskIndex} 
+                        taskIndex={props.taskIndex}
+                        columnIndex={props.columnIndex}
                         changeEditMode={changeEditMode} 
                         isInEditMode={isInEditMode} 
                         text={props.task}
+                        taskIdPk={props.taskIdPk}
                     />
                         :
                     <p onClick={changeEditMode}>{props.task}</p>}
