@@ -31,6 +31,8 @@ const DivToday = styled.div`
 
 export default function Today(props) {
     const {tasks, dispatch} = useContext(TaskContext)
+    const startOfDay = new Date();
+    startOfDay.setHours(0,0,0,0)
     let todaysTasks = []
     let todaysSubtasks = []
     if (tasks.length) {
@@ -44,6 +46,8 @@ export default function Today(props) {
         }
     }
     console.log(todaysSubtasks)
+
+    
     const timeboxMinutes = 5
 
     let iterator = 1440
@@ -54,33 +58,51 @@ export default function Today(props) {
     let endMinute = 0
     let counter = 0
 
-    for (let i = timeboxMinutes; i <= iterator; i = i + timeboxMinutes) {
-        endMinute = startMinute + timeboxMinutes
-
-        if (endMinute >= 60) {
-            endHour = endHour + 1
-            endMinute = 0
-        }
-
-        if (endHour === 24) {
-            endHour = 0
-        }
+    let startOfTimeSlot;
+    let endOfTimeSlot;
+    for (let i=0; i<iterator; i = i+timeboxMinutes) {
+        startOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
+        startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
+        endOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
 
         todayTimeSlots.push(
             {
-            time: `${startHour}:${startMinute} - ${endHour}:${endMinute}`,
-            subtask: todaysSubtasks[counter] ? todaysSubtasks[counter].subtask : <p>do this {counter}</p>
+            time: startOfTimeSlot + ' - ' + endOfTimeSlot,
+            subtask: todaysSubtasks[counter] ? todaysSubtasks[counter].subtask : <p> -- </p>
             }
         )
 
-        startHour = endHour
-        startMinute = startMinute + timeboxMinutes
-
-        if (startMinute >= 60) {
-            startMinute = 0
-        }
         counter++;
+        console.log(startOfTimeSlot + ' - ' + endOfTimeSlot)
     }
+
+    // for (let i = timeboxMinutes; i <= iterator; i = i + timeboxMinutes) {
+    //     endMinute = startMinute + timeboxMinutes
+
+    //     if (endMinute >= 60) {
+    //         endHour = endHour + 1
+    //         endMinute = 0
+    //     }
+
+    //     if (endHour === 24) {
+    //         endHour = 0
+    //     }
+
+        // todayTimeSlots.push(
+        //     {
+        //     time: `${startHour}:${startMinute} - ${endHour}:${endMinute}`,
+        //     subtask: todaysSubtasks[counter] ? todaysSubtasks[counter].subtask : <p> -- </p>
+        //     }
+        // )
+
+    //     startHour = endHour
+    //     startMinute = startMinute + timeboxMinutes
+
+    //     if (startMinute >= 60) {
+    //         startMinute = 0
+    //     }
+    //     counter++;
+    // }
 
     return (
         <DivToday className="today">
