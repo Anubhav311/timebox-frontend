@@ -1,6 +1,5 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 
 import { TaskContext } from '../context/TasksContext';
 import { currentDate } from '../DaysOfWeek.js'
@@ -32,6 +31,7 @@ const DivToday = styled.div`
 export default function Today(props) {
     const {tasks, dispatch} = useContext(TaskContext)
     const startOfDay = new Date();
+    startOfDay.setHours(0,0,0,0)
     const timeboxMinutes = 5
     const iterator = 1440
     let todaysTasks = []
@@ -40,8 +40,6 @@ export default function Today(props) {
     let counter = 0
     let startOfTimeSlot;
     let endOfTimeSlot;
-
-    startOfDay.setHours(0,0,0,0)
 
     if (tasks.length) {
         todaysTasks = tasks.filter(column => {
