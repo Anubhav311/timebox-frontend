@@ -45,17 +45,11 @@ export default function Today(props) {
             }
         }
     }
-    console.log(todaysSubtasks)
-
     
     const timeboxMinutes = 5
 
     let iterator = 1440
     let todayTimeSlots = []
-    let startHour = 0
-    let startMinute = 0
-    let endHour = 0
-    let endMinute = 0
     let counter = 0
 
     let startOfTimeSlot;
@@ -73,36 +67,8 @@ export default function Today(props) {
         )
 
         counter++;
-        console.log(startOfTimeSlot + ' - ' + endOfTimeSlot)
     }
 
-    // for (let i = timeboxMinutes; i <= iterator; i = i + timeboxMinutes) {
-    //     endMinute = startMinute + timeboxMinutes
-
-    //     if (endMinute >= 60) {
-    //         endHour = endHour + 1
-    //         endMinute = 0
-    //     }
-
-    //     if (endHour === 24) {
-    //         endHour = 0
-    //     }
-
-        // todayTimeSlots.push(
-        //     {
-        //     time: `${startHour}:${startMinute} - ${endHour}:${endMinute}`,
-        //     subtask: todaysSubtasks[counter] ? todaysSubtasks[counter].subtask : <p> -- </p>
-        //     }
-        // )
-
-    //     startHour = endHour
-    //     startMinute = startMinute + timeboxMinutes
-
-    //     if (startMinute >= 60) {
-    //         startMinute = 0
-    //     }
-    //     counter++;
-    // }
 
     return (
         <DivToday className="today">
