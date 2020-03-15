@@ -24,4 +24,4 @@ function Week(props) {
     )
 }
 
-export default Week;
+// export default Week;

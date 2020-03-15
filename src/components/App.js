@@ -66,12 +66,6 @@ function App() {
                   for (let index = 0; index < tasksRes.data.length; index++) {
                         if (tasksRes.data[index].task_due_at.split('T')[0] === `${fortNight[i].getFullYear()}-${('0' + (fortNight[i].getMonth() + 1)).slice(-2)}-${('0' + fortNight[i].getDate()).slice(-2)}`) {
                             tasksListArray[i].tasks.push(tasksRes.data[index]
-                            // <Task 
-                                // key={tasksListArray.length}
-                                // task={props.tasks[index].task}
-                                // taskIndex={index}
-                                // taskIdPk={props.tasks[index].task_id_pk}
-                            // />
                             )
                         }
                     }
@@ -93,17 +87,9 @@ function App() {
         <Today indexOfTodaysTasks={indexOfTodaysTasks} />
       </div>
       <div label="this week">
-        {/* <Week 
-          tasks={tasks} 
-          columnDate={thisWeek} 
-        /> */}
         <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} />
       </div>
       <div label="next week">
-        {/* <Week 
-          tasks={tasks} 
-          columnDate={nextWeek}
-        /> */}
         <DragAndDrop data={data} tasks={tasks} columnDate={nextWeek} />
       </div>
     </Tabs>
