@@ -18,3 +18,4 @@ export let day14 = new Date(); day14.setDate(day14.getDate() - currentDay + 14)
 export let day15 = new Date(); day15.setDate(day15.getDate() - currentDay + 15)
 export let thisWeek = [day1, day2, day3, day4, day5, day6, day7]
 export let nextWeek = [day8, day9, day10, day11, day12, day13, day14]
+export let fortNight = [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14]

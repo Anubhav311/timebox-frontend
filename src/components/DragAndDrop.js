@@ -54,6 +54,7 @@ function DragAndDrop(props) {
     return (
         <div className="drag-n-drop">
             {/* {tasksRender} */}
+            {console.log(tasks)}
             {tasks.map((column, columnI) => (
                 <div 
                     key={column.day} 

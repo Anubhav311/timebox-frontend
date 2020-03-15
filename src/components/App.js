@@ -4,7 +4,7 @@ import axios from 'axios';
 import Today from './view/Today';
 import Tabs from './view/Tabs';
 import Week from './view/Week';
-import { thisWeek, nextWeek } from './DaysOfWeek';
+import { thisWeek, nextWeek, fortNight } from './DaysOfWeek';
 import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';
 import { currentDate } from './DaysOfWeek.js'
@@ -18,7 +18,7 @@ function App() {
   const enddate = `${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`
   const todaysDate = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}`;
   const tasksListArray = []
-  const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
   const data = [
     {
       title: 'group 1', items: ['1', '2', '3'],
@@ -56,14 +56,14 @@ function App() {
                   }
                   tasksRes.data[indexOfTodaysTasks[i]].subtasks = [...tempSubtasksArray]
                 }
-                for (let i=0; i<thisWeek.length; i++) {
+                for (let i=0; i<fortNight.length; i++) {
                   tasksListArray.push({
                     day: nameOfDays[i],
                     tasks: []
                   })
 
                   for (let index = 0; index < tasksRes.data.length; index++) {
-                        if (tasksRes.data[index].task_due_at.split('T')[0] === `${thisWeek[i].getFullYear()}-${('0' + (thisWeek[i].getMonth() + 1)).slice(-2)}-${('0' + thisWeek[i].getDate()).slice(-2)}`) {
+                        if (tasksRes.data[index].task_due_at.split('T')[0] === `${fortNight[i].getFullYear()}-${('0' + (fortNight[i].getMonth() + 1)).slice(-2)}-${('0' + fortNight[i].getDate()).slice(-2)}`) {
                             tasksListArray[i].tasks.push(tasksRes.data[index]
                             // <Task 
                                 // key={tasksListArray.length}
@@ -96,13 +96,14 @@ function App() {
           tasks={tasks} 
           columnDate={thisWeek} 
         /> */}
+        {/* <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} /> */}
       </div>
       <div label="next week">
         {/* <Week 
           tasks={tasks} 
           columnDate={nextWeek}
         /> */}
-        <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} />
+        <DragAndDrop data={data} tasks={tasks} columnDate={nextWeek} />
       </div>
     </Tabs>
     </>
