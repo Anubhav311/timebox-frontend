@@ -59,6 +59,7 @@ function App() {
                 for (let i=0; i<fortNight.length; i++) {
                   tasksListArray.push({
                     day: nameOfDays[i],
+                    date: fortNight[i].getDate(),
                     tasks: []
                   })
 
@@ -96,7 +97,7 @@ function App() {
           tasks={tasks} 
           columnDate={thisWeek} 
         /> */}
-        {/* <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} /> */}
+        <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} />
       </div>
       <div label="next week">
         {/* <Week 
