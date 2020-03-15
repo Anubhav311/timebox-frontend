@@ -32,9 +32,17 @@ const DivToday = styled.div`
 export default function Today(props) {
     const {tasks, dispatch} = useContext(TaskContext)
     const startOfDay = new Date();
-    startOfDay.setHours(0,0,0,0)
+    const timeboxMinutes = 5
+    const iterator = 1440
     let todaysTasks = []
     let todaysSubtasks = []
+    let todayTimeSlots = []
+    let counter = 0
+    let startOfTimeSlot;
+    let endOfTimeSlot;
+
+    startOfDay.setHours(0,0,0,0)
+
     if (tasks.length) {
         todaysTasks = tasks.filter(column => {
             return column.date === currentDate.getDate();
@@ -45,15 +53,7 @@ export default function Today(props) {
             }
         }
     }
-    
-    const timeboxMinutes = 5
 
-    let iterator = 1440
-    let todayTimeSlots = []
-    let counter = 0
-
-    let startOfTimeSlot;
-    let endOfTimeSlot;
     for (let i=0; i<iterator; i = i+timeboxMinutes) {
         startOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
         startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
@@ -72,13 +72,13 @@ export default function Today(props) {
 
     return (
         <DivToday className="today">
-            {todayTimeSlots.map((num, key) => (
+            {todayTimeSlots.map((slot, key) => (
                 <div key={key} className="timeslot">
                     <div className="slot-head">
-                        <p>{num.time}</p>
+                        <p>{slot.time}</p>
                     </div>
                     <div className="slot-body">
-                        {num.subtask}
+                        {slot.subtask}
                     </div>
                 </div>
             ))}
