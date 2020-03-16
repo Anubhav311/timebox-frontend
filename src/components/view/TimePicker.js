@@ -34,16 +34,17 @@ function TimePicker() {
     // TODO if hour or minute is blank, it will input three zeros. fix that bug.
     function hour_change(e) {
         if (e.target.value > 23) {
-            e.target.value = 23;
+            setTimeState({...timeState, hour: 23})
         } else if (e.target.value < 0) {
-            e.target.value = '00';
+            setTimeState({...timeState, hour: '00'})
         }
 
-        if (e.target.value ===  "") {
-            e.target.value = formatTime(hour);
-        }
+        // if (e.target.value ===  "") {
+        //     e.target.value = formatTime(hour);
+        // }
 
-        hour = e.target.value
+        setTimeState({...timeState, hour: e.target.value})
+        // hour = e.target.value
     }
 
     function minute_change(e) {
