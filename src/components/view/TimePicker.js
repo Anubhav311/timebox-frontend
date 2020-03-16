@@ -48,16 +48,17 @@ function TimePicker() {
 
     function minute_change(e) {
         if (e.target.value > 59) {
-            e.target.value = 59;
+            setTimeState({...timeState, minute: 59})
         } else if (e.target.value < 0) {
-            e.target.value = '00';
+            setTimeState({...timeState, minute: '00'})
         }
 
-        if (e.target.value ===  "") {
-            e.target.value = formatTime(minute);
-        }
+        // if (e.target.value ===  "") {
+        //     e.target.value = formatTime(minute);
+        // }
 
-        minute = e.target.value
+        setTimeState({...timeState, minute: e.target.value})
+        // minute = e.target.value
     }
 
     function hour_up() {
