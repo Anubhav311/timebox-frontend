@@ -69,11 +69,10 @@ function TimePicker() {
     }
 
     function hour_down() {
-        hour--;
-        if (hour < 0) {
-            hour = 23;
+        setTimeState({hour: timeState.hour - 1, minute: timeState.minute});
+        if (timeState.hour < 0) {
+            setTimeState({hour: 23, minute: timeState.minute});
         }
-        setTime();
     }
 
     function minute_up() {
