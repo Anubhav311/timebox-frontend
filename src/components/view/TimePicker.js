@@ -62,26 +62,25 @@ function TimePicker() {
     }
 
     function hour_up() {
-        setTimeState({hour: timeState.hour + 1, minute: timeState.minute});
+        setTimeState({...timeState, hour: timeState.hour + 1});
         if (timeState.hour > 23) {
-            setTimeState({hour: 0, minute: timeState.minute})
+            setTimeState({...timeState, hour: 0});
         }
     }
 
     function hour_down() {
-        setTimeState({hour: timeState.hour - 1, minute: timeState.minute});
+        setTimeState({...timeState, hour: timeState.hour - 1});
         if (timeState.hour < 0) {
-            setTimeState({hour: 23, minute: timeState.minute});
+            setTimeState({...timeState, hour: 23});
         }
     }
 
     function minute_up() {
-        minute++;
-        if (minute > 59) {
-            minute = 0;
-            hour++;
+        setTimeState({...timeState, minute: timeState.minute + 1});
+        if (timeState.minute > 59) {
+            setTimeState({...timeState, minute: 0});
+            setTimeState({...timeState, hour: timeState.hour + 1});
         }
-        setTime();
     }
 
     function minute_down() {
