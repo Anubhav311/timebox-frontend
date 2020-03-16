@@ -5,31 +5,10 @@ import { HashRouter } from 'react-router-dom';
 
 function TimePicker() {
     let d = new Date()
-
     let hour = d.getHours();
     let minute = d.getMinutes();
     const [timeState, setTimeState] = useState({hour: hour, minute: minute})
 
-    const time_picker_element = document.querySelector('.time-picker');
-
-    const hr_element = document.querySelector('.time-picker .hour .hr')
-    const min_element = document.querySelector('.time-picker .minute .mn')
-
-    const hr_up = document.querySelector('.time-picker .hour .hour-up')
-    const hr_down = document.querySelector('.time-picker .hour .hour-down')
-
-    const min_up = document.querySelector('.time-picker .minute .minute-up')
-    const min_down = document.querySelector('.time-picker .minute .minute-down')
-
-
-    // hr_up.addEventListener('click', hour_up);
-    // hr_down.addEventListener('click', hour_down);
-
-    // min_up.addEventListener('click', minute_up);
-    // min_down.addEventListener('click', minute_down);
-
-    // hr_element.addEventListener('change', hour_change);
-    // min_element.addEventListener('change', minute_change);
 
     // TODO if hour or minute is blank, it will input three zeros. fix that bug.
     function hour_change(e) {
