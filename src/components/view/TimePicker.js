@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 import './TimePicker.css';
-import { HashRouter } from 'react-router-dom';
 
 function TimePicker() {
     let d = new Date()
@@ -12,33 +11,31 @@ function TimePicker() {
 
     // TODO if hour or minute is blank, it will input three zeros. fix that bug.
     function hour_change(e) {
+        setTimeState({...timeState, hour: e.target.value})
+
         if (e.target.value > 23) {
             setTimeState({...timeState, hour: 23})
         } else if (e.target.value < 0) {
             setTimeState({...timeState, hour: '00'})
         }
 
-        // if (e.target.value ===  "") {
-        //     e.target.value = formatTime(hour);
-        // }
-
-        setTimeState({...timeState, hour: e.target.value})
-        // hour = e.target.value
+        if (e.target.value ===  "") {
+            setTimeState({...timeState, hour: formatTime(timeState.hour)});
+        }
     }
 
     function minute_change(e) {
+        setTimeState({...timeState, minute: e.target.value})
+
         if (e.target.value > 59) {
             setTimeState({...timeState, minute: 59})
         } else if (e.target.value < 0) {
             setTimeState({...timeState, minute: '00'})
         }
 
-        // if (e.target.value ===  "") {
-        //     e.target.value = formatTime(minute);
-        // }
-
-        setTimeState({...timeState, minute: e.target.value})
-        // minute = e.target.value
+        if (e.target.value ===  "") {
+            setTimeState({...timeState, minute: formatTime(timeState.minute)});
+        }
     }
 
     function hour_up() {
@@ -71,10 +68,9 @@ function TimePicker() {
         }
     }
 
-
     function formatTime(time) {
         if (time < 10) {
-            time = '0' + time;
+            return '0' + time;
         }
         return time;
     }
