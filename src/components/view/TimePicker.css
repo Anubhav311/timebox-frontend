@@ -1,5 +1,6 @@
 .time-picker-container {
-    background-color: yellow;
+    background-color: #ffce00;
+    font-family: 'Saira', sans-serif;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
