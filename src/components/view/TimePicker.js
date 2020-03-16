@@ -9,7 +9,6 @@ function TimePicker() {
     let hour = d.getHours();
     let minute = d.getMinutes();
     const [timeState, setTimeState] = useState({hour: hour, minute: minute})
-    setTime();
 
     const time_picker_element = document.querySelector('.time-picker');
 
@@ -91,12 +90,6 @@ function TimePicker() {
         }
     }
 
-    function setTime() {
-        // setTimeState({hour: formatTime(timeState.hour), minute: formatTime(timeState.minute)})
-        // hr_element.value = formatTime(timeState.hour);
-        // min_element.value = formatTime(timeState.minute);
-        // time_picker_element.dataset.time = formatTime(timeState.hour) + ':' + formatTime(timeState.minute);
-    }
 
     function formatTime(time) {
         if (time < 10) {
