@@ -5,6 +5,8 @@ import Axios from 'axios';
 import SubtasksList from './SubtasksList';
 import { TaskContext } from '../context/TasksContext';
 import TaskInputField from './TaskInputField';
+import Modal from './Modal';
+import useModal from '../hooks/useModal';
 
 const DivTask = styled.div`
     .task-heading {
@@ -31,6 +33,7 @@ const DivTask = styled.div`
 `
 
 function Task(props) {
+    const {isShowing, toggle} = useModal();
     const [isInEditMode, setIsInEditMode] = useState(false)
     const [subtaskActive, setSubtaskActive] = useState('hide')
     const {tasks, dispatch} = useContext(TaskContext)
@@ -72,7 +75,7 @@ function Task(props) {
                     <TaskInputField 
                         taskIndex={props.taskIndex}
                         columnIndex={props.columnIndex}
-                        changeEditMode={changeEditMode} 
+                        changeEditMode={changeEditMode}
                         isInEditMode={isInEditMode} 
                         text={props.task}
                         taskIdPk={props.taskIdPk}
@@ -80,6 +83,14 @@ function Task(props) {
                         :
                     <p onClick={changeEditMode}>{props.task}</p>}
                 </div>
+                <div className="App">
+                    <button className="button-default" onClick={toggle}>M</button>
+                    <Modal
+                        isShowing={isShowing}
+                        hide={toggle}
+                    />
+                </div>
+
                 <div 
                     style={{
                         marginLeft: '10px', 

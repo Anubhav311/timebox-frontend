@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import TimePicker from './TimePicker';
+import './Modal.css';
 
 const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
     <React.Fragment>
