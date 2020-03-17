@@ -1,21 +1,16 @@
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 
-import './App.css'
 import Today from './view/Today';
 import Tabs from './view/Tabs';
-import Week from './view/Week';
 import { thisWeek, nextWeek, fortNight } from './DaysOfWeek';
 import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';
 import { currentDate } from './DaysOfWeek.js'
 import DragAndDrop from './DragAndDrop';
-import Modal from './view/Modal';
-import useModal from './hooks/useModal';
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
-  const {isShowing, toggle} = useModal();
   const todaysTasksIds = []
   const indexOfTodaysTasks = []
   const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
@@ -92,13 +87,6 @@ function App() {
       </div>
       <div label="this week">
         <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} />
-        <div className="App">
-          <button className="button-default" onClick={toggle}>Show Modal</button>
-          <Modal
-            isShowing={isShowing}
-            hide={toggle}
-          />
-        </div>
       </div>
       <div label="next week">
         <DragAndDrop data={data} tasks={tasks} columnDate={nextWeek} />
