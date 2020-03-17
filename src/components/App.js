@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 
 import Today from './view/Today';
@@ -10,9 +10,11 @@ import { day1, day15 } from '../components/DaysOfWeek';
 import { currentDate } from './DaysOfWeek.js'
 import DragAndDrop from './DragAndDrop';
 import TimePicker from './view/TimePicker';
+import Modal from './view/Modal';
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
+  const [isModalOpen, toggleModal] = useState(false);
   const todaysTasksIds = []
   const indexOfTodaysTasks = []
   const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
@@ -89,6 +91,16 @@ function App() {
       </div>
       <div label="this week">
         <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} />
+        <div className="App">
+          <h1>Hello CodeSandbox</h1>
+          <h2>Start editing to see some magic happen!</h2>
+          <button onClick={() => toggleModal(!isModalOpen)}>Toggle Modal</button>
+          <Modal isOpen={isModalOpen} toggle={toggleModal}>
+            <h1>test</h1>
+            <p>Other text that describes what is happening</p>
+            <button onClick={() => toggleModal(false)}>toggle</button>
+          </Modal>
+        </div>
       </div>
       <div label="next week">
         <DragAndDrop data={data} tasks={tasks} columnDate={nextWeek} />
