@@ -3,40 +3,37 @@ import React, { useState } from 'react';
 import './TimePicker.css';
 
 function TimePicker() {
-    let d = new Date()
-    let hour = d.getHours();
-    let minute = d.getMinutes();
-    const [timeState, setTimeState] = useState({hour: hour, minute: minute})
+    const [timeState, setTimeState] = useState({hour: '00', minute: '00'})
 
 
     // TODO if hour or minute is blank, it will input three zeros. fix that bug.
-    function hour_change(e) {
-        setTimeState({...timeState, hour: e.target.value})
+    // function hour_change(e) {
+    //     setTimeState({...timeState, hour: e.target.value})
 
-        if (e.target.value > 23) {
-            setTimeState({...timeState, hour: 23})
-        } else if (e.target.value < 0) {
-            setTimeState({...timeState, hour: '00'})
-        }
+    //     if (e.target.value > 23) {
+    //         setTimeState({...timeState, hour: 23})
+    //     } else if (e.target.value < 0) {
+    //         setTimeState({...timeState, hour: '00'})
+    //     }
 
-        if (e.target.value ===  "") {
-            setTimeState({...timeState, hour: formatTime(timeState.hour)});
-        }
-    }
+    //     if (e.target.value ===  "") {
+    //         setTimeState({...timeState, hour: formatTime(timeState.hour)});
+    //     }
+    // }
 
-    function minute_change(e) {
-        setTimeState({...timeState, minute: e.target.value})
+    // function minute_change(e) {
+    //     setTimeState({...timeState, minute: e.target.value})
 
-        if (e.target.value > 59) {
-            setTimeState({...timeState, minute: 59})
-        } else if (e.target.value < 0) {
-            setTimeState({...timeState, minute: '00'})
-        }
+    //     if (e.target.value > 59) {
+    //         setTimeState({...timeState, minute: 59})
+    //     } else if (e.target.value < 0) {
+    //         setTimeState({...timeState, minute: '00'})
+    //     }
 
-        if (e.target.value ===  "") {
-            setTimeState({...timeState, minute: formatTime(timeState.minute)});
-        }
-    }
+    //     if (e.target.value ===  "") {
+    //         setTimeState({...timeState, minute: formatTime(timeState.minute)});
+    //     }
+    // }
 
     function hour_up() {
         setTimeState({...timeState, hour: timeState.hour + 1});
@@ -82,7 +79,7 @@ function TimePicker() {
             <div className="time-picker" dataTime="00:00">
                 <div className="hour">
                     <div className="hour-up" onClick={hour_up} ></div>
-                    <input type="number" className="hr" value={timeState.hour} onChange={hour_change} />
+                    <input readOnly type="number" className="hr" value={timeState.hour} />
                     <div className="hour-down" onClick={hour_down} ></div>
                 </div>
 
@@ -90,7 +87,7 @@ function TimePicker() {
 
                 <div className="minute">
                     <div className="minute-up" onClick={minute_up} ></div>
-                    <input type="number" className="mn" value={timeState.minute} onChange={minute_change} />
+                    <input readOnly type="number" className="mn" value={timeState.minute} />
                     <div className="minute-down" onClick={minute_down} ></div>
                 </div>
             </div>
