@@ -4,6 +4,7 @@ import './TimePicker.css';
 
 function TimePicker() {
     const [timeState, setTimeState] = useState({hour: 0, minute: 0})
+    const timeBox = 5
 
     const hour_up = () => {
         let newHour = timeState.hour + 1
@@ -24,7 +25,7 @@ function TimePicker() {
     }
 
     function minute_up() {
-        let newMinute = timeState.minute + 1;
+        let newMinute = timeState.minute + timeBox;
 
         if (newMinute > 59) {
             newMinute = 0;
@@ -34,10 +35,10 @@ function TimePicker() {
     }
 
     function minute_down() {
-        let newMinute = timeState.minute - 1;
+        let newMinute = timeState.minute - timeBox;
 
         if (newMinute < 0) {
-            newMinute = 59;
+            newMinute = 60 - timeBox;
         }
 
         setTimeState({...timeState, minute: newMinute})
