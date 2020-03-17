@@ -49,15 +49,20 @@ function TimePicker() {
         if (newHour < 0) {
             newHour = 23;
         }
+        
         setTimeState({...timeState, hour: newHour});
     }
 
     function minute_up() {
-        setTimeState({...timeState, minute: timeState.minute + 1});
-        if (timeState.minute > 59) {
-            setTimeState({...timeState, minute: 0});
-            setTimeState({...timeState, hour: timeState.hour + 1});
+        let newMinute = timeState.minute + 1;
+        let newHour = timeState.hour;
+
+        if (newMinute > 59) {
+            newMinute = 0;
+            newHour++;
         }
+
+        setTimeState({hour: newHour, minute: newMinute});
     }
 
     function minute_down() {
