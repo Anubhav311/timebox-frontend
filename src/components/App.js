@@ -10,7 +10,6 @@ import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';
 import { currentDate } from './DaysOfWeek.js'
 import DragAndDrop from './DragAndDrop';
-import TimePicker from './view/TimePicker';
 import Modal from './view/Modal';
 import useModal from './hooks/useModal';
 
@@ -103,7 +102,6 @@ function App() {
       </div>
       <div label="next week">
         <DragAndDrop data={data} tasks={tasks} columnDate={nextWeek} />
-        <TimePicker />
       </div>
     </Tabs>
     </>

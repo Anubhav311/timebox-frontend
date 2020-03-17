@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import TimePicker from './TimePicker';
+
 const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
     <React.Fragment>
         <div className="modal-overlay"/>
@@ -11,9 +13,7 @@ const Modal = ({ isShowing, hide }) => isShowing ? ReactDOM.createPortal(
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <p>
-            Hello, I'm a modal.
-            </p>
+            <TimePicker />
         </div>
         </div>
     </React.Fragment>, document.body
