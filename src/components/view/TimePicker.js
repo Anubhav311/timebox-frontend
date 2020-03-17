@@ -45,10 +45,11 @@ function TimePicker() {
     }
 
     function hour_down() {
-        setTimeState({...timeState, hour: timeState.hour - 1});
-        if (timeState.hour < 0) {
-            setTimeState({...timeState, hour: 23});
+        let newHour = timeState.hour - 1;
+        if (newHour < 0) {
+            newHour = 23;
         }
+        setTimeState({...timeState, hour: newHour});
     }
 
     function minute_up() {
