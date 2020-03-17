@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 
+import './App.css'
 import Today from './view/Today';
 import Tabs from './view/Tabs';
 import Week from './view/Week';
