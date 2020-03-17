@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './TimePicker.css';
 
 function TimePicker() {
-    const [timeState, setTimeState] = useState({hour: '00', minute: '00'})
+    const [timeState, setTimeState] = useState({hour: 0, minute: 0})
 
 
     // TODO if hour or minute is blank, it will input three zeros. fix that bug.
@@ -35,11 +35,13 @@ function TimePicker() {
     //     }
     // }
 
-    function hour_up() {
-        setTimeState({...timeState, hour: timeState.hour + 1});
-        if (timeState.hour > 23) {
-            setTimeState({...timeState, hour: 0});
-        }
+    const hour_up = () => {
+        let newHour = timeState.hour + 1
+        if (newHour > 23) {
+            newHour = 0
+        } 
+
+        setTimeState({...timeState, hour: newHour});
     }
 
     function hour_down() {
@@ -65,12 +67,12 @@ function TimePicker() {
         }
     }
 
-    function formatTime(time) {
-        if (time < 10) {
-            return '0' + time;
-        }
-        return time;
-    }
+    // function formatTime(time) {
+    //     if (time < 10) {
+    //         return '0' + time;
+    //     }
+    //     return time;
+    // }
 
 
     return (
