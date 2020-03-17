@@ -18,17 +18,6 @@ function App() {
   const todaysDate = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}`;
   const tasksListArray = []
   const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-  const data = [
-    {
-      title: 'group 1', items: ['1', '2', '3'],
-    },
-    {
-      title: 'group 2', items: ['4', '5'],
-    },
-    {
-      title: 'group 3', items: ['6']
-    }
-  ]
 
 
   useEffect(() => {
@@ -86,10 +75,10 @@ function App() {
         <Today indexOfTodaysTasks={indexOfTodaysTasks} />
       </div>
       <div label="this week">
-        <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} />
+        <DragAndDrop tasks={tasks} columnDate={thisWeek} />
       </div>
       <div label="next week">
-        <DragAndDrop data={data} tasks={tasks} columnDate={nextWeek} />
+        <DragAndDrop tasks={tasks} columnDate={nextWeek} />
       </div>
     </Tabs>
     </>
