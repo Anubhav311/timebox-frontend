@@ -11,10 +11,11 @@ import { currentDate } from './DaysOfWeek.js'
 import DragAndDrop from './DragAndDrop';
 import TimePicker from './view/TimePicker';
 import Modal from './view/Modal';
+import useModal from './hooks/useModal';
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
-  const [isModalOpen, toggleModal] = useState(false);
+  const {isShowing, toggle} = useModal();
   const todaysTasksIds = []
   const indexOfTodaysTasks = []
   const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
@@ -92,14 +93,11 @@ function App() {
       <div label="this week">
         <DragAndDrop data={data} tasks={tasks} columnDate={thisWeek} />
         <div className="App">
-          <h1>Hello CodeSandbox</h1>
-          <h2>Start editing to see some magic happen!</h2>
-          <button onClick={() => toggleModal(!isModalOpen)}>Toggle Modal</button>
-          <Modal isOpen={isModalOpen} toggle={toggleModal}>
-            <h1>test</h1>
-            <p>Other text that describes what is happening</p>
-            <button onClick={() => toggleModal(false)}>toggle</button>
-          </Modal>
+          <button className="button-default" onClick={toggle}>Show Modal</button>
+          <Modal
+            isShowing={isShowing}
+            hide={toggle}
+          />
         </div>
       </div>
       <div label="next week">
