@@ -29,6 +29,7 @@ function App() {
             }
 
             const stringifiedTodaysTasksIds = JSON.stringify(todaysTasksIds) // converting an array into a string
+
             axios.get(`https://timebox-be.herokuapp.com/api/subtasks?tasksIds=${stringifiedTodaysTasksIds}`)
             .then(subtasks => {
 
@@ -55,7 +56,6 @@ function App() {
                         }
                     }
                 }
-                console.log(tasksListArray)
 
                 dispatch({
                   type: 'GET_TASKS_REQUEST',
