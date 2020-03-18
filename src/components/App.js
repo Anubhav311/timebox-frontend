@@ -24,16 +24,13 @@ function App() {
       axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${startdate}&enddate=${enddate}`)
           .then(tasksRes => {
             for (let i=0; i<tasksRes.data.length; i++) {
-              if (tasksRes.data[i].task_due_at.split('T')[0] === todaysDate) {
                 todaysTasksIds.push(tasksRes.data[i].task_id_pk)
                 indexOfTodaysTasks.push(i)
-              }
             }
 
             const stringifiedTodaysTasksIds = JSON.stringify(todaysTasksIds) // converting an array into a string
-
             axios.get(`https://timebox-be.herokuapp.com/api/subtasks?tasksIds=${stringifiedTodaysTasksIds}`)
-              .then(subtasks => {
+            .then(subtasks => {
 
                 for (let i = 0; i < indexOfTodaysTasks.length; i++) {
                   let tempSubtasksArray = []
@@ -58,6 +55,7 @@ function App() {
                         }
                     }
                 }
+                console.log(tasksListArray)
 
                 dispatch({
                   type: 'GET_TASKS_REQUEST',
