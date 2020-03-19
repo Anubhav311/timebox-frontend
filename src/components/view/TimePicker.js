@@ -5,7 +5,10 @@ import { TaskContext } from '../context/TasksContext';
 
 function TimePicker(props) {
     const {tasks, dispatch} = useContext(TaskContext)
-    const [timeState, setTimeState] = useState({hour: 0, minute: 0})
+    const [timeState, setTimeState] = useState({
+        hour: parseInt(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].slice(0, 2)),
+        minute: parseInt(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].slice(3, 5))
+    })
     const timeBox = 5
 
     const hour_up = () => {
@@ -59,7 +62,7 @@ function TimePicker(props) {
         console.log(newTasks)
     }
 
-
+    console.log(timeState)
     return (
         <div className="time-picker-container" >
                 <div className="time-picker" dataTime="00:00">
