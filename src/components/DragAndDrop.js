@@ -53,7 +53,6 @@ function DragAndDrop(props) {
 
     return (
         <div className="drag-n-drop">
-            {console.log(tasks)}
             {tasks.filter((date, key) => {
                 if (props.columnDate[0].getDate() === tasks[0].date) {
                     return tasks.indexOf(date) < 7;

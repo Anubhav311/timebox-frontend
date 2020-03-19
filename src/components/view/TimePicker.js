@@ -57,12 +57,11 @@ function TimePicker(props) {
         newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
         dispatch({
             type: 'UPDATE_TASK_STATE',
-            payload: updatedTaskDueAt
+            payload: newTasks
         })
-        console.log(newTasks)
     }
 
-    console.log(timeState)
+
     return (
         <div className="time-picker-container" >
                 <div className="time-picker" dataTime="00:00">
