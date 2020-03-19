@@ -1,5 +1,4 @@
 import React, { useEffect, useContext, useState } from 'react';
-import axios from 'axios'
 
 import { TaskContext } from '../context/TasksContext';
 import Subtask from './Subtask';

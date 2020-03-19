@@ -44,25 +44,30 @@ function TimePicker() {
         setTimeState({...timeState, minute: newMinute})
     }
 
+    function updateTime(e) {
+        e.preventDefault()
+        console.log(timeState)
+    }
+
 
     return (
         <div className="time-picker-container" >
-            <h1>Custom<span>Time</span>Picker</h1>
-            <div className="time-picker" dataTime="00:00">
-                <div className="hour">
-                    <div className="hour-up" onClick={hour_up} ></div>
-                    <input readOnly type="number" className="hr" value={timeState.hour} />
-                    <div className="hour-down" onClick={hour_down} ></div>
-                </div>
+                <div className="time-picker" dataTime="00:00">
+                    <div className="hour">
+                        <div className="hour-up" onClick={hour_up} ></div>
+                        <input readOnly type="number" className="hr" value={timeState.hour} />
+                        <div className="hour-down" onClick={hour_down} ></div>
+                    </div>
 
-                <div className="separator">:</div>
+                    <div className="separator">:</div>
 
-                <div className="minute">
-                    <div className="minute-up" onClick={minute_up} ></div>
-                    <input readOnly type="number" className="mn" value={timeState.minute} />
-                    <div className="minute-down" onClick={minute_down} ></div>
+                    <div className="minute">
+                        <div className="minute-up" onClick={minute_up} ></div>
+                        <input readOnly type="number" className="mn" value={timeState.minute} />
+                        <div className="minute-down" onClick={minute_down} ></div>
+                    </div>
+                    <button onClick={updateTime}>submit</button>
                 </div>
-            </div>
         </div>
     )
 }
