@@ -88,6 +88,8 @@ function Task(props) {
                     <Modal
                         isShowing={isShowing}
                         hide={toggle}
+                        taskIndex={props.taskIndex}
+                        columnIndex={props.columnIndex}
                     />
                 </div>
 

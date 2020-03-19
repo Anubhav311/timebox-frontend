@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import './TimePicker.css';
+import { TaskContext } from '../context/TasksContext';
 
-function TimePicker() {
+function TimePicker(props) {
+    const {tasks, dispatch} = useContext(TaskContext)
     const [timeState, setTimeState] = useState({hour: 0, minute: 0})
     const timeBox = 5
 
@@ -46,7 +48,15 @@ function TimePicker() {
 
     function updateTime(e) {
         e.preventDefault()
-        console.log(timeState)
+        let newTasks = JSON.parse(JSON.stringify(tasks));
+
+        const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${timeState.hour}:${timeState.minute}:00.000Z`
+        newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
+        dispatch({
+            type: 'UPDATE_TASK_STATE',
+            payload: updatedTaskDueAt
+        })
+        console.log(newTasks)
     }
 
 
