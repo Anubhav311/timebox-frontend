@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import axios from 'axios';
 
 import './TimePicker.css';
 import { TaskContext } from '../context/TasksContext';
@@ -55,11 +56,25 @@ function TimePicker(props) {
 
         const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
         newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
-        
-        dispatch({
-            type: 'UPDATE_TASK_STATE',
-            payload: newTasks
-        })
+
+        let payload = {
+            id: props.taskIdPk, 
+            payload: {
+                'task_due_at': updatedTaskDueAt
+            }
+        }
+
+        axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
+            .then(res => {
+                dispatch({
+                    type: 'UPDATE_TASK_STATE',
+                    payload: newTasks
+                })
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
     }
 
 

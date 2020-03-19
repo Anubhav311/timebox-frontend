@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import TimePicker from './TimePicker';
 import './Modal.css';
 
-const Modal = ({ isShowing, hide, taskIndex, columnIndex }) => isShowing ? ReactDOM.createPortal(
+const Modal = ({ isShowing, hide, taskIndex, columnIndex, taskIdPk }) => isShowing ? ReactDOM.createPortal(
     <React.Fragment>
         <div className="modal-overlay"/>
         <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
@@ -17,6 +17,7 @@ const Modal = ({ isShowing, hide, taskIndex, columnIndex }) => isShowing ? React
             <TimePicker
                 taskIndex={taskIndex}
                 columnIndex={columnIndex}
+                taskIdPk={taskIdPk}
             />
         </div>
         </div>

@@ -90,6 +90,7 @@ function Task(props) {
                         hide={toggle}
                         taskIndex={props.taskIndex}
                         columnIndex={props.columnIndex}
+                        taskIdPk={props.taskIdPk}
                     />
                 </div>
 
