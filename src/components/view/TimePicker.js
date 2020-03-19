@@ -51,10 +51,11 @@ function TimePicker(props) {
 
     function updateTime(e) {
         e.preventDefault()
-        let newTasks = JSON.parse(JSON.stringify(tasks));
+        const newTasks = JSON.parse(JSON.stringify(tasks));
 
-        const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${timeState.hour}:${timeState.minute}:00.000Z`
+        const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
         newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
+        
         dispatch({
             type: 'UPDATE_TASK_STATE',
             payload: newTasks
