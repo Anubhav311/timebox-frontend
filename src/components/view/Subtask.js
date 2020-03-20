@@ -52,7 +52,7 @@ function Subtask(props) {
                 alignItems: 'center', 
                 justifyContent: 'space-between'
             }}>
-                {/* <p onClick={changeEditMode}>{props.text}</p> */}
+                <p onClick={changeEditMode}>{props.text}</p>
                 <div 
                     style={{
                         marginLeft: '10px', 
