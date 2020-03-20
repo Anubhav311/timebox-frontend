@@ -32,7 +32,7 @@ function Subtask(props) {
                 console.log(err)
             })
     }
-    console.log(props)
+
     return (
         <div>
             {isInEditMode 
@@ -53,6 +53,14 @@ function Subtask(props) {
                 justifyContent: 'space-between'
             }}>
                 <p onClick={changeEditMode}>{props.text}</p>
+                <button className="button-default" onClick={toggle}>M</button>
+                <Modal
+                    isShowing={isShowing}
+                    hide={toggle}
+                    taskIndex={props.taskIndex}
+                    columnIndex={props.columnIndex}
+                    taskIdPk={props.taskIdPk}
+                />
                 <div 
                     style={{
                         marginLeft: '10px', 
@@ -61,13 +69,6 @@ function Subtask(props) {
                     onClick={deleteSubtask}
                 >x</div>
             </div>}
-            <Modal
-                isShowing={isShowing}
-                hide={toggle}
-                taskIndex={props.taskIndex}
-                columnIndex={props.columnIndex}
-                taskIdPk={props.taskIdPk}
-            />
         </div>
     )
 }
