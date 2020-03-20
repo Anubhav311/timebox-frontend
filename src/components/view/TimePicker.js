@@ -63,7 +63,6 @@ function TimePicker(props) {
         const newTasks = JSON.parse(JSON.stringify(tasks));
 
         if (props.subtaskIndex) {
-            console.log('subtask')
             const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
             newTasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at = updatedTaskDueAt
     
@@ -86,7 +85,6 @@ function TimePicker(props) {
                     console.log(err.message)
                 })    
         } else {
-            console.log('task')
             const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
             newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
     
@@ -111,11 +109,8 @@ function TimePicker(props) {
         }
     }
     let d = new Date(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at)
-    if (props.subtaskIndex) {
-        console.log('subtask')
-    } else {
-        console.log('task')
-    }
+
+
     return (
         <div className="time-picker-container" >
                 <div className="time-picker" dataTime="00:00">
