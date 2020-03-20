@@ -3,10 +3,13 @@ import Axios from 'axios';
 
 import SubtaskInputField from './SubtaskInputField';
 import { TaskContext } from '../context/TasksContext';
+import Modal from './Modal';
+import useModal from '../hooks/useModal';
 
 function Subtask(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
     const {tasks, dispatch} = useContext(TaskContext)
+    const {isShowing, toggle} = useModal();
     const updatedTasksState = [...tasks]
 
     const changeEditMode = () => {
@@ -29,7 +32,7 @@ function Subtask(props) {
                 console.log(err)
             })
     }
-
+    console.log(props)
     return (
         <div>
             {isInEditMode 
@@ -49,7 +52,7 @@ function Subtask(props) {
                 alignItems: 'center', 
                 justifyContent: 'space-between'
             }}>
-                <p onClick={changeEditMode}>{props.text}</p>
+                {/* <p onClick={changeEditMode}>{props.text}</p> */}
                 <div 
                     style={{
                         marginLeft: '10px', 
@@ -58,6 +61,13 @@ function Subtask(props) {
                     onClick={deleteSubtask}
                 >x</div>
             </div>}
+            <Modal
+                isShowing={isShowing}
+                hide={toggle}
+                taskIndex={props.taskIndex}
+                columnIndex={props.columnIndex}
+                taskIdPk={props.taskIdPk}
+            />
         </div>
     )
 }

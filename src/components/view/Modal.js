@@ -14,11 +14,11 @@ const Modal = ({ isShowing, hide, taskIndex, columnIndex, taskIdPk }) => isShowi
                 <span aria-hidden="true">&times;</span>
             </button>
             </div>
-            <TimePicker
+            {/* <TimePicker
                 taskIndex={taskIndex}
                 columnIndex={columnIndex}
                 taskIdPk={taskIdPk}
-            />
+            /> */}
         </div>
         </div>
     </React.Fragment>, document.body

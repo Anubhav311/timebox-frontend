@@ -76,8 +76,8 @@ function TimePicker(props) {
                 console.log(err.message)
             })
     }
-
-
+    let d = new Date(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at)
+    console.log(d)
     return (
         <div className="time-picker-container" >
                 <div className="time-picker" dataTime="00:00">

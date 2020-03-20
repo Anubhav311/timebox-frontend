@@ -50,21 +50,43 @@ export default function Today(props) {
                 todaysSubtasks.push(todaysTasks[0].tasks[i].subtasks[j])
             }
         }
-    }
 
-    for (let i=0; i<iterator; i = i+timeboxMinutes) {
-        startOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
-        startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
-        endOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
+        for (let i=0; i<iterator; i = i+timeboxMinutes) {
+            const subTaskDueTime = new Date(todaysSubtasks[counter].subtask_due_at)
 
-        todayTimeSlots.push(
-            {
-            time: startOfTimeSlot + ' - ' + endOfTimeSlot,
-            subtask: todaysSubtasks[counter] ? todaysSubtasks[counter].subtask : <p> -- </p>
+            startOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
+            startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
+            endOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
+
+            // console.log(startOfDay.getTime(), subTaskDueTime.getTime())
+            if ((startOfDay.getTime() - 300000) <= subTaskDueTime.getTime() && startOfDay.getTime() > subTaskDueTime.getTime()) {
+                todayTimeSlots.push({
+                    time: startOfTimeSlot + ' - ' + endOfTimeSlot,
+                    subtask: todaysSubtasks[counter].subtask
+                })
+                counter++;
+            } else {
+                todayTimeSlots.push({
+                    time: startOfTimeSlot + ' - ' + endOfTimeSlot,
+                    subtask: <p> -- </p>
+                })
             }
-        )
 
-        counter++;
+            // todayTimeSlots.push(
+            //     {
+            //     time: startOfTimeSlot + ' - ' + endOfTimeSlot,
+            //     subtask: todaysSubtasks[counter] 
+            //                 ? 
+            //             (true ? todaysSubtasks[counter].subtask : <p> -- </p>)
+            //                 : 
+            //             <p> -- </p>
+            //     }
+            // )
+            
+            // if (counter < todaysSubtasks.length - 1) {
+            //     counter++;
+            // }
+        }
     }
 
 
