@@ -7,8 +7,16 @@ import { TaskContext } from '../context/TasksContext';
 function TimePicker(props) {
     const {tasks, dispatch} = useContext(TaskContext)
     const [timeState, setTimeState] = useState({
-        hour: parseInt(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].slice(0, 2)),
-        minute: parseInt(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].slice(3, 5))
+        hour: props.subtaskIndex 
+                ? 
+            parseInt(tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at.split('T')[1].slice(0, 2)) 
+                : 
+            parseInt(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].slice(0, 2)),
+        minute: props.subtaskIndex 
+                ? 
+            parseInt(tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at.split('T')[1].slice(3, 5)) 
+                : 
+            parseInt(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].slice(3, 5))
     })
     const timeBox = 5
 
@@ -54,30 +62,60 @@ function TimePicker(props) {
         e.preventDefault()
         const newTasks = JSON.parse(JSON.stringify(tasks));
 
-        const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
-        newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
-
-        let payload = {
-            id: props.taskIdPk, 
-            payload: {
-                'task_due_at': updatedTaskDueAt
+        if (props.subtaskIndex) {
+            console.log('subtask')
+            const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
+            newTasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at = updatedTaskDueAt
+    
+            let payload = {
+                id: props.subtaskIdPk, 
+                payload: {
+                    'subtask_due_at': updatedTaskDueAt
+                }
             }
-        }
-
-        axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
-            .then(res => {
-                dispatch({
-                    type: 'UPDATE_TASK_STATE',
-                    payload: newTasks
+    
+            axios.put('https://timebox-be.herokuapp.com/api/subtasks', payload)
+                .then(res => {
+                    dispatch({
+                        type: 'UPDATE_SUBTASK_STATE',
+                        payload: newTasks
+                    })
+                    console.log(res)
                 })
-                console.log(res)
-            })
-            .catch(err => {
-                console.log(err.message)
-            })
+                .catch(err => {
+                    console.log(err.message)
+                })    
+        } else {
+            console.log('task')
+            const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
+            newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
+    
+            let payload = {
+                id: props.taskIdPk, 
+                payload: {
+                    'task_due_at': updatedTaskDueAt
+                }
+            }
+    
+            axios.put('https://timebox-be.herokuapp.com/api/tasks', payload)
+                .then(res => {
+                    dispatch({
+                        type: 'UPDATE_TASK_STATE',
+                        payload: newTasks
+                    })
+                    console.log(res)
+                })
+                .catch(err => {
+                    console.log(err.message)
+                })
+        }
     }
     let d = new Date(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at)
-    console.log(d)
+    if (props.subtaskIndex) {
+        console.log('subtask')
+    } else {
+        console.log('task')
+    }
     return (
         <div className="time-picker-container" >
                 <div className="time-picker" dataTime="00:00">
