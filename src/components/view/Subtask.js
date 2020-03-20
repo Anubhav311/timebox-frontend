@@ -5,6 +5,7 @@ import SubtaskInputField from './SubtaskInputField';
 import { TaskContext } from '../context/TasksContext';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
+import TimePicker from './TimePicker';
 
 function Subtask(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
@@ -54,13 +55,21 @@ function Subtask(props) {
             }}>
                 <p onClick={changeEditMode}>{props.text}</p>
                 <button className="button-default" onClick={toggle}>M</button>
-                <Modal
-                    isShowing={isShowing}
+                <Modal isShowing={isShowing} hide={toggle}>
+                    <TimePicker
+                        taskIndex={props.taskIndex}
+                        columnIndex={props.columnIndex}
+                        subtaskIndex={props.subtaskIndex}
+                        taskIdPk={props.taskIdPk}
+                        subtaskIdPk={props.subtaskIdPk}
+                    />
+                </Modal>
+                    {/* isShowing={isShowing}
                     hide={toggle}
                     taskIndex={props.taskIndex}
                     columnIndex={props.columnIndex}
                     taskIdPk={props.taskIdPk}
-                />
+                /> */}
                 <div 
                     style={{
                         marginLeft: '10px', 
