@@ -7,7 +7,6 @@ import { TaskContext } from '../context/TasksContext';
 import TaskInputField from './TaskInputField';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
-import TimePicker from './TimePicker';
 
 const DivTask = styled.div`
     .task-heading {
@@ -86,13 +85,13 @@ function Task(props) {
                 </div>
                 <div className="App">
                     <button className="button-default" onClick={toggle}>M</button>
-                    <Modal isShowing={isShowing} hide={toggle}>
-                        <TimePicker
-                            taskIndex={props.taskIndex}
-                            columnIndex={props.columnIndex}
-                            taskIdPk={props.taskIdPk}
-                        />
-                    </Modal>
+                    <Modal
+                        isShowing={isShowing}
+                        hide={toggle}
+                        taskIndex={props.taskIndex}
+                        columnIndex={props.columnIndex}
+                        taskIdPk={props.taskIdPk}
+                    />
                 </div>
 
                 <div 
