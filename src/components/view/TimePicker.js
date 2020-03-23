@@ -83,7 +83,7 @@ function TimePicker(props) {
                 })
                 .catch(err => {
                     console.log(err.message)
-                })    
+                })
         } else {
             const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
             newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
