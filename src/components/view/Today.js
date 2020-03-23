@@ -43,7 +43,6 @@ export default function Today(props) {
 
     if (tasks.length) {
         todaysTasks = tasks.filter(column => {
-            // console.log(column.date, currentDate.getDate())
             return column.date === currentDate.getDate();
         })
         for (let i=0; i<todaysTasks[0].tasks.length; i++) {
@@ -60,7 +59,6 @@ export default function Today(props) {
             startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
             endOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
 
-            // console.log(startOfDay, startOfDay.getTime(), subTaskDueTime, subTaskDueTime.getTime())
             if ((startOfDay.getTime() - 300000) <= subTaskDueTime.getTime() && startOfDay.getTime() > subTaskDueTime.getTime()) {
                 todayTimeSlots.push({
                     time: startOfTimeSlot + ' - ' + endOfTimeSlot,
@@ -75,20 +73,6 @@ export default function Today(props) {
             }
             temp++;
 
-            // todayTimeSlots.push(
-            //     {
-            //     time: startOfTimeSlot + ' - ' + endOfTimeSlot,
-            //     subtask: todaysSubtasks[counter] 
-            //                 ? 
-            //             (true ? todaysSubtasks[counter].subtask : <p> -- </p>)
-            //                 : 
-            //             <p> -- </p>
-            //     }
-            // )
-            
-            // if (counter < todaysSubtasks.length - 1) {
-            //     counter++;
-            // }
         }
     }
 
