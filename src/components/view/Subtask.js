@@ -64,12 +64,6 @@ function Subtask(props) {
                         subtaskIdPk={props.subtaskIdPk}
                     />
                 </Modal>
-                    {/* isShowing={isShowing}
-                    hide={toggle}
-                    taskIndex={props.taskIndex}
-                    columnIndex={props.columnIndex}
-                    taskIdPk={props.taskIdPk}
-                /> */}
                 <div 
                     style={{
                         marginLeft: '10px', 
