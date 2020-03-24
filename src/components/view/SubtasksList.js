@@ -7,31 +7,10 @@ import NewSubtaskInputField from './NewSubtaskInputField';
 function SubtasksList(props) {
     const {tasks, dispatch} = useContext(TaskContext)
     const [addSubtask, setAddSubtask] = useState(false)
-    // const tasksAndSubtasks = [...tasks]
 
     function AddSubtaskToggle() {
         setAddSubtask(!addSubtask)
     }
-
-    // useEffect(() => {
-    //     axios.get(`https://timebox-be.herokuapp.com/api/subtasks?task_id_fk=${props.taskIdPk}`)
-    //         .then(subtasks => {
-    //             loop1: 
-    //             for (let i = 0; i < subtasks.data.length; i++) {
-    //                 for (let j = 0; j < tasksAndSubtasks[props.columnIndex].tasks.length; j++) {
-    //                     if (subtasks.data[i].task_id_fk === tasksAndSubtasks[props.columnIndex].tasks[j].task_id_pk) {
-    //                         tasksAndSubtasks[props.columnIndex].tasks[j].subtasks = [...subtasks.data]
-    //                         break loop1;
-    //                     }
-    //                 }
-    //             }
-    //             return tasksAndSubtasks;
-    //         })
-    //         .then(tasksAndSubtasks => dispatch({
-    //             type: 'GET_SUBTASKS_REQUEST',
-    //             payload: tasksAndSubtasks
-    //         }))
-    // }, [])
 
     const relevantTask = tasks[props.columnIndex].tasks.filter(task => task.task_id_pk === props.taskIdPk)
     let list = []
