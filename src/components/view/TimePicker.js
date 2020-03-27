@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import './TimePicker.css';
 import { TaskContext } from '../context/TasksContext';
+import { currentDate } from '../DaysOfWeek';
 
 function TimePicker(props) {
     const {tasks, dispatch} = useContext(TaskContext)
@@ -57,7 +58,7 @@ function TimePicker(props) {
 
         setTimeState({...timeState, minute: newMinute})
     }
-
+    console.log(currentDate)
     function updateTime(e) {
         e.preventDefault()
         const newTasks = JSON.parse(JSON.stringify(tasks));
