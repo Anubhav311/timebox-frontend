@@ -43,17 +43,14 @@ export default function Today(props) {
 
     if (tasks.length) {
         todaysTasks = tasks.filter(column => {
-            console.log(column.date.getDate(), currentDate.getDate())
             return column.date.getDate() === currentDate.getDate();
         })
-        console.log(todaysTasks)
         for (let i=0; i<todaysTasks[0].tasks.length; i++) {
             for (let j=0; j<todaysTasks[0].tasks[i].subtasks.length; j++) {
                 todaysSubtasks.push(todaysTasks[0].tasks[i].subtasks[j])
             }
         }
         let temp = 0
-        console.log(todaysSubtasks)
         for (let i=0; i<iterator; i = i+timeboxMinutes) {
             const subTaskDueTime = new Date(todaysSubtasks[counter].subtask_due_at)
 
