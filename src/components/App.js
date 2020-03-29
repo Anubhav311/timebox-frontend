@@ -19,7 +19,7 @@ function App() {
   const tasksListArray = []
   const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
-
+  console.log(tasks)
   useEffect(() => {
       axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${startdate}&enddate=${enddate}`)
           .then(tasksRes => {
@@ -45,7 +45,7 @@ function App() {
                 for (let i=0; i<fortNight.length; i++) {
                   tasksListArray.push({
                     day: nameOfDays[i],
-                    date: fortNight[i].getDate(),
+                    date: fortNight[i],
                     tasks: []
                   })
 
