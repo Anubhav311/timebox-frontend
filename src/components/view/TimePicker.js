@@ -62,11 +62,10 @@ function TimePicker(props) {
     console.log(tasks)
     function updateTime(e) {
         e.preventDefault()
-        const newTasks = JSON.parse(JSON.stringify(tasks));
+        const newTasks = [...tasks]
+        // const newTasks = JSON.parse(JSON.stringify(tasks)); //can't use deep copy because its turning tasks[0].date object into a string.
 
         if (props.subtaskIndex) {
-            // const updatedTaskDueAt = `${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
-            // console.log(updatedTaskDueAt)
             const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
             newTasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at = updatedTaskDueAt
     
