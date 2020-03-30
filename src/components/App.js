@@ -13,18 +13,8 @@ function App() {
   const {tasks, dispatch} = useContext(TaskContext)
   const todaysTasksIds = []
   const indexOfTodaysTasks = []
-  const startdate = {
-    year: day1.getFullYear(),
-    month: day1.getMonth(),
-    date: day1.getDate()
-  }
-  const enddate = {
-    year: day15.getFullYear(),
-    month: day15.getMonth(),
-    date: day15.getDate()
-  }
-  // const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
-  // const enddate = `${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`
+  const startdate = `${day1.getFullYear()}-${('0' + (day1.getMonth() + 1)).slice(-2)}-${('0' + day1.getDate()).slice(-2)}T00:00:00Z`
+  const enddate = `${day15.getFullYear()}-${('0' + (day15.getMonth() + 1)).slice(-2)}-${('0' + day15.getDate()).slice(-2)}T00:00:00Z`
   const todaysDate = `${currentDate.getFullYear()}-${('0' + (currentDate.getMonth() + 1)).slice(-2)}-${('0' + currentDate.getDate()).slice(-2)}`;
   const tasksListArray = []
   const nameOfDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -33,7 +23,6 @@ function App() {
   useEffect(() => {
       axios.get(`https://timebox-be.herokuapp.com/api/tasks?startdate=${startdate}&enddate=${enddate}`)
           .then(tasksRes => {
-            console.log(tasksRes.data)
             for (let i=0; i<tasksRes.data.length; i++) {
                 todaysTasksIds.push(tasksRes.data[i].task_id_pk)
                 indexOfTodaysTasks.push(i)
