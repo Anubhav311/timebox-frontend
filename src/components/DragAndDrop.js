@@ -25,7 +25,8 @@ function DragAndDrop(props) {
     const handleDragEnter = (e, params) => {
         const currentItem = dragItem.current;
         if (e.target !== dragNode.current) {
-            let newList = JSON.parse(JSON.stringify(tasks));
+            // let newList = JSON.parse(JSON.stringify(tasks)); //can't use deep copy because its turning tasks[0].date object into a string.
+            let newList = [...tasks]
             newList[params.columnI].tasks.splice(params.taskI, 0, newList[currentItem.columnI].tasks.splice(currentItem.taskI, 1)[0])
             dragItem.current = params
             dispatch({
@@ -54,10 +55,11 @@ function DragAndDrop(props) {
     return (
         <div className="drag-n-drop">
             {tasks.filter((date, key) => {
-                if (props.columnDate[0].getDate() === tasks[0].date) {
+                // console.log('0: ', tasks[0].date.getDate(), '7: ',tasks[7].date.getDate())
+                if (props.columnDate[0].getDate() === tasks[0].date.getDate()) {
                     return tasks.indexOf(date) < 7;
                 }
-                if (props.columnDate[0].getDate() === tasks[7].date) {
+                if (props.columnDate[0].getDate() === tasks[7].date.getDate()) {
                     return tasks.indexOf(date) > 6;
                 }
                 return false;

@@ -58,8 +58,8 @@ function TimePicker(props) {
 
         setTimeState({...timeState, minute: newMinute})
     }
-    console.log(`${currentDate.getFullYear()}-${currentDate.getMonth()+1}-${currentDate.getDate()}T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`)
-    console.log(currentDate.getFullYear(), currentDate.getMonth()+1, currentDate.getDate())
+
+    console.log(tasks)
     function updateTime(e) {
         e.preventDefault()
         const newTasks = JSON.parse(JSON.stringify(tasks));
