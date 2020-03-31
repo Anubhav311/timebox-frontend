@@ -68,7 +68,6 @@ function TimePicker(props) {
         if (props.subtaskIndex) {
             console.log(tasks[props.columnIndex])
             const updatedTaskDueAt = console.log(`${tasks[props.columnIndex].date.getFullYear()}-${('0' + (tasks[props.columnIndex].date.getMonth()+1)).slice(-2)}-${('0' + tasks[props.columnIndex].date.getDate()).slice(-2)}T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000`)
-            // const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
             newTasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at = updatedTaskDueAt
     
             let payload = {
