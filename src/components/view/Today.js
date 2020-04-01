@@ -43,7 +43,7 @@ export default function Today(props) {
 
     if (tasks.length) {
         todaysTasks = tasks.filter(column => {
-            return column.date.getDate() === currentDate.getDate();
+            return column.columnDate === currentDate.getDate();
         })
         for (let i=0; i<todaysTasks[0].tasks.length; i++) {
             for (let j=0; j<todaysTasks[0].tasks[i].subtasks.length; j++) {
