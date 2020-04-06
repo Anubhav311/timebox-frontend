@@ -40,7 +40,7 @@ export default function Today(props) {
     let counter = 0
     let startOfTimeSlot;
     let endOfTimeSlot;
-    console.log(tasks)
+
     if (tasks.length) {
         todaysTasks = tasks.filter(column => {
             return column.columnDate.getDate() === currentDate.getDate();
