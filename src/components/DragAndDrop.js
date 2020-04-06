@@ -55,11 +55,11 @@ function DragAndDrop(props) {
     return (
         <div className="drag-n-drop">
             {tasks.filter((date, key) => {
-                // console.log('0: ', tasks[0].date.getDate(), '7: ',tasks[7].date.getDate())
-                if (props.columnDate[0].getDate() === tasks[0].date.getDate()) {
+                console.log(props, tasks[0])
+                if (props.columnDate[0].getDate() === tasks[0].columnDate.getDate()) {
                     return tasks.indexOf(date) < 7;
                 }
-                if (props.columnDate[0].getDate() === tasks[7].date.getDate()) {
+                if (props.columnDate[0].getDate() === tasks[7].columnDate.getDate()) {
                     return tasks.indexOf(date) > 6;
                 }
                 return false;

@@ -40,10 +40,10 @@ export default function Today(props) {
     let counter = 0
     let startOfTimeSlot;
     let endOfTimeSlot;
-
+    console.log(tasks)
     if (tasks.length) {
         todaysTasks = tasks.filter(column => {
-            return column.columnDate === currentDate.getDate();
+            return column.columnDate.getDate() === currentDate.getDate();
         })
         for (let i=0; i<todaysTasks[0].tasks.length; i++) {
             for (let j=0; j<todaysTasks[0].tasks[i].subtasks.length; j++) {
