@@ -42,14 +42,20 @@ export default function Today(props) {
     let endOfTimeSlot;
 
     if (tasks.length) {
+        //extracting todays tasks
         todaysTasks = tasks.filter(column => {
+            // console.log(column.columnDate.getDate(), currentDate.getDate(), column)
             return column.columnDate.getDate() === currentDate.getDate();
         })
+
+        //extracting todays subtasks
         for (let i=0; i<todaysTasks[0].tasks.length; i++) {
             for (let j=0; j<todaysTasks[0].tasks[i].subtasks.length; j++) {
                 todaysSubtasks.push(todaysTasks[0].tasks[i].subtasks[j])
             }
         }
+
+        //matching todays subtasks with time slots
         let temp = 0
         for (let i=0; i<iterator; i = i+timeboxMinutes) {
             const subTaskDueTime = new Date(todaysSubtasks[counter].subtask_due_at)
@@ -58,6 +64,7 @@ export default function Today(props) {
             startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
             endOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
 
+            // console.log(startOfDay.getDate(), subTaskDueTime.getDate(), todaysSubtasks[counter].subtask_due_at)
             if ((startOfDay.getTime() - 300000) <= subTaskDueTime.getTime() && startOfDay.getTime() > subTaskDueTime.getTime()) {
                 todayTimeSlots.push({
                     time: startOfTimeSlot + ' - ' + endOfTimeSlot,
