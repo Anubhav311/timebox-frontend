@@ -65,7 +65,7 @@ function TimePicker(props) {
         const localISOTimeString = GetLocalISOTimeString(tasks[props.columnIndex].columnDate)
         // const newTasks = JSON.parse(JSON.stringify(tasks)); //can't use deep copy because its turning tasks[0].date object into a string.
 
-        if (props.subtaskIndex) {
+        if (props.subtaskIndex !== undefined) {
             const updatedTaskDueAt = localISOTimeString.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000`
             newTasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at = updatedTaskDueAt
             let payload = {

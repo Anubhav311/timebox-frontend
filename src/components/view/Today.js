@@ -53,22 +53,24 @@ export default function Today(props) {
                 todaysSubtasks.push(todaysTasks[0].tasks[i].subtasks[j])
             }
         }
-
+        console.log(todaysSubtasks)
         //matching todays subtasks with time slots
         let temp = 0
         for (let i=0; i<iterator; i = i+timeboxMinutes) {
+            // console.log(todaysSubtasks[counter].subtask_due_at)
             const subTaskDueTime = new Date(todaysSubtasks[counter].subtask_due_at)
 
             startOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
             startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
             endOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
-
+            console.log((startOfDay.getTime() - 300000) <= subTaskDueTime.getTime(), startOfDay.getTime() > subTaskDueTime.getTime())
             if ((startOfDay.getTime() - 300000) <= subTaskDueTime.getTime() && startOfDay.getTime() > subTaskDueTime.getTime()) {
+                console.log('hit')
                 todayTimeSlots.push({
                     time: startOfTimeSlot + ' - ' + endOfTimeSlot,
                     subtask: todaysSubtasks[counter].subtask
                 })
-                counter++;
+                if (counter < todaysSubtasks.length - 1) counter++;
             } else {
                 todayTimeSlots.push({
                     time: startOfTimeSlot + ' - ' + endOfTimeSlot,

@@ -66,7 +66,7 @@ function App() {
           .catch(err => console.log(err))
   }, [])
 
-
+  console.log(tasks)
 return (<>
     <Tabs>
       <div label="today">
