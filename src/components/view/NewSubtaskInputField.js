@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useContext } from 'react';
 import { TaskContext } from '../context/TasksContext';
 import axios from 'axios';
 
+import { GetLocalISOTimeString } from '../DaysOfWeek';
+
 
 function NewTaskInputField(props) {
     const inputRef = useRef(null);
@@ -10,8 +12,10 @@ function NewTaskInputField(props) {
     const updatedTasksState = [...tasks]
     const newSubtaskask = {
         subtask: '',
+        subtask_due_at: GetLocalISOTimeString(tasks[props.columnIndex].columnDate),
         task_id_fk: props.taskIdPk
     }
+    console.log(newSubtaskask, tasks[props.columnIndex].columnDate)
 
     const changeHandler = e => {
         e.preventDefault()

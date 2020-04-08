@@ -22,7 +22,7 @@ export const fortNight = [day1, day2, day3, day4, day5, day6, day7, day8, day9, 
 
 export function GetLocalISOTimeString(dateObject) {
     const timezoneOffset = dateObject.getTimezoneOffset() * 60000 //offset in milliseconds
-    const localISOTime = new Date(Date.now() - timezoneOffset)
+    const localISOTime = new Date(dateObject.getTime() - timezoneOffset)
     const localISOTimeString = localISOTime.toISOString().slice(0, -1)
     return localISOTimeString;
 }
