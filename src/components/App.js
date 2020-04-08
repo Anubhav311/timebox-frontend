@@ -65,8 +65,9 @@ function App() {
           })
           .catch(err => console.log(err))
   }, [])
-console.log(tasks)
-  return (<>
+
+
+return (<>
     <Tabs>
       <div label="today">
         <Today indexOfTodaysTasks={indexOfTodaysTasks} />
