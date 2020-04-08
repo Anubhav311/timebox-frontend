@@ -19,3 +19,10 @@ export const day15 = new Date(); day15.setDate(day15.getDate() - currentDay + 15
 export const thisWeek = [day1, day2, day3, day4, day5, day6, day7]
 export const nextWeek = [day8, day9, day10, day11, day12, day13, day14]
 export const fortNight = [day1, day2, day3, day4, day5, day6, day7, day8, day9, day10, day11, day12, day13, day14]
+
+export function GetLocalISOTimeString(dateObject) {
+    const timezoneOffset = dateObject.getTimezoneOffset() * 60000 //offset in milliseconds
+    const localISOTime = new Date(Date.now() - timezoneOffset)
+    const localISOTimeString = localISOTime.toISOString().slice(0, -1)
+    return localISOTimeString;
+}

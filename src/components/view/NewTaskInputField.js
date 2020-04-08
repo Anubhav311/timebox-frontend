@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from 'react';
 
 import { TaskContext } from '../context/TasksContext';
 import axios from 'axios';
+import { GetLocalISOTimeString } from '../DaysOfWeek';
 
 
 function NewTaskInputField(props) {
@@ -9,14 +10,9 @@ function NewTaskInputField(props) {
     const [addTask, setAddTask] = useState(false)
     const {tasks, dispatch} = useContext(TaskContext)
     const updatedTasksState = [...tasks]
-    
-    // assigning local time to new task in ISO string format
-    const timezoneOffset = tasks[props.columnIndex].columnDate.getTimezoneOffset() * 60000 //offset in milliseconds
-    const localISOTime = new Date(Date.now() - timezoneOffset)
-    const localISOTimeString = localISOTime.toISOString().slice(0, -1)
-    const newTask = {
+        const newTask = {
         task: '',
-        task_due_at: localISOTimeString,
+        task_due_at: GetLocalISOTimeString(tasks[props.columnIndex].columnDate),
         user_id_fk: 1
     }
 
