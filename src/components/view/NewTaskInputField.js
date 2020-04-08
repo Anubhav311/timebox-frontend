@@ -9,11 +9,13 @@ function NewTaskInputField(props) {
     const [addTask, setAddTask] = useState(false)
     const {tasks, dispatch} = useContext(TaskContext)
     const updatedTasksState = [...tasks]
+    console.log(props.columnDate.toISOString())
     const newTask = {
         task: '',
-        task_due_at: props.columnDate,
+        task_due_at: props.columnDate.toISOString(),
         user_id_fk: 1
     }
+    console.log(newTask)
 
     const changeHandler = e => {
         e.preventDefault()
