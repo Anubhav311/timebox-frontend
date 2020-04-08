@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './TimePicker.css';
 import { TaskContext } from '../context/TasksContext';
-import { currentDate } from '../DaysOfWeek';
+import { GetLocalISOTimeString } from '../DaysOfWeek';
 
 function TimePicker(props) {
     const {tasks, dispatch} = useContext(TaskContext)
@@ -59,17 +59,15 @@ function TimePicker(props) {
         setTimeState({...timeState, minute: newMinute})
     }
 
-    console.log(tasks)
     function updateTime(e) {
         e.preventDefault()
         const newTasks = [...tasks]
         // const newTasks = JSON.parse(JSON.stringify(tasks)); //can't use deep copy because its turning tasks[0].date object into a string.
 
         if (props.subtaskIndex) {
-            console.log(tasks[props.columnIndex])
             const updatedTaskDueAt = console.log(`${tasks[props.columnIndex].date.getFullYear()}-${('0' + (tasks[props.columnIndex].date.getMonth()+1)).slice(-2)}-${('0' + tasks[props.columnIndex].date.getDate()).slice(-2)}T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000`)
             newTasks[props.columnIndex].tasks[props.taskIndex].subtasks[props.subtaskIndex].subtask_due_at = updatedTaskDueAt
-    
+            
             let payload = {
                 id: props.subtaskIdPk, 
                 payload: {
@@ -89,9 +87,9 @@ function TimePicker(props) {
                     console.log(err.message)
                 })
         } else {
-            const updatedTaskDueAt = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000Z`
+            const localISOTimeString = GetLocalISOTimeString(tasks[props.columnIndex].columnDate)
+            const updatedTaskDueAt = localISOTimeString.split('T')[0] + `T${('0' + timeState.hour).slice(-2)}:${('0' + timeState.minute).slice(-2)}:00.000`
             newTasks[props.columnIndex].tasks[props.taskIndex].task_due_at = updatedTaskDueAt
-    
             let payload = {
                 id: props.taskIdPk, 
                 payload: {

@@ -10,7 +10,7 @@ function NewTaskInputField(props) {
     const [addTask, setAddTask] = useState(false)
     const {tasks, dispatch} = useContext(TaskContext)
     const updatedTasksState = [...tasks]
-        const newTask = {
+    const newTask = {
         task: '',
         task_due_at: GetLocalISOTimeString(tasks[props.columnIndex].columnDate),
         user_id_fk: 1
