@@ -15,7 +15,6 @@ function NewTaskInputField(props) {
         subtask_due_at: GetLocalISOTimeString(tasks[props.columnIndex].columnDate),
         task_id_fk: props.taskIdPk
     }
-    console.log(newSubtaskask, tasks[props.columnIndex].columnDate)
 
     const changeHandler = e => {
         e.preventDefault()
