@@ -7,8 +7,9 @@
   .tab-list {
     padding-left: 0;
     display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    width: 100%;
+    border-bottom: 2px solid darkgray;
   }
   
   .tab-list-item {
@@ -16,27 +17,27 @@
     list-style: none;
     margin-bottom: -1px;
     padding: 0.5rem 0.75rem;
-    width: 180px;
+    width: 140px;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
-    height: 50px;
+    height: 20px;
     padding-top: 13px;
-    border-bottom: 2px solid #ccc;
+    /* border-bottom: 2px solid #ccc; */
   }
   
   .tab-list-active {
-    border-bottom: 3px solid #C04789;
+    border-bottom: 2px solid #C04789;
   }
   
-  .tab-container {
+  /* .tab-container {
     padding: 20px;
     background-color: #222840;
     height: 350px;
     margin-bottom: 100px;
     border-radius: 10px;
     overflow: auto;
-  }
+  } */
   
   /* width */
   .tab-container::-webkit-scrollbar {
