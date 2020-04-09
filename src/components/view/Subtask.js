@@ -6,6 +6,7 @@ import { TaskContext } from '../context/TasksContext';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
 import TimePicker from './TimePicker';
+import './SubtaskStyles.css';
 
 function Subtask(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
@@ -35,7 +36,26 @@ function Subtask(props) {
     }
 
     return (
-        <div>
+        <div className="subtasks_container">
+            <div className="top_container">
+                <button className="button-default" onClick={toggle}>o</button>
+                <Modal isShowing={isShowing} hide={toggle}>
+                    <TimePicker
+                        taskIndex={props.taskIndex}
+                        columnIndex={props.columnIndex}
+                        subtaskIndex={props.subtaskIndex}
+                        taskIdPk={props.taskIdPk}
+                        subtaskIdPk={props.subtaskIdPk}
+                    />
+                </Modal>
+                <div 
+                    style={{
+                        marginLeft: '10px', 
+                        cursor: 'pointer'
+                    }} 
+                    onClick={deleteSubtask}
+                >x</div>
+            </div>
             {isInEditMode 
                 ? 
             <SubtaskInputField 
@@ -53,24 +73,7 @@ function Subtask(props) {
                 alignItems: 'center', 
                 justifyContent: 'space-between'
             }}>
-                <p onClick={changeEditMode}>{props.text}</p>
-                <button className="button-default" onClick={toggle}>M</button>
-                <Modal isShowing={isShowing} hide={toggle}>
-                    <TimePicker
-                        taskIndex={props.taskIndex}
-                        columnIndex={props.columnIndex}
-                        subtaskIndex={props.subtaskIndex}
-                        taskIdPk={props.taskIdPk}
-                        subtaskIdPk={props.subtaskIdPk}
-                    />
-                </Modal>
-                <div 
-                    style={{
-                        marginLeft: '10px', 
-                        cursor: 'pointer'
-                    }} 
-                    onClick={deleteSubtask}
-                >x</div>
+                <p className="subtask_text" onClick={changeEditMode}>{props.text}</p>
             </div>}
         </div>
     )

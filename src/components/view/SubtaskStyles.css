@@ -1,0 +1,13 @@
+.subtasks_container {
+    padding-left: 10px;
+}
+
+.subtask_text {
+    font-size: 0.9rem;
+    margin: 10px 0;
+}
+
+.top_container {
+    display: flex;
+    justify-content: space-between;
+}
