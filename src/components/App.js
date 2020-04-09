@@ -8,7 +8,7 @@ import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';
 import { currentDate } from './DaysOfWeek.js'
 import DragAndDrop from './DragAndDrop';
-import './GlobalStyles.css'
+import './AppStyles.css'
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
@@ -70,7 +70,7 @@ function App() {
 
   return (
     <div>
-      <h2>TimeBox</h2>
+      <h2 className="timebox">TimeBox</h2>
       <Tabs>
         <div label="Today">
           <Today indexOfTodaysTasks={indexOfTodaysTasks} />

@@ -18,16 +18,14 @@ const DivToday = styled.div`
     .slot-head {
         border-right: 1px solid #8E8F91;
         width: 20%;
-        padding: 5px;
     }
 
     .slot-body {
         width: 80%;
-        padding: 5px;
     }
 
     p {
-        margin: 8px 5px;
+        margin: 8px;
     }
 `
 
@@ -76,7 +74,7 @@ export default function Today(props) {
             } else {
                 todayTimeSlots.push({
                     time: startOfTimeSlot + ' - ' + endOfTimeSlot,
-                    subtask: <p> {temp} </p>
+                    subtask: <p>---</p>
                 })
             }
             temp++;

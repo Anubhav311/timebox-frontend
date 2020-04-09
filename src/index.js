@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import TaskContextProvider from './components/context/TasksContext';
 import App from './components/App';
+import './GlobalStyles.css'
 
 
 ReactDOM.render(
