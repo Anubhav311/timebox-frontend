@@ -1,7 +1,8 @@
 .tabs {
     width: 100%;
-    margin: 30px auto;
-    height: 430px;
+    /* margin: 30px auto; */
+    height: auto;
+    background-color: #323336;
   }
   
   .tab-list {
@@ -23,7 +24,6 @@
     cursor: pointer;
     height: 20px;
     padding-top: 13px;
-    /* border-bottom: 2px solid #ccc; */
   }
   
   .tab-list-active {
@@ -54,11 +54,9 @@
   .tab-container::-webkit-scrollbar-thumb {
     background: #9AC6C9; 
     border-radius: 5px;
-  
   }
   
   /* Handle on hover */
   .tab-container::-webkit-scrollbar-thumb:hover {
     background: #9ac6c9;; 
   }
-  

@@ -9,7 +9,7 @@ const DivToday = styled.div`
     margin: auto;
 
     .timeslot {
-        width: 90%;
+        width: 100%;
         margin: auto;
         display: flex;
     }
