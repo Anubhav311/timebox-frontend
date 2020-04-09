@@ -68,19 +68,21 @@ function App() {
   }, [])
 
 
-  return (<>
-    <Tabs>
-      <div label="today">
-        <Today indexOfTodaysTasks={indexOfTodaysTasks} />
-      </div>
-      <div label="this week">
-        <DragAndDrop tasks={tasks} columnDate={thisWeek} />
-      </div>
-      <div label="next week">
-        <DragAndDrop tasks={tasks} columnDate={nextWeek} />
-      </div>
-    </Tabs>
-    </>
+  return (
+    <div>
+      <h2>TimeBox</h2>
+      <Tabs>
+        <div label="Today">
+          <Today indexOfTodaysTasks={indexOfTodaysTasks} />
+        </div>
+        <div label="This Week">
+          <DragAndDrop tasks={tasks} columnDate={thisWeek} />
+        </div>
+        <div label="Next Week">
+          <DragAndDrop tasks={tasks} columnDate={nextWeek} />
+        </div>
+      </Tabs>
+    </div>
   );
 }
 

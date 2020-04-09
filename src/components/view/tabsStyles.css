@@ -1,7 +1,6 @@
 .tabs {
     width: 100%;
     height: auto;
-    background-color: #323336;
   }
   
   .tab-list {
@@ -9,7 +8,7 @@
     display: flex;
     margin-bottom: 30px;
     width: 100%;
-    border-bottom: 2px solid darkgray;
+    border-bottom: 1px solid #8E8F91;
   }
   
   .tab-list-item {
@@ -19,12 +18,12 @@
     padding: 0.5rem 0.75rem;
     width: 140px;
     text-align: center;
-    font-weight: bold;
+    /* font-weight: bold; */
     cursor: pointer;
     height: 20px;
     padding-top: 13px;
     /* color: #6B6C6F; */
-    color: darkgray;
+    color: #8E8F91;
   }
   
   .tab-list-active {
