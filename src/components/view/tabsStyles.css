@@ -1,6 +1,9 @@
+body {
+  margin: 0px;
+}
+
 .tabs {
     width: 100%;
-    /* margin: 30px auto; */
     height: auto;
     background-color: #323336;
   }
@@ -24,10 +27,13 @@
     cursor: pointer;
     height: 20px;
     padding-top: 13px;
+    /* color: #6B6C6F; */
+    color: darkgray;
   }
   
   .tab-list-active {
-    border-bottom: 2px solid #C04789;
+    border-bottom: 2px solid #0064FE;
+    color: white;
   }
   
   /* .tab-container {
