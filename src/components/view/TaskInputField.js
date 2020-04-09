@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 
 import { TaskContext } from '../context/TasksContext';
-
+import './TaskInputFieldStyles.css';
 
 function TaskInputField(props) {
     const {tasks, dispatch} = useContext(TaskContext)
@@ -49,6 +49,7 @@ function TaskInputField(props) {
     return (
         <form onSubmit={sendPutRequest}>
             <input 
+                className="task_input_field"
                 onChange={changeHandler}
                 onBlur={sendPutRequest}
                 type="text"
