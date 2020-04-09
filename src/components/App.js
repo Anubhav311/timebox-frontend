@@ -46,6 +46,7 @@ function App() {
                 for (let i=0; i<fortNight.length; i++) {
                   tasksListArray.push({
                     columnDate: fortNight[i],
+                    columnDay: nameOfDays[i],
                     tasks: []
                   })
 

@@ -51,7 +51,7 @@ function DragAndDrop(props) {
         return 'dnd-item'
     }
 
-
+    console.log(tasks)
     return (
         <div className="drag-n-drop">
             {tasks.filter((date, key) => {
@@ -68,7 +68,7 @@ function DragAndDrop(props) {
                     className="dnd-group" 
                     onDragEnter={dragging && !column.tasks.length ? e => {handleDragEnter(e, {columnI, taskI: 0})} : null}
                 >
-                    <div className="group-title"><p>{column.day}</p></div>
+                    <div className="group-title"><p>{column.columnDay}</p></div>
                     {column.tasks.map((task, taskI) => (
                         <div 
                             draggable 
