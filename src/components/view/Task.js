@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import styled from 'styled-components';
 import Axios from 'axios';
 
 import SubtasksList from './SubtasksList';
@@ -8,30 +7,8 @@ import TaskInputField from './TaskInputField';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
 import TimePicker from './TimePicker';
+import './TaskStyles.css'
 
-const DivTask = styled.div`
-    .task-heading {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: yellow;
-        margin-right: 10px;
-    }
-
-    .subtasks {
-        display: block;
-    }
-
-    .hide {
-        display: none;
-    }
-`
 
 function Task(props) {
     const {isShowing, toggle} = useModal();
@@ -66,7 +43,7 @@ function Task(props) {
     }
 
     return (
-        <DivTask>
+        <div>
             {/* code for rendering task */}
             <div className="task-heading">
                 <div className="dot" onClick={toggleSubtask}></div>
@@ -82,7 +59,7 @@ function Task(props) {
                         taskIdPk={props.taskIdPk}
                     />
                         :
-                    <p onClick={changeEditMode}>{props.task}</p>}
+                    <p className="task_text" onClick={changeEditMode}>{props.task}</p>}
                 </div>
                 <div className="App">
                     <button className="button-default" onClick={toggle}>M</button>
@@ -115,7 +92,7 @@ function Task(props) {
                 taskIndex={props.taskIndex} 
                 columnIndex={props.columnIndex}
             />}
-        </DivTask>
+        </div>
     )
 }
 

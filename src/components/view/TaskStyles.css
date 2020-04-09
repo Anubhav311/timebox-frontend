@@ -1,0 +1,25 @@
+.task-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task_text {
+    font-size: 1rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: yellow;
+    margin-right: 10px;
+}
+
+.subtasks {
+    display: block;
+}
+
+.hide {
+    display: none;
+}

@@ -11,7 +11,7 @@
 .dnd-group {
     /* background-color: #323336; */
     border-radius: 5px;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
 }
 
 .dnd-item {
@@ -21,7 +21,6 @@
     min-height: 150px;
     background-color: #090A0C;
     border-radius: 5px;
-    color: white;
 }
 
 .dnd-item:not(:last-of-type) {
