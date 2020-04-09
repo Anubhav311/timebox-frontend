@@ -43,10 +43,29 @@ function Task(props) {
     }
 
     return (
-        <div>
+        <div className="task_container">
             {/* code for rendering task */}
             <div className="task-heading">
-                <div className="dot" onClick={toggleSubtask}></div>
+                <div className="upper_items">
+                    <div>
+                        <button className="button-default" onClick={toggle}>o</button>
+                        <Modal isShowing={isShowing} hide={toggle}>
+                            <TimePicker
+                                taskIndex={props.taskIndex}
+                                columnIndex={props.columnIndex}
+                                taskIdPk={props.taskIdPk}
+                            />
+                        </Modal>
+                    </div>
+
+                    <div 
+                        style={{
+                            marginLeft: '10px', 
+                            cursor: 'pointer'
+                        }} 
+                        onClick={deleteTask}
+                    >x</div>
+                </div>
                 <div>
                     {isInEditMode 
                         ? 
@@ -61,24 +80,7 @@ function Task(props) {
                         :
                     <p className="task_text" onClick={changeEditMode}>{props.task}</p>}
                 </div>
-                <div className="App">
-                    <button className="button-default" onClick={toggle}>M</button>
-                    <Modal isShowing={isShowing} hide={toggle}>
-                        <TimePicker
-                            taskIndex={props.taskIndex}
-                            columnIndex={props.columnIndex}
-                            taskIdPk={props.taskIdPk}
-                        />
-                    </Modal>
-                </div>
-
-                <div 
-                    style={{
-                        marginLeft: '10px', 
-                        cursor: 'pointer'
-                    }} 
-                    onClick={deleteTask}
-                >x</div>
+                <div className="dot" onClick={toggleSubtask}></div>
             </div>
             
             {/* code for rendering subtasks */}

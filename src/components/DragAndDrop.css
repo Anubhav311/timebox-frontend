@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 150px;
+    /* min-height: 150px; */
     background-color: #090A0C;
     border-radius: 5px;
 }

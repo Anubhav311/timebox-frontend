@@ -59,5 +59,8 @@
   .button-default {
     background: #247BA0;
     color: #fff;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border-radius: 50%;
   }
-  
