@@ -12,18 +12,22 @@ const DivToday = styled.div`
         width: 100%;
         margin: auto;
         display: flex;
+        border-bottom: 1px solid #8E8F91;
     }
 
     .slot-head {
-        background: red;
+        border-right: 1px solid #8E8F91;
         width: 20%;
         padding: 5px;
     }
 
     .slot-body {
-        background: green;
         width: 80%;
         padding: 5px;
+    }
+
+    p {
+        margin: 8px 5px;
     }
 `
 
