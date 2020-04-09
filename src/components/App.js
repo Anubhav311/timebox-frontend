@@ -8,6 +8,7 @@ import { TaskContext } from './context/TasksContext';
 import { day1, day15 } from '../components/DaysOfWeek';
 import { currentDate } from './DaysOfWeek.js'
 import DragAndDrop from './DragAndDrop';
+import './GlobalStyles.css'
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
