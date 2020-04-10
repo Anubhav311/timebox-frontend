@@ -53,46 +53,49 @@ function DragAndDrop(props) {
 
     console.log(tasks)
     return (
-        <div className="drag-n-drop">
-            {tasks.filter((date, key) => {
-                if (props.columnDate[0].getDate() === tasks[0].columnDate.getDate()) {
-                    return tasks.indexOf(date) < 7;
-                }
-                if (props.columnDate[0].getDate() === tasks[7].columnDate.getDate()) {
-                    return tasks.indexOf(date) > 6;
-                }
-                return false;
-            }).map((column, columnI) => (
-                <div 
-                    key={column.day} 
-                    className="dnd-group" 
-                    onDragEnter={dragging && !column.tasks.length ? e => {handleDragEnter(e, {columnI, taskI: 0})} : null}
-                >
-                    <div className="group-title"><p>{column.columnDay}</p></div>
-                    {column.tasks.map((task, taskI) => (
-                        <div 
-                            draggable 
-                            onDragStart={(e) => {handleDragStart(e, {columnI, taskI})}} 
-                            onDragEnter={dragging ? e => {handleDragEnter(e, {columnI, taskI})} : null}
-                            key={taskI} 
-                            className={dragging ? getStyles({columnI, taskI}) : "dnd-item"}
-                        >
-                            <Task
-                                key={taskI}
-                                task={task.task}
-                                columnIndex={columnI}
-                                taskIndex={taskI}
-                                taskIdPk={task.task_id_pk}
-                            />
-                        </div>
-                    )).concat(
-                        <NewTaskInputField 
-                            columnDate={props.columnDate[columnI]} 
-                            columnIndex={columnI} 
-                        />)}
-                </div>
-            ))}
-        </div>
+        // <div className="drag-n-drop-container">
+
+            <div className="drag-n-drop">
+                {tasks.filter((date, key) => {
+                    if (props.columnDate[0].getDate() === tasks[0].columnDate.getDate()) {
+                        return tasks.indexOf(date) < 7;
+                    }
+                    if (props.columnDate[0].getDate() === tasks[7].columnDate.getDate()) {
+                        return tasks.indexOf(date) > 6;
+                    }
+                    return false;
+                }).map((column, columnI) => (
+                    <div 
+                        key={column.day} 
+                        className="dnd-group" 
+                        onDragEnter={dragging && !column.tasks.length ? e => {handleDragEnter(e, {columnI, taskI: 0})} : null}
+                    >
+                        <div className="group-title"><p>{column.columnDay}</p></div>
+                        {column.tasks.map((task, taskI) => (
+                            <div 
+                                draggable 
+                                onDragStart={(e) => {handleDragStart(e, {columnI, taskI})}} 
+                                onDragEnter={dragging ? e => {handleDragEnter(e, {columnI, taskI})} : null}
+                                key={taskI} 
+                                className={dragging ? getStyles({columnI, taskI}) : "dnd-item"}
+                            >
+                                <Task
+                                    key={taskI}
+                                    task={task.task}
+                                    columnIndex={columnI}
+                                    taskIndex={taskI}
+                                    taskIdPk={task.task_id_pk}
+                                />
+                            </div>
+                        )).concat(
+                            <NewTaskInputField 
+                                columnDate={props.columnDate[columnI]} 
+                                columnIndex={columnI} 
+                            />)}
+                    </div>
+                ))}
+            </div>
+        // </div>
     )
 }
 

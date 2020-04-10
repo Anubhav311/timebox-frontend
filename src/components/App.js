@@ -76,7 +76,7 @@ function App() {
         <div label="Today">
           <Today indexOfTodaysTasks={indexOfTodaysTasks} />
         </div>
-        <div label="This Week">
+        <div label="This Week" className="this_week_container">
           <DragAndDrop tasks={tasks} columnDate={thisWeek} />
         </div>
         <div label="Next Week">
