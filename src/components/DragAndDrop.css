@@ -1,11 +1,4 @@
-/* .drag-n-drop-container {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-} */
-
 .drag-n-drop {
-    /* margin: 0px 50px; */
     display: grid;
     gap: .5rem;
     padding: .5rem;
@@ -15,6 +8,7 @@
     grid-auto-columns: 15%;
     grid-auto-flow: column;
     align-items: start;
+    box-sizing: border-box;
     overflow-x: scroll;
     overflow-y: scroll;
 }
