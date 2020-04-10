@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useContext, useState } from 'react';
+import axios from 'axios';
 
 import { TaskContext } from '../context/TasksContext';
-import axios from 'axios';
 import { GetLocalISOTimeString } from '../DaysOfWeek';
+import './NewTaskInputFieldStyles.css';
 
 
 function NewTaskInputField(props) {
@@ -61,7 +62,7 @@ function NewTaskInputField(props) {
             />
         </form>
             :
-        <button className="add-task" onClick={AddTaskToggle}> + </button>}
+        <button className="add-task-button" onClick={AddTaskToggle}> + </button>}
     </div>
     )
 }

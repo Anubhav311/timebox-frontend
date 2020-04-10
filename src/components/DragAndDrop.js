@@ -69,10 +69,8 @@ function DragAndDrop(props) {
                     onDragEnter={dragging && !column.tasks.length ? e => {handleDragEnter(e, {columnI, taskI: 0})} : null}
                 >
                     <div className="group-title"><p>{column.columnDay}</p></div>
-                    <NewTaskInputField 
-                        columnDate={props.columnDate[columnI]} 
-                        columnIndex={columnI} 
-                    />                    {column.tasks.map((task, taskI) => (
+                    <NewTaskInputField columnDate={props.columnDate[columnI]} columnIndex={columnI} />
+                    {column.tasks.map((task, taskI) => (
                         <div 
                             draggable 
                             onDragStart={(e) => {handleDragStart(e, {columnI, taskI})}} 
