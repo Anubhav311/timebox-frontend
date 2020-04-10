@@ -56,13 +56,14 @@ function NewTaskInputField(props) {
             ?
         <form onSubmit={sendPostRequest}>
             <input 
+                className="add-task-input-field"
                 onBlur={sendPostRequest} 
                 ref={inputRef} 
                 onChange={changeHandler}
             />
         </form>
             :
-        <button className="add-task-button" onClick={AddTaskToggle}> + </button>}
+        <button className="add-task-button button-general" onClick={AddTaskToggle}> + </button>}
     </div>
     )
 }

@@ -9,3 +9,15 @@
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+.add-task-input-field {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px dashed #8E8F91;
+    background: #090A0C;
+    color: white;
+    box-sizing: border-box;
+    padding: 2px;
+}
