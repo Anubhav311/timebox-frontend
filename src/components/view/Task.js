@@ -7,7 +7,7 @@ import TaskInputField from './TaskInputField';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
 import TimePicker from './TimePicker';
-import './TaskStyles.css'
+import '../../styles/TaskStyles.css'
 
 
 function Task(props) {

@@ -6,7 +6,7 @@ import { TaskContext } from '../context/TasksContext';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
 import TimePicker from './TimePicker';
-import './SubtaskStyles.css';
+import '../../styles/SubtaskStyles.css';
 
 function Subtask(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)

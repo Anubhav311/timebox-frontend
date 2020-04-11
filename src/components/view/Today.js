@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 
 import { TaskContext } from '../context/TasksContext';
 import { currentDate } from '../utilities/DaysOfWeek.js'
-import './TodayStyles.css';
+import '../../styles/TodayStyles.css';
 
 
 export default function Today(props) {

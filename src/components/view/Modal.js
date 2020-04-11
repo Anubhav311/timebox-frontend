@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import TimePicker from './TimePicker';
-import './Modal.css';
+import '../../styles/Modal.css';
 
 const Modal = (props) => props.isShowing ? ReactDOM.createPortal(
     <React.Fragment>

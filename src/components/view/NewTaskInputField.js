@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { TaskContext } from '../context/TasksContext';
 import { GetLocalISOTimeString } from '../utilities/DaysOfWeek';
-import './NewTaskInputFieldStyles.css';
+import '../../styles/NewTaskInputFieldStyles.css';
 
 
 function NewTaskInputField(props) {
