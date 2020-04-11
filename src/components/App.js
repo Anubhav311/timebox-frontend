@@ -3,10 +3,10 @@ import axios from 'axios';
 
 import Today from './view/Today';
 import Tabs from './view/Tabs';
-import { thisWeek, nextWeek, fortNight } from './utilities/DaysOfWeek';
+import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from './utilities/DaysOfWeek';
 import { TaskContext } from './context/TasksContext';
-import { day1, day15 } from './utilities/DaysOfWeek';
-import { currentDate } from './utilities/DaysOfWeek.js'
+// import { day1, day15 } from './utilities/DaysOfWeek';
+// import { currentDate } from './utilities/DaysOfWeek.js'
 import DragAndDrop from './DragAndDrop';
 import './AppStyles.css'
 
