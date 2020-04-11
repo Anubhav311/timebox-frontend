@@ -6,7 +6,7 @@ import Tabs from './view/Tabs';
 import { TaskContext } from './context/TasksContext';
 import DragAndDrop from './utilities/DragAndDrop';
 import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from './utilities/DaysOfWeek';
-import './AppStyles.css'
+import '../styles/AppStyles.css'
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)

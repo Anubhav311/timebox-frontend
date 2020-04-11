@@ -1,6 +1,6 @@
 import React, { useState, useRef, useContext } from 'react';
 
-import '../DragAndDrop.css';
+import '../../styles/DragAndDrop.css';
 import Task from '../view/Task';
 import { TaskContext } from '../context/TasksContext';
 import NewTaskInputField from '../view/NewTaskInputField';
