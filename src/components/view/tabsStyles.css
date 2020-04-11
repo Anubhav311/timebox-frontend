@@ -6,7 +6,6 @@
   .tab-list {
     padding-left: 0;
     display: flex;
-    margin-bottom: 30px;
     width: 100%;
     border-bottom: 1px solid #8E8F91;
   }
