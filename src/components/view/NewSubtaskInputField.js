@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useContext } from 'react';
-
-import { TaskContext } from '../context/TasksContext';
 import axios from 'axios';
 
+import { TaskContext } from '../context/TasksContext';
 import { GetLocalISOTimeString } from '../utilities/DaysOfWeek';
+import '../../styles/NewSubtaskInputField.css';
 
 
 function NewTaskInputField(props) {
@@ -52,6 +52,7 @@ function NewTaskInputField(props) {
     return (
         <form onSubmit={sendPostRequest}>
             <input 
+                className="add-subtask-input-field"
                 onBlur={sendPostRequest} 
                 ref={inputRef} 
                 onChange={changeHandler}
