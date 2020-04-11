@@ -1,12 +1,12 @@
 import React, { useEffect, useContext, useState } from 'react';
 import axios from 'axios';
 
-import Today from './view/Today';
-import Tabs from './view/Tabs';
-import { TaskContext } from './context/TasksContext';
-import DragAndDrop from './utilities/DragAndDrop';
-import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from './utilities/DaysOfWeek';
-import '../styles/AppStyles.css'
+import Today from './Today';
+import Tabs from './Tabs';
+import { TaskContext } from '../context/TasksContext';
+import DragAndDrop from '../utilities/DragAndDrop';
+import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from '../utilities/DaysOfWeek';
+import '../../styles/AppStyles.css'
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
