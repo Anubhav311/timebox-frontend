@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import './TimePicker.css';
 import { TaskContext } from '../context/TasksContext';
-import { GetLocalISOTimeString } from '../DaysOfWeek';
+import { GetLocalISOTimeString } from '../utilities/DaysOfWeek';
 
 function TimePicker(props) {
     const {tasks, dispatch} = useContext(TaskContext)

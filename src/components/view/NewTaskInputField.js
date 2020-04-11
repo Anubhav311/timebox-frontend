@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from 'react';
 import axios from 'axios';
 
 import { TaskContext } from '../context/TasksContext';
-import { GetLocalISOTimeString } from '../DaysOfWeek';
+import { GetLocalISOTimeString } from '../utilities/DaysOfWeek';
 import './NewTaskInputFieldStyles.css';
 
 

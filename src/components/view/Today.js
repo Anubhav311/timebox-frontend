@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { TaskContext } from '../context/TasksContext';
-import { currentDate } from '../DaysOfWeek.js'
+import { currentDate } from '../utilities/DaysOfWeek.js'
 import './TodayStyles.css';
 
 
