@@ -3,31 +3,32 @@ import styled from 'styled-components';
 
 import { TaskContext } from '../context/TasksContext';
 import { currentDate } from '../DaysOfWeek.js'
+import './TodayStyles.css';
 
-const DivToday = styled.div`
-    width: 90%;
-    margin: auto;
+// const DivToday = styled.div`
+//     width: 90%;
+//     margin: auto;
 
-    .timeslot {
-        width: 100%;
-        margin: auto;
-        display: flex;
-        border-bottom: 1px solid #8E8F91;
-    }
+//     .timeslot {
+//         width: 100%;
+//         margin: auto;
+//         display: flex;
+//         border-bottom: 1px solid #8E8F91;
+//     }
 
-    .slot-head {
-        border-right: 1px solid #8E8F91;
-        width: 20%;
-    }
+//     .slot-head {
+//         border-right: 1px solid #8E8F91;
+//         width: 20%;
+//     }
 
-    .slot-body {
-        width: 80%;
-    }
+//     .slot-body {
+//         width: 80%;
+//     }
 
-    p {
-        margin: 8px;
-    }
-`
+//     p {
+//         margin: 8px;
+//     }
+// `
 
 
 export default function Today(props) {
@@ -84,7 +85,7 @@ export default function Today(props) {
 
 
     return (
-        <DivToday className="today">
+        <div className="today">
             {todayTimeSlots.map((slot, key) => (
                 <div key={key} className="timeslot">
                     <div className="slot-head">
@@ -95,6 +96,6 @@ export default function Today(props) {
                     </div>
                 </div>
             ))}
-        </DivToday>
+        </div>
     )
 }
