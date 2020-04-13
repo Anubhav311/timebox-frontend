@@ -49,7 +49,7 @@ export default function Today(props) {
             } else {
                 todayTimeSlots.push({
                     time: startOfTimeSlot + ' - ' + endOfTimeSlot,
-                    subtask: <p>---</p>
+                    subtask: "---"
                 })
             }
             temp++;
@@ -63,10 +63,10 @@ export default function Today(props) {
             {todayTimeSlots.map((slot, key) => (
                 <div key={key} className="timeslot">
                     <div className="slot-head">
-                        <p>{slot.time}</p>
+                        <p className="today_text">{slot.time}</p>
                     </div>
                     <div className="slot-body">
-                        {slot.subtask}
+                        <p className="today_text">{slot.subtask}</p>
                     </div>
                 </div>
             ))}
