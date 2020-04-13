@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
+import { Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Today from './Today';
@@ -70,7 +71,10 @@ function App() {
   return (
     <div>
       <h2 className="timebox">TimeBox</h2>
-      <Tabs>
+      <Route exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
+      <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
+      <Route exact path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
+      {/* <Tabs>
         <div label="Today">
           <Today indexOfTodaysTasks={indexOfTodaysTasks} />
         </div>
@@ -80,7 +84,7 @@ function App() {
         <div label="Next Week">
           <DragAndDrop tasks={tasks} columnDate={nextWeek} />
         </div>
-      </Tabs>
+      </Tabs> */}
     </div>
   );
 }
