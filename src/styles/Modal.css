@@ -47,12 +47,10 @@
   }
     
   .button-default {
-    background: #247BA0;
-    color: #fff;
-    width: 25px;
-    height: 25px;
-    padding: 0;
-    border-radius: 50%;
-    margin-left: .5rem;
+    background: #090A0C;
+    color: #8E8F91;
+    padding: 0px;
     border: none;
+    font-size: .7rem;
+    cursor: pointer;
   }
