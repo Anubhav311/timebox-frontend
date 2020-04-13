@@ -10,8 +10,8 @@ function NavBar() {
         <h2 className="timebox">TimeBox</h2>
         <div className="nav_items">
             <li><NavLink exact to="/" className="nav_item" activeClassName="active_nav_item">Today</NavLink></li>
-            <li><NavLink to="/thisweek" className="nav_item" activeClassName="active_nav_item">This Week</NavLink></li>
-            <li><NavLink to="/nextweek" className="nav_item" activeClassName="active_nav_item">Next Week</NavLink></li>
+            <li><NavLink to="/thisweek" className="nav_item" activeClassName="active_nav_item">Week</NavLink></li>
+            <li><NavLink to="/nextweek" className="nav_item" activeClassName="active_nav_item">Calendar</NavLink></li>
         </div>
     </ul>
     )
