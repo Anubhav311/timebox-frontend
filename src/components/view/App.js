@@ -71,6 +71,7 @@ function App() {
 
   return (
     <div>
+      <NavBar />
       <Switch>
         <Route exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
