@@ -1,8 +1,9 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
 import Today from './Today';
+import NavBar from './NavBar';
 import Tabs from './Tabs';
 import { TaskContext } from '../context/TasksContext';
 import DragAndDrop from '../utilities/DragAndDrop';
@@ -70,10 +71,11 @@ function App() {
 
   return (
     <div>
-      <h2 className="timebox">TimeBox</h2>
-      <Route exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
-      <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
-      <Route exact path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
+      <Switch>
+        <Route exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
+        <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
+        <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
+      </Switch>
       {/* <Tabs>
         <div label="Today">
           <Today indexOfTodaysTasks={indexOfTodaysTasks} />
