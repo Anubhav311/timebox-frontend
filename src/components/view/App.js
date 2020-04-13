@@ -4,11 +4,9 @@ import axios from 'axios';
 
 import Today from './Today';
 import NavBar from './NavBar';
-import Tabs from './Tabs';
 import { TaskContext } from '../context/TasksContext';
 import DragAndDrop from '../utilities/DragAndDrop';
 import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from '../utilities/DaysOfWeek';
-import '../../styles/AppStyles.css'
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
@@ -77,17 +75,6 @@ function App() {
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
         <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
       </Switch>
-      {/* <Tabs>
-        <div label="Today">
-          <Today indexOfTodaysTasks={indexOfTodaysTasks} />
-        </div>
-        <div label="This Week" className="this_week_container">
-          <DragAndDrop tasks={tasks} columnDate={thisWeek} />
-        </div>
-        <div label="Next Week">
-          <DragAndDrop tasks={tasks} columnDate={nextWeek} />
-        </div>
-      </Tabs> */}
     </div>
   );
 }
