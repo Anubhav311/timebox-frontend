@@ -9,9 +9,9 @@ function NavBar() {
     <ul className="navbar">
         <h2 className="timebox">TimeBox</h2>
         <div className="nav_items">
-            <li><NavLink className="nav_item" active to="/">Today</NavLink></li>
-            <li><NavLink className="nav_item" to="/thisweek">This Week</NavLink></li>
-            <li><NavLink className="nav_item" to="/nextweek">Next Week</NavLink></li>
+            <li><NavLink exact to="/" className="nav_item" activeClassName="active_nav_item">Today</NavLink></li>
+            <li><NavLink to="/thisweek" className="nav_item" activeClassName="active_nav_item">This Week</NavLink></li>
+            <li><NavLink to="/nextweek" className="nav_item" activeClassName="active_nav_item">Next Week</NavLink></li>
         </div>
     </ul>
     )

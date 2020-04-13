@@ -22,3 +22,6 @@
     text-decoration: none;
     color: #8E8F91;
 }
+.active_nav_item {
+    color: red;
+}
