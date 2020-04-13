@@ -1,0 +1,28 @@
+.navbar {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+
+.timebox {
+    text-align: right;
+    margin: 20px;
+}
+
+.nav_items {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background: red; */
+    width: 30%;
+}
+
+/* .nav_item {
+    color: #8E8F91;
+} */
+
+.nav_item {
+    text-decoration: none;
+    color: #8E8F91;
+}

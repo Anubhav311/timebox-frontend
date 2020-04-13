@@ -1,22 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../../styles/NavBar.css';
+
 function NavBar() {
 
-    return (<ul>
+    return (
+    <ul className="navbar">
         <h2 className="timebox">TimeBox</h2>
-        <div>
-            <Link to="/">
-                <li>Today</li>            
-            </Link>
-            <Link to="/thisweek">
-                <li>This Week</li>            
-            </Link>
-            <Link to="nextweek">
-                <li>Next Week</li>            
-            </Link>
+        <div className="nav_items">
+            <li><Link className="nav_item" to="/">Today</Link></li>
+            <li><Link className="nav_item" to="/thisweek">This Week</Link></li>
+            <li><Link className="nav_item" to="/nextweek">Next Week</Link></li>
         </div>
-    </ul>)
+    </ul>
+    )
 }
 
 export default NavBar;
