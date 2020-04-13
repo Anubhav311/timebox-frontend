@@ -16,6 +16,7 @@ function Task(props) {
     const [subtaskActive, setSubtaskActive] = useState('hide')
     const {tasks, dispatch} = useContext(TaskContext)
     const updatedTasksState = [...tasks]
+    const taskDueTime = tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].substr(0, 5)
 
     const changeEditMode = () => {
         setIsInEditMode(!isInEditMode)
@@ -41,6 +42,7 @@ function Task(props) {
                 console.log(err)
             })
     }
+    console.log(tasks[props.columnIndex].tasks[props.taskIndex].task_due_at.split('T')[1].substr(0, 5))
 
     return (
         <div className="task_container">
@@ -48,7 +50,7 @@ function Task(props) {
             <div className="task-heading">
                 <div className="upper_items">
                     <div>
-                        <button className="button-default" onClick={toggle}>o</button>
+                        <button className="button-default" onClick={toggle}>{taskDueTime}</button>
                         <Modal isShowing={isShowing} hide={toggle}>
                             <TimePicker
                                 taskIndex={props.taskIndex}
