@@ -68,7 +68,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className="app_container">
       <NavBar />
       <Switch>
         <Route exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />

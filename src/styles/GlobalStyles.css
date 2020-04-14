@@ -5,6 +5,10 @@ body {
     font-family: sans-serif;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 .button-general {
     font-size: .9rem;
     font-weight: 700;
