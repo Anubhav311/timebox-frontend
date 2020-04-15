@@ -16,6 +16,7 @@ function NavBar() {
             <li><NavLink exact to="/" className="nav_item" activeClassName="active_nav_item">Today</NavLink></li>
             <li><NavLink to="/thisweek" className="nav_item" activeClassName="active_nav_item">Week</NavLink></li>
             <li><NavLink to="/nextweek" className="nav_item" activeClassName="active_nav_item">Calendar</NavLink></li>
+            <li><NavLink to="/settings" className="nav_item" activeClassName="active_nav_item">Settings</NavLink></li>
         </div>
     </ul>
     )
