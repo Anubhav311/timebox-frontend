@@ -6,6 +6,7 @@ import Today from './Today';
 import NavBar from './NavBar';
 import { TaskContext } from '../context/TasksContext';
 import DragAndDrop from '../utilities/DragAndDrop';
+import Settings from './Settings';
 import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from '../utilities/DaysOfWeek';
 
 function App() {
@@ -74,6 +75,7 @@ function App() {
         <Route exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
         <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
+        <Route path="/settings" component={Settings} />
       </Switch>
     </div>
   );

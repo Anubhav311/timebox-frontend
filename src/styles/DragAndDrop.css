@@ -2,8 +2,6 @@
     display: grid;
     gap: 1rem;
     padding: .5rem;
-    /* padding-left: 50px;
-    padding-right: 50px; */
     width: 100%;
     height: 100%;
     grid-template-columns: repeat(auto-fill, 22%);
@@ -20,26 +18,14 @@
 }
 
 .dnd-group {
-    /* background-color: #323336; */
     border-radius: 5px;
     box-sizing: border-box;
-    /* padding: 0.5rem; */
 }
-
-/* .dnd-group:nth-child(1) {
-    
-} */
-
-/* .left-margin {
-    width: 50px;
-    height: 100%;
-} */
 
 .dnd-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* min-height: 150px; */
     background-color: #090A0C;
     border-radius: 5px;
 }
