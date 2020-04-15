@@ -8,6 +8,16 @@
 .timebox {
     text-align: right;
     margin: 20px;
+    letter-spacing: 1px;
+}
+
+.T_of_timebox {
+    border: 3px solid #0064FE;
+    box-sizing: border-box;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 2px;
+    font-size: 1.1em;
 }
 
 .nav_items {
