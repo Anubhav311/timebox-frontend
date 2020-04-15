@@ -36,9 +36,9 @@ export default function Today(props) {
         for (let i=0; i<iterator; i = i+timeboxMinutes) {
             const subTaskDueTime = new Date(todaysSubtasks[counter].subtask_due_at)
 
-            startOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
+            startOfTimeSlot = `${('0' + startOfDay.getHours()).slice(-2)}:${('0' + startOfDay.getMinutes()).slice(-2)}`
             startOfDay.setMinutes(startOfDay.getMinutes() + timeboxMinutes)
-            endOfTimeSlot = `${startOfDay.getHours()}:${startOfDay.getMinutes()}`
+            endOfTimeSlot = `${('0' + startOfDay.getHours()).slice(-2)}:${('0' + startOfDay.getMinutes()).slice(-2)}`
 
             if ((startOfDay.getTime() - 300000) <= subTaskDueTime.getTime() && startOfDay.getTime() > subTaskDueTime.getTime()) {
                 todayTimeSlots.push({
