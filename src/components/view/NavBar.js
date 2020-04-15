@@ -7,7 +7,11 @@ function NavBar() {
 
     return (
     <ul className="navbar">
-        <h2 className="timebox"><NavLink className="nav_item" style={{color: "white"}} to="/"><span className="T_of_timebox">T</span>imeBox</NavLink></h2>
+        <h2 className="timebox">
+            <NavLink className="nav_item" style={{color: "white"}} to="/">
+                <span className="T_of_timebox">T</span>imeBox
+            </NavLink>
+        </h2>
         <div className="nav_items">
             <li><NavLink exact to="/" className="nav_item" activeClassName="active_nav_item">Today</NavLink></li>
             <li><NavLink to="/thisweek" className="nav_item" activeClassName="active_nav_item">Week</NavLink></li>

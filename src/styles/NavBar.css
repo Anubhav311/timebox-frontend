@@ -8,6 +8,7 @@
     text-align: right;
     margin: 20px;
     letter-spacing: 1px;
+    font-weight: lighter;
 }
 
 .T_of_timebox {
@@ -17,6 +18,7 @@
     padding-right: 4px;
     margin-right: 2px;
     font-size: 1.1em;
+    letter-spacing: 0;
 }
 
 .nav_items {
