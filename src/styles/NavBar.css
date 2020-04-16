@@ -2,6 +2,10 @@
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    margin-top: 0;
+    margin-bottom: 20px;
+    /* background-color: #090A0C; */
+    height: auto;
 }
 
 .timebox {
@@ -25,7 +29,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 30%;
+    width: 35%;
     margin-right: 2%;
 }
 
@@ -33,11 +37,14 @@
     display: block;
     text-decoration: none;
     color: #8E8F91;
-    width: 110px;
+    width: 100px;
+    margin: 0 10px;
     height: 30px;
     line-height: 30px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .active_nav_item {
