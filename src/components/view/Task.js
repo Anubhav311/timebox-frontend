@@ -1,5 +1,9 @@
 import React, { useState, useContext } from 'react';
 import Axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { trashAlt as trash } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesome } from 'react-icons/fa';
+import { FaTrash } from "react-icons/fa"
 
 import SubtasksList from './SubtasksList';
 import { TaskContext } from '../context/TasksContext';
@@ -87,6 +91,8 @@ function Task(props) {
                         }} 
                         onClick={deleteTask}
                     >x</div>
+                    <FaTrash />
+                    {/* <FontAwesomeIcon className="icon" icon={trash} size="2x"/> */}
                 </div>
             </div>
             
