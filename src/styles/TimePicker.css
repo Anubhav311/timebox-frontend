@@ -1,6 +1,7 @@
 .time-picker-container {
     /* background-color: #ffce00; */
     font-family: 'Saira', sans-serif;
+    margin-top: 10px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -31,15 +32,16 @@ h1 span {
     align-items: center;
 
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
+    height: 80px;
     margin: 0 auto;
     padding: 25px 15px;
 
-    background-color: #f3f3ff;
+    background-color: #090A0C;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
 
-    color: #53565a;
+    color: white;
     font-size: 42px;
     font-weight: 700;
 
@@ -67,6 +69,7 @@ h1 span {
     width: 100%;
     text-align: center;
     font-family: 'Saira', sans-serif;
+    color: white;
 }
 
 .time-picker .hour .hour-up,
