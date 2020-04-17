@@ -73,7 +73,7 @@ function Task(props) {
 
                 <div className="card_separator"></div>
 
-                <div className="upper_items">
+                <div className="lower_items">
                     <div>
                         <button className="button-default" onClick={toggle}>{taskDueTime}</button>
                         <Modal isShowing={isShowing} hide={toggle}>
@@ -92,7 +92,7 @@ function Task(props) {
                         }} 
                         onClick={deleteTask}
                     >x</div>
-                    <IconContext.Provider>
+                    <IconContext.Provider value={{ style: {fontSize: '18px', color: "white", cursor: 'pointer', marginLeft: '10px'}}}>
                         <FaTrash />
                     </IconContext.Provider>
                     {/* <FontAwesomeIcon className="icon" icon={trash} size="2x"/> */}

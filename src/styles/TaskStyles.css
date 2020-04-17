@@ -3,9 +3,10 @@
     width: 100%;
 }
 
-.upper_items {
+.lower_items {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .task_text_container {
