@@ -1,8 +1,5 @@
 import React, { useState, useContext } from 'react';
 import Axios from 'axios';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { trashAlt as trash } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesome } from 'react-icons/fa';
 import { FaTrash } from "react-icons/fa"
 import { IconContext } from "react-icons"
 
@@ -85,17 +82,9 @@ function Task(props) {
                         </Modal>
                     </div>
 
-                    <div 
-                        style={{
-                            marginLeft: '10px', 
-                            cursor: 'pointer'
-                        }} 
-                        onClick={deleteTask}
-                    >x</div>
                     <IconContext.Provider value={{ style: {fontSize: '18px', color: "white", cursor: 'pointer', marginLeft: '10px'}}}>
-                        <FaTrash />
+                        <FaTrash onClick={deleteTask}/>
                     </IconContext.Provider>
-                    {/* <FontAwesomeIcon className="icon" icon={trash} size="2x"/> */}
                 </div>
             </div>
             
