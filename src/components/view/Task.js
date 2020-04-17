@@ -68,21 +68,23 @@ function Task(props) {
                         onClick={deleteTask}
                     >x</div>
                 </div>
-                <div>
-                    {isInEditMode 
-                        ? 
-                    <TaskInputField 
-                        taskIndex={props.taskIndex}
-                        columnIndex={props.columnIndex}
-                        changeEditMode={changeEditMode}
-                        isInEditMode={isInEditMode} 
-                        text={props.task}
-                        taskIdPk={props.taskIdPk}
-                    />
-                        :
-                    <p className="task_text" onClick={changeEditMode}>{props.task}</p>}
+                <div className="task_text_container">
+                    <div className="dot" onClick={toggleSubtask}></div>
+                    <div>
+                        {isInEditMode 
+                            ? 
+                        <TaskInputField 
+                            taskIndex={props.taskIndex}
+                            columnIndex={props.columnIndex}
+                            changeEditMode={changeEditMode}
+                            isInEditMode={isInEditMode} 
+                            text={props.task}
+                            taskIdPk={props.taskIdPk}
+                        />
+                            :
+                        <p className="task_text" onClick={changeEditMode}>{props.task}</p>}
+                    </div>
                 </div>
-                <div className="dot" onClick={toggleSubtask}></div>
             </div>
             
             {/* code for rendering subtasks */}

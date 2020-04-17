@@ -3,15 +3,14 @@
     width: 100%;
 }
 
-/* .task-heading {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-} */
-
 .upper_items {
     display: flex;
     justify-content: space-between;
+}
+
+.task_text_container {
+    display: flex;
+    align-items: center;
 }
 
 .task_text {
