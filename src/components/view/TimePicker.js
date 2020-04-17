@@ -128,7 +128,7 @@ function TimePicker(props) {
                         <input readOnly type="number" className="mn" value={timeState.minute} />
                         <div className="minute-down" onClick={minute_down} ></div>
                     </div>
-                    <button onClick={updateTime}>submit</button>
+                    <button className="timepicker_button" onClick={updateTime}>Update</button>
                 </div>
         </div>
     )

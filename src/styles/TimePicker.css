@@ -32,10 +32,11 @@ h1 span {
     align-items: center;
 
     width: 100%;
-    max-width: 250px;
-    height: 80px;
+    max-width: 300px;
+    height: 130px;
     margin: 0 auto;
-    padding: 25px 15px;
+    padding: 25px 20px;
+    box-sizing: border-box;
 
     background-color: #090A0C;
     border-radius: 8px;
@@ -80,8 +81,8 @@ h1 span {
     left: 50%;
     transform: translate(-50%);
 
-    width: 40px;
-    height: 20px;
+    width: 1px;
+    height: 15px;
 
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
@@ -107,4 +108,14 @@ h1 span {
 .time-picker .minute .minute-down:hover {
     border-bottom-color: gray;
     border-top-color: gray;
+}
+
+.timepicker_button {
+    margin-left: 20px;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+    height: 30px;
+    color: white;
+    background-color: #0064FE;
 }
