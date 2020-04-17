@@ -22,13 +22,15 @@
   }
   
   .modal {
+    box-sizing: border-box;
     z-index: 100;
-    background: white;
+    background: #1E1F23;
     position: relative;
     margin: 1.75rem auto;
     border-radius: 3px;
-    max-width: 500px;
-    padding: 2rem;
+    max-width: 40%;
+    height: 30vh;
+    /* padding: 0rem 2rem 2rem 2rem; */
   }
   
   .modal-header {
@@ -40,10 +42,11 @@
     font-size: 1.4rem;
     font-weight: 700;
     line-height: 1;
-    color: #000;
+    color: white;
     opacity: .3;
     cursor: pointer;
     border: none;
+    background-color: #1E1F23;
   }
     
   .button-default {
