@@ -82,7 +82,7 @@ function Task(props) {
                         </Modal>
                     </div>
 
-                    <IconContext.Provider value={{ style: {fontSize: '18px', color: "white", cursor: 'pointer', marginLeft: '10px'}}}>
+                    <IconContext.Provider value={{ style: {fontSize: '18px', color: "#8E8F91", cursor: 'pointer', marginLeft: '10px'}}}>
                         <FaTrash onClick={deleteTask}/>
                     </IconContext.Provider>
                 </div>
