@@ -76,9 +76,16 @@ function App() {
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
         <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
         <Route path="/settings" component={Settings} />
+        <Route component={Page404} />
       </Switch>
     </div>
   );
+}
+
+function Page404() {
+  return (
+    <div>{"404 not found"}</div>
+  )
 }
 
 export default App;
