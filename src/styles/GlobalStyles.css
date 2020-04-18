@@ -1,8 +1,13 @@
+#root {
+    height: 100vh;
+}
+
 body {
     margin: 0px;
     background-color: #1E1F23;
     color: white;
     font-family: sans-serif;
+    /* height: 100%; */
 }
 
 body::-webkit-scrollbar {

@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
+import '../../styles/App.css';
 import Today from './Today';
 import NavBar from './NavBar';
 import { TaskContext } from '../context/TasksContext';

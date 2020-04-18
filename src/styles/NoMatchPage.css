@@ -1,0 +1,36 @@
+.nomatch_container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 5%;
+}
+
+.top_row, .mid_row {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.top_row h3, .top_row p,
+.mid_row h1, .mid_row p {
+    margin: 0;
+}
+
+.top_row {
+    margin-top: 20px;
+}
+
+.top_row h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.mid_row h1 {
+    font-size: 8rem;
+}
+
+.mid_row h1, .mid_row p {
+    letter-spacing: 4px;
+}
