@@ -4,33 +4,30 @@
     justify-content: space-around;
     align-items: center;
     height: 100%;
-    padding-bottom: 5%;
+    padding-bottom: 15%;
 }
 
-.top_row, .mid_row {
+.text_404 {
     display: flex;
     flex-flow: column;
     align-items: center;
 }
 
-.top_row h3, .top_row p,
-.mid_row h1, .mid_row p {
+.text_404 h1, .text_404 p {
     margin: 0;
 }
 
-.top_row {
-    margin-top: 20px;
-}
-
-.top_row h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.mid_row h1 {
+.text_404 h1 {
     font-size: 8rem;
 }
 
-.mid_row h1, .mid_row p {
+.text_404 p {
+    color: #8E8F91;
+}
+.text_404 h1, .text_404 p {
     letter-spacing: 4px;
+}
+
+.reroute {
+    display: none;
 }
