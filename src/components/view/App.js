@@ -8,6 +8,7 @@ import { TaskContext } from '../context/TasksContext';
 import DragAndDrop from '../utilities/DragAndDrop';
 import Settings from './Settings';
 import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from '../utilities/DaysOfWeek';
+import NoMatch from './NoMatchPage';
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
@@ -83,12 +84,5 @@ function App() {
   );
 }
 
-function NoMatch({location}) {
-  return (
-    <div>
-      <h3>No match for <code>{location.pathname}</code></h3>
-    </div>
-  )
-}
 
 export default App;
