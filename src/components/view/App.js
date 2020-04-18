@@ -76,15 +76,17 @@ function App() {
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
         <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
         <Route path="/settings" component={Settings} />
-        <Route component={Page404} />
+        <Route component={NoMatch} />
       </Switch>
     </div>
   );
 }
 
-function Page404() {
+function NoMatch({location}) {
   return (
-    <div>{"404 not found"}</div>
+    <div>
+      <h3>No match for <code>{location.pathname}</code></h3>
+    </div>
   )
 }
 
