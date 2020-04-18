@@ -12,6 +12,7 @@ import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from '../util
 import NoMatch from './NoMatchPage';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
@@ -76,7 +77,7 @@ function App() {
     <div className="app_container">
       <NavBar />
       <Switch>
-        <Route exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
+        <PrivateRoute exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
         <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
         <Route path="/settings" component={Settings} />
