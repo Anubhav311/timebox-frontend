@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import Today from './Today';
@@ -76,6 +76,7 @@ function App() {
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
         <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
         <Route path="/settings" component={Settings} />
+        {/* <Redirect from="/old_path" to="new_path" /> */}
         <Route component={NoMatch} />
       </Switch>
     </div>
