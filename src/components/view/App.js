@@ -10,7 +10,9 @@ import DragAndDrop from '../utilities/DragAndDrop';
 import Settings from './Settings';
 import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from '../utilities/DaysOfWeek';
 import NoMatch from './NoMatchPage';
-console.log(process.env.NODE_ENV)
+import Login from './Login.js';
+import SignUp from './SignUp.js';
+
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
   const todaysTasksIds = []
@@ -78,6 +80,8 @@ function App() {
         <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
         <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
         <Route path="/settings" component={Settings} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
         {/* <Redirect from="/old_path" to="new_path" /> */}
         <Route component={NoMatch} />
       </Switch>
