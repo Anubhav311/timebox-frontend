@@ -10,7 +10,7 @@ import DragAndDrop from '../utilities/DragAndDrop';
 import Settings from './Settings';
 import { currentDate, day1, day15, thisWeek, nextWeek, fortNight } from '../utilities/DaysOfWeek';
 import NoMatch from './NoMatchPage';
-
+console.log(process.env.NODE_ENV)
 function App() {
   const {tasks, dispatch} = useContext(TaskContext)
   const todaysTasksIds = []
