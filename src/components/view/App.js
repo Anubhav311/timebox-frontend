@@ -78,9 +78,9 @@ function App() {
       <NavBar />
       <Switch>
         <PrivateRoute exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
-        <Route path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
-        <Route path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
-        <Route path="/settings" component={Settings} />
+        <PrivateRoute path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
+        <PrivateRoute path="/nextweek" component={() => <DragAndDrop tasks={tasks} columnDate={nextWeek} />} />
+        <PrivateRoute path="/settings" component={Settings} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         {/* <Redirect from="/old_path" to="new_path" /> */}
