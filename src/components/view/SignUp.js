@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router'
-import app from './FBase';
 import axios from 'axios';
+
+import '../../styles/SignUp.css';
+import app from './FBase';
 
 const SignUp = ({ history }) => {
     // const handleSingUp = useCallback(async event => {
