@@ -7,14 +7,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 20%;
     margin: auto;
 }
 
 .row_1, .row_2 {
+    width: 100%;
     margin-bottom: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .row_1 p, .row_2 p {
@@ -23,5 +24,6 @@
 } 
 
 .login_button {
-    width: 30%;
+    width: 40%;
+    margin: 1.5rem 0;
 }
