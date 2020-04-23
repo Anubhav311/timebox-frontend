@@ -7,14 +7,14 @@
     margin: auto;
 }
 
-.row_1, .row_2 {
+.login_row_1, .login_row_2 {
     width: 100%;
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
 }
 
-.row_1 p, .row_2 p {
+.login_row_1 p, .login_row_2 p {
     margin: 0;
 
 } 

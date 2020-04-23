@@ -35,19 +35,19 @@ const SignUp = ({ history }) => {
         <div>
             <h1>Sign Up</h1>
             <form onSubmit={handleSingUp} className="signup_form">
-                <label className="row_1">
+                <label className="signup_row_1">
                     <p>Email</p>
                     <input name="email" type="email" placeholder="Email" />
                 </label>
-                <label className="row_2">
+                <label className="signup_row_2">
                     <p>Password</p>
                     <input name="password" type="password" placeholder="password" />
                 </label>
-                <label className="row_3">
+                <label className="signup_row_3">
                     <p>Name</p>
                     <input name="name" type="name" placeholder="name" />
                 </label>
-                <label className="row_4">
+                <label className="signup_row_4">
                     <p>Timebox</p>
                     <input name="timebox" type="number" placeholder="timebox" />
                 </label>

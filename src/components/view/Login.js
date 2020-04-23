@@ -29,11 +29,11 @@ const Login = ({ history }) => {
         <div>
             <h1>Log in</h1>
             <form onSubmit={handleLogin} className="login_form">
-                <label className="row_1">
+                <label className="login_row_1">
                     <p>Email</p>
                     <input name="email" type="email" placeholder="Email" />
                 </label>
-                <label className="row_2">
+                <label className="login_row_2">
                     <p>Password</p>
                     <input name="password" type="password" placeholder="Placeholder" />
                 </label>
