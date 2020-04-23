@@ -1,0 +1,27 @@
+.login_container {
+    /* height: 100%; */
+}
+
+.login_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    margin: auto;
+}
+
+.row_1, .row_2 {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+
+.row_1 p, .row_2 p {
+    margin: 0;
+
+} 
+
+.login_button {
+    width: 30%;
+}
