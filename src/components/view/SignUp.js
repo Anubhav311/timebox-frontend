@@ -34,24 +34,24 @@ const SignUp = ({ history }) => {
     return (
         <div>
             <h1>Sign Up</h1>
-            <form onSubmit={handleSingUp}>
-                <label>
-                    Email
+            <form onSubmit={handleSingUp} className="signup_form">
+                <label className="row_1">
+                    <p>Email</p>
                     <input name="email" type="email" placeholder="Email" />
                 </label>
-                <label>
-                    Password
+                <label className="row_2">
+                    <p>Password</p>
                     <input name="password" type="password" placeholder="password" />
                 </label>
-                <label>
-                    Name
+                <label className="row_3">
+                    <p>Name</p>
                     <input name="name" type="name" placeholder="name" />
                 </label>
-                <label>
-                    Timebox
+                <label className="row_4">
+                    <p>Timebox</p>
                     <input name="timebox" type="number" placeholder="timebox" />
                 </label>
-                <button type="submit">Sign Up</button>
+                <button className="signup_button" type="submit">Sign Up</button>
             </form>
         </div>
     )
