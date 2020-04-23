@@ -7,14 +7,15 @@
     margin: auto;
 }
 
-.signup_row_1, .signup_row_2 {
+.signup_row_1, .signup_row_2, .signup_row_3, .signup_row_4 {
     width: 100%;
     margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
 }
 
-.signup_row_1 p, .signup_row_2 p {
+.signup_row_1 p, .signup_row_2 p, 
+.signup_row_3 p, .signup_row_4 p {
     margin: 0;
 
 } 
