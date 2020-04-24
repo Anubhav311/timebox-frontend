@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 
-import { TaskContext } from '../context/TasksContext';
-import { currentDate } from '../utilities/DaysOfWeek.js'
 import '../../styles/TodayStyles.css';
+import { TaskContext } from '../context/TasksContext';
+import { currentDate } from '../utilities/DaysOfWeek.js';
+import NavBar from './NavBar';
 
 
 export default function Today(props) {
@@ -59,6 +60,8 @@ export default function Today(props) {
 
 
     return (
+        <>
+        <NavBar />
         <div className="today">
             {todayTimeSlots.map((slot, key) => (
                 <div key={key} className="timeslot">
@@ -71,5 +74,6 @@ export default function Today(props) {
                 </div>
             ))}
         </div>
+        </>
     )
 }

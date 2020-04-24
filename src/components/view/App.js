@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import '../../styles/App.css';
 import Today from './Today';
-import NavBar from './NavBar';
 import { TaskContext } from '../context/TasksContext';
 import DragAndDrop from '../utilities/DragAndDrop';
 import Settings from './Settings';
@@ -75,7 +74,6 @@ function App() {
 
   return (
     <div className="app_container">
-      <NavBar />
       <Switch>
         <PrivateRoute exact path="/" component={() => <Today indexOfTodaysTasks={indexOfTodaysTasks} />} />
         <PrivateRoute path="/thisweek" component={() => <DragAndDrop tasks={tasks} columnDate={thisWeek} />} />
