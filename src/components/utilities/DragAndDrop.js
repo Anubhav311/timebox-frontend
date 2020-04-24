@@ -4,6 +4,7 @@ import '../../styles/DragAndDrop.css';
 import Task from '../view/Task';
 import { TaskContext } from '../context/TasksContext';
 import NewTaskInputField from '../view/NewTaskInputField';
+import NavBar from '../view/NavBar';
 
 
 function DragAndDrop(props) {
@@ -53,6 +54,8 @@ function DragAndDrop(props) {
 
     console.log(tasks)
     return (
+        <>
+        <NavBar />
         <div className="drag-n-drop">
             {tasks.filter((date, key) => {
                 if (props.columnDate[0].getDate() === tasks[0].columnDate.getDate()) {
@@ -90,6 +93,7 @@ function DragAndDrop(props) {
                 </div>
             ))}
         </div>
+        </>
     )
 }
 
