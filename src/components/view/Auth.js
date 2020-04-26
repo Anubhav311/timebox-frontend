@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import app from './FBase';
 
 export const AuthContext = React.createContext();

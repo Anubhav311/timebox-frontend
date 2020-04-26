@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 
+import '../../styles/NewSubtaskInputField.css';
 import { TaskContext } from '../context/TasksContext';
 import { GetLocalISOTimeString } from '../utilities/DaysOfWeek';
-import '../../styles/NewSubtaskInputField.css';
 
 
 function NewTaskInputField(props) {

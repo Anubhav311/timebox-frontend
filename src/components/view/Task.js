@@ -3,13 +3,13 @@ import Axios from 'axios';
 import { FaTrash } from "react-icons/fa"
 import { IconContext } from "react-icons"
 
+import '../../styles/Task.css'
 import SubtasksList from './SubtasksList';
 import { TaskContext } from '../context/TasksContext';
 import TaskInputField from './TaskInputField';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
 import TimePicker from './TimePicker';
-import '../../styles/Task.css'
 
 
 function Task(props) {

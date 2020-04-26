@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 
-import { TaskContext } from '../context/TasksContext';
 import '../../styles/TaskInputField.css';
+import { TaskContext } from '../context/TasksContext';
 
 function TaskInputField(props) {
     const {tasks, dispatch} = useContext(TaskContext)

@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
 import Axios from 'axios';
 
+import '../../styles/Subtask.css';
 import SubtaskInputField from './SubtaskInputField';
 import { TaskContext } from '../context/TasksContext';
 import Modal from './Modal';
 import useModal from '../hooks/useModal';
 import TimePicker from './TimePicker';
-import '../../styles/Subtask.css';
 
 function Subtask(props) {
     const [isInEditMode, setIsInEditMode] = useState(false)
