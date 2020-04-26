@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { TaskContext } from '../context/TasksContext';
 import Subtask from './Subtask';
 import NewSubtaskInputField from './NewSubtaskInputField';
-import '../../styles/SubtaskListStyles.css';
+import '../../styles/SubtaskList.css';
 
 function SubtasksList(props) {
     const {tasks, dispatch} = useContext(TaskContext)

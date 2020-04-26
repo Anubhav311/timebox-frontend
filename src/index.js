@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import TaskContextProvider from './components/context/TasksContext';
 import App from './components/view/App';
 import { AuthProvider } from './components/view/Auth';
-import './styles/GlobalStyles.css';
+import './styles/Global.css';
 
 ReactDOM.render(
     <AuthProvider>

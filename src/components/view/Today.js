@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import '../../styles/TodayStyles.css';
+import '../../styles/Today.css';
 import { TaskContext } from '../context/TasksContext';
 import { currentDate } from '../utilities/DaysOfWeek.js';
 import NavBar from './NavBar';
