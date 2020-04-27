@@ -3,7 +3,7 @@ import { withRouter } from 'react-router'
 import axios from 'axios';
 
 import '../../styles/SignUp.css';
-import app from './FBase';
+import app from '../auth/FBase';
 
 const SignUp = ({ history }) => {
     // const handleSingUp = useCallback(async event => {

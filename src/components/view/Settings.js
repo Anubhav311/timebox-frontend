@@ -1,6 +1,6 @@
 import React from 'react';
 
-import app from './FBase';
+import app from '../auth/FBase';
 import NavBar from './NavBar';
 
 function Settings() {
