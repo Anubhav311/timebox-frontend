@@ -1,5 +1,6 @@
 import React, { useCallback, useContext } from 'react';
 import { withRouter, Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import '../../styles/Login.css';
 import app from '../auth/FBase';
@@ -33,23 +34,23 @@ const Login = ({ history }) => {
             <h1 className="login_text">Log in</h1>
             <form onSubmit={handleLogin} className="login_form">
                 <label className="login_row_1">
-                    {/* <p>Email</p> */}
                     <input className="input_field" name="email" type="email" placeholder="Email" />
                 </label>
                 <label className="login_row_2">
-                    {/* <p>Password</p> */}
-                    <input className="input_field" name="password" type="password" placeholder="Placeholder" />
+                    <input className="input_field" name="password" type="password" placeholder="Password" />
                 </label>
                 <div className="login_row_3">
-                    <label className="checkbox_label">
+                    {/* <label className="checkbox_label">
                         <input className="checkbox" name="remember_me" type="checkbox" />
                         <p>Remeber me</p>
-                    </label>
-                    <p>Forgot password</p>
+                    </label> */}
+                    <Link to="/signup" className="forgot_password">
+                        <p>Forgot password?</p>
+                    </Link>
                 </div>
                 <button className="login_button" type="submit">Log in</button>
             </form>
-            <p>Don't have account? <span>Sign up</span></p>
+            <p className="no_account_text">Don't  have  account? <span>Sign up</span></p>
         </div>
     )
 }

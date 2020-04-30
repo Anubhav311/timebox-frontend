@@ -28,12 +28,24 @@
     display: flex;
     justify-content: space-between;
     width: 80%;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
 }
 
 .checkbox_label {
     display: flex;
     align-items: center;
+}
+
+.checkbox {
+    margin-right: 6px;
+    background-color: #1C4857;
+    width: 50px;
+}
+
+.forgot_password {
+    color: #02E079;
+    text-decoration: none;
+    font-weight: 400;
 }
 
 .input_field {
@@ -44,8 +56,12 @@
     box-sizing: border-box;
     padding: 8px;
     font-size: 0.7rem;
-    color: black;
-    background-color: white;
+    color: white;
+    background-color: #1C4857;
+}
+
+.input_field::placeholder {
+    color: white;
 }
 
 .login_button {
@@ -55,9 +71,22 @@
     border: none;
     border-radius: 7px;
     cursor: pointer;
+    background-color: #02E079;
+    color: white;
+    font-weight: bold;
 }
 
 .login_button:hover {
-    background-color: blue;
     
+}
+
+.no_account_text {
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+.no_account_text span {
+
 }
