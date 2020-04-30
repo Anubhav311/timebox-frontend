@@ -31,6 +31,7 @@ const Login = ({ history }) => {
             <div className="login_header">
                 <h2><span className="T_of_timebox">T</span>imeBox</h2>
             </div>
+            <h2 className="T_h2"><span className="T_of_timebox">T</span></h2>
             <h1 className="login_text">Log in</h1>
             <form onSubmit={handleLogin} className="login_form">
                 <label className="login_row_1">
