@@ -6,11 +6,8 @@
 .only_T_of_timebox {
     border: 3px solid #0064FE;
     box-sizing: border-box;
-    padding-left: 4px;
-    padding-right: 4px;
-    margin-right: 2px;
-    /* font-size: 1.1em; */
-    letter-spacing: 0;
+    padding-left: 6px;
+    padding-right: 6px;
     text-align: center;
 }
 
