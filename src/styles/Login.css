@@ -29,6 +29,7 @@
     justify-content: space-between;
     width: 80%;
     font-size: 0.75rem;
+    letter-spacing: 1px;
 }
 
 .checkbox_label {
@@ -40,12 +41,6 @@
     margin-right: 6px;
     background-color: #1C4857;
     width: 50px;
-}
-
-.forgot_password {
-    color: #02E079;
-    text-decoration: none;
-    font-weight: 400;
 }
 
 .input_field {
@@ -87,6 +82,7 @@
     word-spacing: 1px;
 }
 
-.no_account_text span {
-
+.forgot_password {
+    color: #02E079;
+    text-decoration: none;
 }
