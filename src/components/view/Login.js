@@ -40,8 +40,16 @@ const Login = ({ history }) => {
                     {/* <p>Password</p> */}
                     <input className="input_field" name="password" type="password" placeholder="Placeholder" />
                 </label>
+                <div className="login_row_3">
+                    <label className="checkbox_label">
+                        <input className="checkbox" name="remember_me" type="checkbox" />
+                        <p>Remeber me</p>
+                    </label>
+                    <p>Forgot password</p>
+                </div>
                 <button className="login_button" type="submit">Log in</button>
             </form>
+            <p>Don't have account? <span>Sign up</span></p>
         </div>
     )
 }
