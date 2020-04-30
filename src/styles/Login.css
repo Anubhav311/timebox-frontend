@@ -1,3 +1,8 @@
+.login_header {
+    box-sizing: border-box;
+    padding: 0 4rem;
+}
+
 .login_form {
     display: flex;
     flex-direction: column;
