@@ -40,13 +40,13 @@ const SignUp = ({ history }) => {
             </div>
             <form onSubmit={handleSingUp} className="signup_form">
                 <label className="signup_row_1">
-                    <input name="name" type="name" placeholder="Name" />
+                    <input className="signup_input_field" name="name" type="name" placeholder="Name" />
                 </label>
                 <label className="signup_row_2">
-                    <input name="email" type="email" placeholder="Email" />
+                    <input className="signup_input_field" name="email" type="email" placeholder="Email" />
                 </label>
                 <label className="signup_row_3">
-                    <input name="password" type="password" placeholder="password" />
+                    <input className="signup_input_field" name="password" type="password" placeholder="password" />
                 </label>
                 <button className="signup_button" type="submit">Sign Up</button>
             </form>
