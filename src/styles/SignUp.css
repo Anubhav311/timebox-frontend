@@ -1,3 +1,7 @@
+.signup_container {
+    margin-top: 8%;
+}
+
 .signup_header {
     display: flex;
     justify-content: center;
@@ -40,8 +44,18 @@
 }
 
 .signup_button {
-    width: 40%;
+    width: 50%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
     margin: 1.5rem 0;
+    font-weight: bold;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.signup_button:focus {
+    outline: none;
 }
 
 .signup_button:hover {

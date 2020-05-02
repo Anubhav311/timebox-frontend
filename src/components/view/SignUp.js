@@ -34,7 +34,7 @@ const SignUp = ({ history }) => {
     // }
 
     return (
-        <div>
+        <div className="signup_container">
             <div className="signup_header">
                 <h2><span className="T_of_timebox">T</span>imeBox</h2>
             </div>
