@@ -5,7 +5,7 @@
 .signup_header {
     display: flex;
     justify-content: center;
-    margin-bottom: ;
+    margin-bottom: 1rem;
 }
 
 .signup_form {
@@ -60,4 +60,16 @@
 
 .signup_button:hover {
     background-color: blue;
+}
+
+.have_account_text {
+    text-align: center;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+.login_page_link {
+    color: #02E079;
+    text-decoration: none;
 }

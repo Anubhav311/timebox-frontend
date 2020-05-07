@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { withRouter } from 'react-router'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import '../../styles/SignUp.css';
 import app from '../auth/FBase';
@@ -50,6 +51,7 @@ const SignUp = ({ history }) => {
                 </label>
                 <button className="signup_button" type="submit">Sign Up</button>
             </form>
+            <p className="have_account_text">Already  have  account? <Link to="/login" className="login_page_link" ><span>Login</span></Link></p>
         </div>
     )
 }
