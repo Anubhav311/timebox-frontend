@@ -1,6 +1,11 @@
+.login_container {
+    margin-top: 8%;
+}
+
 .login_header {
-    box-sizing: border-box;
-    padding: 0 4rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .only_T_of_timebox {
@@ -30,19 +35,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 23%;
+    width: 20%;
     margin: auto;
 }
 
 .login_row_1, .login_row_2 {
-    width: 80%;
-    margin-bottom: 1.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
 .login_row_3 {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: 100%;
     font-size: 0.75rem;
     letter-spacing: 1px;
 }
@@ -58,16 +63,17 @@
     width: 50px;
 }
 
-.input_field {
+.login_input_field {
     width: 100%;
-    height: 33px;
     border: none;
-    border-radius: 7px;
-    box-sizing: border-box;
-    padding: 8px;
-    font-size: 0.7rem;
+    border-bottom: 1px solid white;
+    background-color: #1E1F23;
+    height: 30px;
     color: white;
-    background-color: #1C4857;
+}
+
+.login_input_field:focus {
+    outline: none;
 }
 
 .input_field::placeholder {
@@ -75,15 +81,14 @@
 }
 
 .login_button {
-    width: 80%;
-    margin: 1.5rem 0;
-    height: 33px;
+    width: 50%;
+    height: 40px;
     border: none;
-    border-radius: 7px;
-    cursor: pointer;
-    background-color: #02E079;
-    color: white;
+    border-radius: 20px;
+    margin: 1.5rem 0;
     font-weight: bold;
+    background-color: white;
+    font-size: 0.9rem;
 }
 
 .no_account_text {

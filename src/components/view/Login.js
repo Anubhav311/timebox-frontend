@@ -27,18 +27,16 @@ const Login = ({ history }) => {
     }
 
     return (
-        <div>
+        <div className="login_container">
             <div className="login_header">
                 <h2><span className="T_of_timebox">T</span>imeBox</h2>
             </div>
-            <h2 className="T_h2"><span className="only_T_of_timebox">T</span></h2>
-            <h1 className="login_text">Log in</h1>
             <form onSubmit={handleLogin} className="login_form">
                 <label className="login_row_1">
-                    <input className="input_field" name="email" type="email" placeholder="Email" />
+                    <input className="login_input_field" name="email" type="email" placeholder="Email" />
                 </label>
                 <label className="login_row_2">
-                    <input className="input_field" name="password" type="password" placeholder="Password" />
+                    <input className="login_input_field" name="password" type="password" placeholder="Password" />
                 </label>
                 <div className="login_row_3">
                     {/* <label className="checkbox_label">
