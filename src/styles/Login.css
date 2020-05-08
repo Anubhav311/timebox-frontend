@@ -76,7 +76,12 @@
     word-spacing: 1px;
 }
 
-.forgot_password {
-    color: #02E079;
+.forgot_password, .signup_page_link {
+    color: white;
     text-decoration: none;
+}
+
+.signup_page_link {
+    font-weight: bolder;
+    text-decoration: underline;
 }

@@ -49,7 +49,7 @@ const Login = ({ history }) => {
                 </div>
                 <button className="login_button" type="submit">Log in</button>
             </form>
-            <p className="no_account_text">Don't  have  account? <Link to="/signup" className="forgot_password" ><span>Sign up</span></Link></p>
+            <p className="no_account_text">Don't  have  account? <Link to="/signup" className="signup_page_link" ><span>Sign up</span></Link></p>
         </div>
     )
 }
