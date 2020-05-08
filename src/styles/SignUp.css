@@ -70,6 +70,6 @@
 }
 
 .login_page_link {
-    color: #02E079;
-    text-decoration: none;
+    color: white;
+    text-decoration: underline;
 }
